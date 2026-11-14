@@ -1,12 +1,40 @@
 # DEMANDA VIVA — HANDOFF UNIVERSAL E REGISTRO DE RISCOS
 
-> **Versão:** 1.0.0 | **Data-base:** 2026-11-14 | **Dono:** AG-00 | **Aplicação:** obrigatória para AG-00 a AG-11, em ChatGPT ou Cursor.
+
+> **Versão:** 1.1.0 | **Data-base:** 2026-11-14 | **Dono:** AG-00 | **Aplicação:** obrigatória para AG-00 a AG-11, em ChatGPT ou Cursor.
 > **Princípio:** só se marca `Concluído` com **evidência de entrega e validação real**; “planejado”, “proposto” e “executado” são categorias diferentes.
+
+
+## CHECKPOINT DE HANDOFFS E RISCOS — 14/11/2026 — v1.1.0
+
+
+**AG-01:** [DATA_MODEL.md v1.0.0](https://drive.google.com/file/d/1vNF2QbKs30x9aNeGqGpCz-txru4OxnaQ/view) contém modelo, tipos, JSON A/B/C, DDL proposto, merge e handoff §13. A equipe informou **aprovação do contrato G1** após o handoff original (escrito antes da aprovação). Não houve execução de SQL, testes de produto ou integração remota.
+
+
+**AG-03:** [BRAND_SYSTEM.md](https://drive.google.com/file/d/1TYfIBbUIDPgJfAGFDYDKuGduzYxSJJaJ/view), [HANDOFF_AG03.md](https://drive.google.com/file/d/10Ar1BVEdCDb4tBQIuTG3iWQMTnDH6ZEJ/view), tokens, SVGs e auditoria de contraste encontrados. A equipe escolheu a primeira direção recomendada **Ponte Viva**. O relatório aponta 18 pares de cores válidos; testes responsivos/teclado da SPA não executados.
+
+
+| Bloqueador/risco | Situação atual | Tratamento |
+|---|---|---|
+| BLK-01 / G1 e R-03 | **RESOLVIDO quanto à ausência/aprovação do contrato** | Congelar AG-01 v1.0.0, impedir drift de tipos entre AG-02/05/06/07/08/09. R-03 conserva risco residual até compilação/testes integrados. |
+| BLK-06 / identidade | **RESOLVIDO parcialmente** | Ponte Viva aprovada para UI/pitch. Cardinalidade catálogo (PEND-09), slogan institucional, licença/fidelidade SVG e testes responsivos ainda abertos. |
+| BLK-02 / G1S, R-01 | **ABERTO crítico** | Autenticação anônima não substitui antiabuso. Equipe/AG-08 definem controles antes de INSERT público; sem G1S, fallback honesto. |
+| BLK-03 / G1S, R-02 | **ABERTO crítico** | RLS do dono não permite SELECT em outra sessão; projeção/RPC sintética minimizada é proposta AG-01, requer aprovação explícita e testes de enumeração. |
+| BLK-04 e BLK-05 | **ABERTOS** | Repositório/git e ambientes Supabase/Cloudflare ainda não verificados. AG-02/08/10 reportam evidência, sem segredos. |
+
+
+**Liberações:** AG-02/04/05 podem iniciar; AG-06 planeja e só fecha fixtures após AG-05; AG-08 inicia análise G1S sem deploy remoto; AG-11 desenvolve pitch provisório. AG-07, AG-09 (antes scaffold/UX) e AG-10 continuam bloqueados por gates posteriores.
+
+
+**Regras de handoff:** ambos os agentes são concluídos **documentalmente** após aprovação humana, não como implementação. Novos handoffs exigem versão de PROMPTS.md usada, artefatos com links, ambiente efetivo, testes executados, ausência de segredos e riscos residuais. As tabelas 'iniciais' mais abaixo são um snapshot v1.0.0; o checkpoint presente prevalece para status atual.
+
 
 ## 1. Contrato universal de HANDOFF (copiar e preencher ao final de cada agente)
 
+
 ```markdown
 # HANDOFF DEMANDA VIVA — AG-XX — [nome] — v[versão]
+
 
 - **Data/hora e ambiente:** [data, fuso, ChatGPT/Cursor, workspace/repo quando acessível]
 - **Status REAL:** [Proposto | Liberado | Em andamento | Bloqueado | Concluído]
@@ -25,15 +53,19 @@
 - **Declaração de limites:** [sem afirmar deploy, acesso remoto, SQL aplicado, aprovação AC real ou teste inexistente]
 ```
 
+
 **Checklist de aceitação do handoff pelo AG-00:** (1) identifica precisamente o artefato e seus donos; (2) separa mudança pretendida de executada; (3) explicita quais documentos e qual versão foram lidos; (4) apresenta teste verificável para afirmações de conformidade; (5) registra novos riscos/decisões; (6) cita o próximo agente **somente se dependências estiverem satisfeitas**. Sem esses itens, devolver como `Proposto` ou `Bloqueado`, não `Concluído`.
 
+
 ## 2. Modelo de atualização rápida do quadro de execução
+
 
 ```markdown
 ## CHECKPOINT PMO — [data/hora] — v[revisão]
 | Agente | Status real | Entrega comprovada / link | Gate | Bloqueio atual | Próxima ação | Responsável |
 | --- | --- | --- | --- | --- | --- | --- |
 | AG-XX | Liberado | Nenhuma (ainda) | G1 | Aguardando contrato | Criar DATA_MODEL | AG-01 |
+
 
 **Entregas verificadas nesta rodada:** [IDs, paths e evidências]
 **Riscos que mudaram:** [ID, mudança, motivo]
@@ -43,7 +75,9 @@
 **Agentes liberados agora:** [somente os habilitados]
 ```
 
+
 ### Regras operacionais do estado
+
 
 | Estado | Significado rigoroso | Evidência mínima |
 | --- | --- | --- |
@@ -53,11 +87,15 @@
 | **Bloqueado** | Não pode avançar no escopo indicado | Dependência/decisão concreta e responsável pelo desbloqueio |
 | **Concluído** | Entregável disponível, validado e aceito | Caminho/link + critérios demonstrados + testes/validações e handoff |
 
+
 Não atribuir datas retroativas nem inventar estimativas. “Arquivos produzidos pelo agente” não significa “funcionalidade já integrada, testada ou publicada”. Se um agente não conseguiu acessar Drive, repositório, Supabase ou Cloudflare, deve informar **ausência de acesso** em vez de simular conclusão.
+
 
 ## 3. Matriz de riscos inicial
 
+
 **Escalas:** probabilidade `B/M/A` (baixa/média/alta), impacto `B/M/A/C` (baixo/médio/alto/crítico); classificação é **preliminar do PMO**, sujeita a reavaliação. Estado `Aberto` não significa que o incidente já aconteceu.
+
 
 | ID | Risco — causa | P/I | Dono | Mitigação preventiva e evidência exigida | Gatilho / contingência | Estado |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -76,7 +114,9 @@ Não atribuir datas retroativas nem inventar estimativas. “Arquivos produzidos
 | **R-13** | **Divergência documental ADR-001/002 ou slides C4 antigos** leva ao modelo errado | A/A | AG-00/01/02 | Precedência registrada; atualização de arquitetura lógica; revisão de contratos e microcopy | Implementação sem Supabase ou simulando backend inexistente → reorientar antes de G3 | Aberto |
 | **R-14** | **Limites de tempo e ausência de evidência de QA**, apresentação inverificável | A/A | AG-00/10/11 | P0 antes de P1; matriz de aceites, foco A/B/C + dados remotos seguros, pitch provisório condicionado | Tempo esgotado → reduzir P1/navegação lateral, nunca desabilitar RLS ou inventar status | Aberto |
 
+
 ## 4. Bloqueadores ativos e decisões exigidas
+
 
 | Bloqueador | Dependência não atendida | Responsável e passo de resolução | Frentes afetadas |
 | --- | --- | --- | --- |
@@ -87,7 +127,9 @@ Não atribuir datas retroativas nem inventar estimativas. “Arquivos produzidos
 | **BLK-05** | Ambientes Supabase e Cloudflare não comprovados | Equipe disponibilizar acesso seguro; AG-08/10 verificar sem divulgar segredos | G3/G5/G6 |
 | **BLK-06** | Catálogo 2–3 vs 4–6 e identidade visual final pendentes | Equipe deliberar com AG-05/03 | AG-05/09/11 |
 
+
 ## 5. Política de escalonamento e reação
+
 
 1. **Risco crítico de segurança (R-01, R-02, R-09):** AG-08/10 sinaliza bloqueio ao PMO e à equipe. **Não contornar RLS/GRANTs, CAPTCHA ou minimização para alcançar a banca.** Preferir demo local com limitação transparente.
 2. **Conflito de contrato/escopo:** agente documenta a incompatibilidade sem sobrescrever fonte aprovada; AG-00 registra `PEND-...` em `DECISIONS.md`; equipe decide; agentes afetados recebem nova revisão.
@@ -95,15 +137,21 @@ Não atribuir datas retroativas nem inventar estimativas. “Arquivos produzidos
 4. **Dependência externa falha:** usar fallback previsto sem afirmar persistência, colaboração multiusuário ou aprovação remota. Revalidar antes de demonstrar conexão novamente.
 5. **Termo FACESP ou marca:** comunicação apenas “Desafio FACESP — Hackathon Connect 7.0”; jamais atribuir políticas internas ou validação institucional à FACESP sem evidência específica.
 
+
 ## 6. Critérios de liberação por ambiente
+
 
 **ChatGPT (AG-00/01/03/04/05/06/11):** pode ler fontes acessíveis, produzir documentos completos e enviar para pasta autorizada. Se não puder escrever o repositório Cursor, fornece conteúdo integral, paths e instruções de transferência; link de Drive não prova que código foi versionado.
 
+
 **Cursor (AG-02/07/08/09/10):** lê `docs/PROJECT_CONTEXT.md`, `AGENTS.md`, `DATA_MODEL.md` aprovado e `DECISIONS.md` antes de tocar no código; inspeciona status Git; trabalha na pasta definida em `AGENTS.md`; executa testes relevantes; reporta comandos e resultados; não comita automaticamente sem instrução; nunca escreve segredo em commit ou prompt. Se fonte não estiver local, marca bloqueio e pede espelhamento.
+
 
 **PMO:** recebe handoff, confere o artefato e evidência, atualiza riscos e status, registra decisão pendente, libera o próximo agente **somente após gates verificáveis**. A aprovação da equipe deve indicar nome/ato, revisão/data e escopo. A simples emissão deste protocolo não significa que os agentes o executaram.
 
+
 ## 7. Registro inicial de checkpoint — 2026-11-14
+
 
 - **AG-00:** seis documentos de governança planejados nesta execução; publicação verificável no Drive e revisão da equipe são controles de aceite separados.
 - **AG-01:** liberado para elaborar contrato; sem `DATA_MODEL.md` ou aceite evidenciado.

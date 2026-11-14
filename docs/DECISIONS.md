@@ -1,8 +1,30 @@
 # DEMANDA VIVA — DECISIONS / ADR REGISTER
 
-> **Baseline:** 1.0.0 | **Emissão:** 2026-11-14 | **Guardião:** AG-00 | **Regra:** registrar decisões vigentes, propostas, conflitos e solicitações **sem alterar a decisão aprovada**. A validação formal da equipe não pode ser inferida de um documento rotulado “proposta”.
+
+> **Baseline:** 1.1.0 | **Emissão:** 2026-11-14 | **Guardião:** AG-00 | **Regra:** registrar decisões vigentes, propostas, conflitos e solicitações **sem alterar a decisão aprovada**. A validação formal da equipe não pode ser inferida de um documento rotulado “proposta”.
+
+
+## ATUALIZAÇÃO PMO 1.1.0 — Decisões da equipe em 14/11/2026
+
+
+**Evidência decisória:** responsável pelo projeto informou nesta conversa que o modelo de dados AG-01 foi aprovado pela equipe e que a primeira opção visual recomendada pelo AG-03 foi selecionada. Essa confirmação não se confunde com ata ou endosso institucional da FACESP. Os handoffs foram escritos antes dessas aprovações; menções a 'pendente' neles refletem o instante da emissão.
+
+
+| ID | Estado atual | Evidência / efeitos |
+|---|---|---|
+| **DEC-APP-G1-20261114** | **APROVADO:** DATA_MODEL.md AG-01 v1.0.0 como contrato canônico G1, incluindo QualifiedNeed final, NeedDraft local, campos, enums, mapeamento, A/B/C, seeds e versionamento. | [DATA_MODEL.md](https://drive.google.com/file/d/1vNF2QbKs30x9aNeGqGpCz-txru4OxnaQ/view). Libera AG-02, AG-04 final e AG-05; AG-06 prepara cenários, com fixtures finais dependentes de AG-05. Não há SQL aplicado ou testes de integração. |
+| **DEC-BRAND-003** | **APROVADA:** direção 01 Ponte Viva recomendada pelo AG-03; marinho #11273A, petróleo #075E6B, verde-água #25BAA7, Manrope e assets associados. Naming Demanda Viva e ênfase DEMANDA preservados. | [BRAND_SYSTEM.md](https://drive.google.com/file/d/1TYfIBbUIDPgJfAGFDYDKuGduzYxSJJaJ/view) e [pacote AG-03](https://drive.google.com/drive/folders/1xy3wChZPRtt7XYr2YZRauVE3IVwOjRUs). Libera aplicação visual em UX, frontend e pitch provisório; QA final ainda pendente. |
+| **DEC-G1S-STATUS** | **PENDENTE:** autenticação anônima, controles efetivos de abuso, política SELECT de dados fictícios em outra sessão, projeção/RPC, limites e retenção. | A aprovação do contrato lógico NÃO aprova publicação de endpoint remoto ou leitura pública. Equipe + AG-08 devem deliberar e testar; bloquear INSERT/SELECT público até G1S. |
+
+
+**Pendências reinterpretadas:** PEND-01 resolvida no contrato G1 (somente ficha final, sem transcrição remota); PEND-04 aprovada como desenho de campos/validações, mas SQL, antiabuso e controles de PII seguem abertos; PEND-10 resolvida apenas quanto à **direção visual**. O slogan 'Necessidades que viram oportunidades.' continua referência recomendada, não oficializado. PEND-02, PEND-03, PEND-09 e demais temas não foram decididos por implicação. DEC-DATA-004/005 do AG-01 seguem propostas de SEGURANÇA G1S, não permissões públicas aprovadas.
+
+
+**Precedência de leitura:** este checkpoint atualiza os estados históricos listados abaixo, sem apagar decisões anteriores; a ADR-002 continua prevalecendo sobre a ADR-001 somente em persistência. Nenhuma atividade de software foi declarada concluída.
+
 
 ## 1. Semântica dos estados
+
 
 - **Aprovada pela equipe:** fonte documental registra aprovação explícita.
 - **Diretriz vigente neste briefing:** o responsável pelo projeto indicou o curso obrigatório para esta execução; eventual ata ou aceite colegiado formal **não localizado**.
@@ -10,7 +32,9 @@
 - **Pendente:** decisão que precisa de dono, opção, critérios e evidência de aprovação antes de determinada implementação.
 - **Obsoleta parcialmente:** item anterior superado em um tema específico, preservado no restante.
 
+
 ## 2. Registro consolidado
+
 
 | ID / tema | Regra ou posição atual | Estado / força | Evidência e observação |
 | --- | --- | --- | --- |
@@ -31,11 +55,15 @@
 | **DEC-DEMO-001 — Fallback** | Site, catálogo e seeds continuam sem Supabase; sem falsa mensagem de sincronização; reset só local | **Diretriz vigente** | ADR-002 item 8, plano 07 |
 | **DEC-DOC-001 — Integração** | `DATA_MODEL.md` **aprovado** bloqueia fixtures finais e implementações; handoff obrigatório; agente não assume acesso a repo/Drive | **Diretriz operacional vigente** | Plano 07 e pedido AG-00 |
 
+
 ### Nota de rastreabilidade sobre aprovação
+
 
 O cabeçalho da **ADR-001** diz “recomendação técnica para validação da equipe”; o da **ADR-002** diz “proposta v1.0 para deliberação”. Esta consolidação **não reclassifica retroativamente ambas como atas aprovadas**. A execução atual trata React/Vite/Pages + persistência seletiva Supabase como **instruções vigentes do projeto**, por determinação expressa no briefing. A equipe deve formalizar eventuais deliberações adicionais. A fonte 04 (slides C4) descreve contêineres conceituais anteriores e pode conflitar com o MVP híbrido; não serve como contrato implementado.
 
+
 ## 3. Questões abertas com dono e gate
+
 
 | ID | Questão específica | Opções / recomendação documentada (não aprovação) | Quem decide | Bloqueia |
 | --- | --- | --- | --- | --- |
@@ -54,7 +82,9 @@ O cabeçalho da **ADR-001** diz “recomendação técnica para validação da e
 | **PEND-13** | Política de abertura/visibilidade de briefings para startups | Chamada pública x dirigida; minimização/consentimento; sem fluxo real no P0 | Equipe + AG-04/09 | P1 real; conteúdo da demo deve ser explícito |
 | **PEND-14** | Aprovação final da baseline produzida por AG-00 | Revisar seis arquivos, resolver divergências e aprovar versão para espelhamento no repo | Equipe + AG-00 | Aceite formal G0, integração de documentação |
 
+
 ## 4. Conflitos documentais tratados sem mudança de produto
+
 
 1. **ADR-001 vs ADR-002:** a primeira recomendava nenhuma persistência remota, a segunda prevê Supabase para novas demandas. Aplicada **a precedência expressa** do briefing apenas no armazenamento; SPA/Cloudflare e catálogo fictício local persistem.
 2. **Slides C4 04 vs arquitetura do MVP:** os slides representam papéis, camadas e armazenamento conceituais que não garantem instância real, autenticação ou backend; AG-02/08 devem documentar a arquitetura implementada sem fingir que já existe.
@@ -63,7 +93,9 @@ O cabeçalho da **ADR-001** diz “recomendação técnica para validação da e
 5. **Propostas de matching vs regras FACESP:** pesos/thresholds/status de curadoria são hipóteses da equipe. A apresentação não deve atribuí-los à entidade do desafio.
 6. **AC em interface vs autorização real:** ações de AC/startup e regional são simulações de produto; Supabase é usado apenas para novas demandas sintéticas. RLS de banco não consegue identificar AC real sem identidade/autorizações genuínas.
 
+
 ## 5. Como registrar nova decisão (sem retroagir)
+
 
 ```text
 DEC-AAAA-NNN — TÍTULO
@@ -78,9 +110,12 @@ Data efetiva e migração necessária:
 Relação com ADR anterior (se aplicável):
 ```
 
+
 **Regra de mudanças:** AG-00 não redefine pesos, governaça institucional, arquitetura ou permissões. Ao receber proposta de agente, identifica impacto, solicita aprovação humana, atualiza o log e só então libera atualização coordenada em backlog/contrato/código/UX. Sem evidência de aprovação, status permanece **pendente**.
 
+
 ## 6. Documentos de origem
+
 
 - [00 — Decisão de marca](https://docs.google.com/document/d/1-upBHWiSTfwP_OyulOwvbBVDpSihy5q26Ifm7lQBIPI/edit)
 - [01 — Governança](https://docs.google.com/document/d/1eNfgWeacmydoMVFgFdBkgJ0r9f02Fat_evxuhO-3vD0/edit)

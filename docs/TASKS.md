@@ -1,9 +1,37 @@
 # DEMANDA VIVA — TASKS / PLANO DE EXECUÇÃO
 
-> **Planejamento 1.0.0 — 14/11/2026** | **PMO:** AG-00 | **Marco atual:** documentação de execução; sem comprovação de desenvolvimento/deploy.
+
+> **Planejamento 1.1.0 — 14/11/2026** | **PMO:** AG-00 | **Marco atual:** documentação de execução; sem comprovação de desenvolvimento/deploy.
 > **Status permitido:** `Proposto` · `Liberado` · `Em andamento` (com evidência) · `Bloqueado` · `Concluído` (com evidência). As ações são instruções futuras, não execuções presumidas.
 
+
+## CHECKPOINT PMO 1.1.0 — Rodada 1 concluída e G1 aprovado
+
+
+**Evidências:** [AG-01 DATA_MODEL.md](https://drive.google.com/file/d/1vNF2QbKs30x9aNeGqGpCz-txru4OxnaQ/view) contém tipos, DDL proposto, A/B/C, merge/versionamento e handoff; [AG-03 BRAND_SYSTEM.md](https://drive.google.com/file/d/1TYfIBbUIDPgJfAGFDYDKuGduzYxSJJaJ/view), [HANDOFF](https://drive.google.com/file/d/10Ar1BVEdCDb4tBQIuTG3iWQMTnDH6ZEJ/view), CSS/JSON/SVG e auditoria de 18 pares existem no Drive. Aprovação da equipe recebida em 14/11/2026: modelo G1 aprovado e direção 01 Ponte Viva selecionada. A entrega de especificação não comprova aplicação de SQL, execução de testes da SPA ou deploy.
+
+
+| Agente | Status atualizado | Próxima execução / observação |
+|---|---|---|
+| **AG-01** | **Concluído documentalmente / G1 aprovado.** | Congelar DATA_MODEL.md v1.0.0; alterações somente via mudança controlada PMO. DDL não migrado. |
+| **AG-03** | **Concluído documentalmente / direção 01 aprovada.** | Fornecer tokens.css/tokens.json, SVGs, UI_COMPONENT_GUIDE e CONTRAST_AUDIT aos consumidores; revisão responsiva real é AG-09/10. |
+| **AG-02** | **LIBERADO PARA INICIAR**, condicionado a confirmar workspace/repo. | Espelhar documentos aprovados em docs/, preparar scaffold React/TS/Vite, scripts e ARCHITECTURE.md, executar build/lint/test e reportar evidências. |
+| **AG-04** | **LIBERADO PARA INICIAR UX FINAL.** | Usar AG-01 aprovado e identidade Ponte Viva; entregar UX_FLOW.md, jornadas A/B/C, AC/startup, microcopy e estados remotos/erro. |
+| **AG-05** | **LIBERADO PARA INICIAR CATÁLOGO.** | Criar startups/soluções fictícias tipadas, preservar B sem ERP inelegível, evidências simuladas; documentar cardinalidade escolhida no intervalo do Doc 07 para ratificação da equipe. |
+| **AG-06** | **LIBERADO para planejamento, NÃO para fixtures finais antes de AG-05.** | Preparar matriz A–E, 4 seeds sem ERP/2 ACs; congelar códigos/JSON só após catálogo AG-05. |
+| **AG-08** | **LIBERADO para parecer G1S; endpoint público BLOQUEADO.** | Validar Auth Anonymous, projeção restrita, RLS/GRANTs e mitigação efetiva antiabuso; obter decisão da equipe antes da escrita/leitura pública. Implementação depende scaffold. |
+| **AG-11** | **LIBERADO para pitch provisório.** | Usar marca Ponte Viva; não inventar métricas/URL nem chamar simulação de homologação. Versão final após AG-10. |
+| **AG-07, AG-09, AG-10** | **AGUARDAM GATES seguintes.** | AG-07 após AG-02/05/06; AG-09 pode começar UI com mocks tipados após AG-02/04; AG-10 após integração e testes. |
+
+
+**Gates atuais:** G0 arquivos PMO publicados, aceite formal geral ainda não registrado; **G1 APROVADO**; **G1S PENDENTE CRÍTICO**; G2/G3/G4/G5/G6 não comprovados. A tabela original abaixo é histórico da baseline 1.0.0, e estados 'bloqueado por G1' ali devem ser lidos à luz deste checkpoint. Os gatilhos restantes e restrições técnicas continuam vigentes.
+
+
+**Ordem prática:** Rodada 2 simultânea AG-02 + AG-04 + AG-05, AG-06 apenas preparação até conclusão AG-05; AG-08 pode tratar G1S em paralelo. Depois AG-06 final e AG-07/08 implementação; AG-09 inicia com AG-02/04 e integra serviços depois; AG-10 valida/publica e AG-11 congela pitch. Nenhuma dependência é considerada concluída somente por um prompt ter sido disparado.
+
+
 ## 1. Caminho crítico e ordem recomendada
+
 
 ```mermaid
 flowchart TD
@@ -33,9 +61,12 @@ flowchart TD
   N --> M
 ```
 
+
 **Não confundir paralelo com pré-requisito cumprido.** O scaffold AG-02 não começa sem contrato aprovado; as fixtures AG-05/06 não usam tipos inventados; o motor AG-07 não começa sem fixtures coerentes e arquitetura; AG-08 não abre INSERT público com RLS indefinida; AG-09 pode desenvolver telas com **mocks tipados** após receber seus próprios requisitos, mas não anunciar integração Supabase/motor até testar de ponta a ponta.
 
+
 ## 2. Gates de entrega
+
 
 | Gate | Condição objetiva de liberação | Responsável pela evidência | Situação inicial |
 | --- | --- | --- | --- |
@@ -48,9 +79,12 @@ flowchart TD
 | **G5 — Release QA** | Matriz de testes preenchida, riscos críticos resolvidos ou explicitamente vetados, build/deep-link/mobile/secrets verificados | AG-10 + PMO | **Não iniciado** |
 | **G6 — Banca** | URL Pages realmente acessível e testada, roteiro fiel ao release, contingência pronta | AG-10/11 + equipe | **Não iniciado** |
 
+
 ## 3. Work packages por agente
 
+
 ### AG-00 — PMO / governança (R0)
+
 
 - **T00-01** Revisar 00–07, sintetizar o escopo atual e identificar que ADR-002 corrige **somente** persistência (saída `PROJECT_CONTEXT.md`).
 - **T00-02** Publicar matriz de papéis, donos de arquivo, limites e fontes (`AGENTS.md`).
@@ -59,7 +93,9 @@ flowchart TD
 - **T00-05** Solicitar handoffs, registrar aprovações e liberar rodadas somente diante de evidências; acompanhar riscos diariamente/durante sprint.
 - **Evidência de aceite:** links verificados no Drive e checklist de conteúdo, seguido de aprovação de baseline pela equipe. **Situação:** documentação preparada nesta execução; aceite colegiado não presumido.
 
+
 ### AG-01 — Contratos e schema (R1; liberado)
+
 
 - **T01-01** Derivar `Need`, `Requirement`, `Association`, `Startup`, `Solution`, `CatalogEvidence`, `MatchResult`, `Brief`, `DemandCluster`, `InnovationCall`, `StartupResponse` e `DemandRepository` de 01/02/03/ADR-002.
 - **T01-02** Estabelecer tabela campo/tipo/obrigatoriedade/validação, enums e status discriminados para A/B/C; separar fixture estática, estado local, ficha confirmada remota e simulação de UI.
@@ -69,14 +105,18 @@ flowchart TD
 - **T01-06** Handoff com decisões necessárias para equipes: credenciais públicas, RLS/SELECT, Auth Anonymous/antiabuso, funções de contrato e matriz de propriedade.
 - **Aceite:** contrato sem tipos ambíguos, cobertura P0, fonte/alternativas/diferenças rastreadas; **aprovação humana registrada** para G1. Arquivos/caminhos sugeridos: `docs/DATA_MODEL.md` + snippets completos de TS/SQL.
 
+
 ### AG-03 — Identidade de marca (R1; liberado, paralelo)
+
 
 - **T03-01** Manter DEMANDA VIVA (nome aprovado) e DEMANDA dominante; apresentar 2–3 direções tipográficas, paletas HEX e recomendação **não automaticamente aprovada**.
 - **T03-02** Produzir `docs/BRAND_SYSTEM.md`, tokens CSS/JSON, especificação de logo, aplicação mobile/desktop, card/CTA/status, contraste e acessibilidade.
 - **T03-03** Preparar handoff visual e checklist de assets para AG-09/11; não usar logomarca FACESP sem autorização.
 - **Aceite:** tokens reproduzíveis, aplicação e rationale documentados; decisões finais de identidade dependem da equipe.
 
+
 ### AG-02 — Scaffold técnico (R2; bloqueado por G1 e repo)
+
 
 - **T02-01** Confirmar workspace correto; inspecionar `docs/`, `package.json`, `src/` e `git status`; identificar se há repositório existente.
 - **T02-02** Criar React + TS + Vite, roteamento, lint/test/build, estrutura modular e README; configurar `npm run build` → `dist`, roteamento compatível com Cloudflare Pages.
@@ -84,7 +124,9 @@ flowchart TD
 - **T02-04** Publicar `docs/ARCHITECTURE.md` com fronteiras e diferenciação das visões C4 conceituais antigas.
 - **Aceite:** comandos reais e resultados de lint/build/test, inicialização e refresh de rota; handoff com paths modificados.
 
+
 ### AG-04 — UX, perguntas e estados (R2 para versão final)
+
 
 - **T04-01** Antes do contrato, produzir apenas roteiro conceitual 7–8 telas e mapa de jornada A/B/C com pendências identificadas.
 - **T04-02** Depois do G1, fechar sequência de perguntas, campos exatos, validações, estados `insufficient_data`, resultados com motivos, autorização e fluxo de AC/startup.
@@ -92,21 +134,27 @@ flowchart TD
 - **T04-04** Publicar `docs/UX_FLOW.md` + roteiro e aceite por tela; entregar handoff para AG-09/11.
 - **Aceite:** nenhuma cópia sugere aprovação real ou IA generativa em tempo real; campos iguais ao DATA_MODEL.
 
+
 ### AG-05 — Catálogo fictício (R2; bloqueado por G1)
+
 
 - **T05-01** Criar **3–5 startups fictícias e 4–6 soluções fictícias** conforme plano 07, em estrutura de dados aprovada (a meta mínima da ADR-001 era menor; divergência documentada em `DECISIONS.md`).
 - **T05-02** Incluir EstoquePonte/ERP X, solução parcialmente condicional e registro não validado/expirado; requisitos explícitos e evidências sempre simuladas.
 - **T05-03** Entregar `src/data/startups.ts`, `solutions.ts` ou JSON, matriz gate↔requisito e pelo menos 5 casos de elegibilidade.
 - **Aceite:** B segue inelegível no catálogo criado; código/fichas não inventam validação comercial.
 
+
 ### AG-06 — Seeds e contraprovas (R2; bloqueado por G1/05)
+
 
 - **T06-01** Criar quatro demandas sintéticas de **AC Alfa e AC Beta** com variantes sem ERP para o cluster de confirmação de estoque/WhatsApp; não confundir com caso A separado, que usa ERP X.
 - **T06-02** Especificar cenários teste: A 90/100, B bloqueado sem score, C incompleto, D mesmo texto mas restrições/processo incompatíveis, E teto rígido inviável.
 - **T06-03** Entregar `src/data/seed-demands.ts` e roteiro de nova demanda remota (quinta lógica), IDs estáveis e expectativa de contagem adaptativa.
 - **Aceite:** dados sintéticos, coerentes com catálogo e AG-01; handoff para AG-07/09/10.
 
+
 ### AG-07 — Domínio determinístico (R3; bloqueado por G2)
+
 
 - **T07-01** Implementar validação de necessidade e saída C; avaliar gates em ordem antes de score e registrar razões.
 - **T07-02** Implementar score ponderado 30/20/20/15/15 e faixas PROPOSTAS; produzir breakdown/explicação e confiança separadas.
@@ -114,7 +162,9 @@ flowchart TD
 - **T07-04** Testes A=90 calculado; B sem ERP sem score; C; catálogo expirado; custo desconhecido; falso cluster; independência de ordem das fixtures.
 - **Aceite:** funções puras, testes executados e logs de comando; `src/domain/`, `src/services/` e handoff.
 
+
 ### AG-08 — Persistência / RLS / proteção (R3; bloqueado G1/G1S/G2)
+
 
 - **T08-01** Propor migração com constraints, RLS/GRANTs e sanitização, mapa de autorização por operação; submeter decisão de INSERT/SELECT e antispam sem relaxar segurança.
 - **T08-02** Implementar `DemandRepository`, adaptadores Supabase/seeds/composite e `.env.example` seguro usando tipos do AG-01.
@@ -122,7 +172,9 @@ flowchart TD
 - **T08-04** Documentar fallback e limites do free tier; guardar somente demanda final e não rascunhos do diálogo.
 - **Aceite:** matriz de políticas validada e status remoto real. Se sem credenciais/segurança, entregar código e documento como **não implantado**.
 
+
 ### AG-09 — Frontend e integração (R3/R4)
+
 
 - **T09-01** Com AG-02/03/04, montar páginas responsivas e componentes; mocks **tipados** e claramente temporários para serviços não concluídos.
 - **T09-02** Integrar AG-07 sem alterar regra de domínio; A/B/C e narrativa detalhada, cards/briefing/cluster/AC/startup/FACESP.
@@ -130,7 +182,9 @@ flowchart TD
 - **T09-04** Entregar testes de componentes/fluxos, screenshots e README, comandos efetivamente executados; handoff para QA.
 - **Aceite:** telas cobrem US-01–14 sem falsear sincronização ou decisões de papéis.
 
+
 ### AG-10 — Integração, QA, release (R4; bloqueado por 07/08/09)
+
 
 - **T10-01** Executar lint/build/test e testes fim a fim A/B/C, gates/custo/curadoria, cluster, duas ACs, novo registro entre navegadores, erro de rede, deep links, mobile, teclado e ausência de PII/secrets.
 - **T10-02** Verificar RLS/grants negativas; vetar deploy com risco alto de exposição ou INSERT público inseguro.
@@ -138,14 +192,18 @@ flowchart TD
 - **T10-04** Registrar versão/tag ou commit sem alegar criação do que não executou; handoff real para AG-11/00.
 - **Aceite:** provas objetivas; se Cloudflare inacessível, status **deploy não realizado**.
 
+
 ### AG-11 — Pitch e banca (provisório R1/R2, final R4)
+
 
 - **T11-01** Preparar narrativa provisória de 3 min (5 min opcional) e arquitetura de 6–8 slides, perguntas da banca e plano B; distinguir demonstração da execução real.
 - **T11-02** Após QA, substituir placeholders por cliques/prints e URL comprovados; enfatizar cenário A, B, benefício da rede e Supabase somente se de fato testado.
 - **T11-03** Entregar fala final, roteiro de ensaio e limitações honestas; sem logotipos FACESP não autorizados e sem métricas de tração reais inexistentes.
 - **Aceite:** roteiro reproduzível na versão homologada por AG-10.
 
+
 ## 4. Bloqueios e ações de desbloqueio
+
 
 | Bloqueio | Impacto | Ação necessária | Quem resolve | Quem pode trabalhar enquanto isso |
 | --- | --- | --- | --- | --- |
@@ -155,7 +213,9 @@ flowchart TD
 | **B-04 — instância/credenciais Supabase e Cloudflare não verificadas** | Teste remoto e URL | Criar ou disponibilizar projetos de demo; autenticação/autorização sem segredos em prompts | Equipe + AG-08/10 | Motor/UX local depois de G1 |
 | **B-05 — aprovação de identidade/campos de comunicação pendentes** | Marca final/pitch/UI | Revisar AG-03/04 e aprovar alternativas visuais/microcopy | Equipe | Desenvolvimento por tokens provisórios marcados |
 
+
 ## 5. Checkpoint PMO e quadro de status inicial
+
 
 | Frente | Status verificável | Próximo passo |
 | --- | --- | --- |
@@ -165,5 +225,6 @@ flowchart TD
 | AG-04 | **Liberado só para blueprint conceitual** | Esboçar, aguardar G1 para campos finais |
 | AG-11 | **Liberado só para pitch provisório** | Narrativa condicionada a telas/QA reais |
 | AG-02/05/06/07/08/09/10 | **Bloqueados por dependências** | Aguardar gates na ordem descrita |
+
 
 **Cadência sugerida:** registrar handoff no encerramento de cada execução de agente; AG-00 atualiza quadro, riscos, bloqueios e decisões após cada handoff; revisar gates antes de disparar agentes Cursor e imediatamente antes do pitch. Tempo/calendário real de implementação não é assumido neste plano.
