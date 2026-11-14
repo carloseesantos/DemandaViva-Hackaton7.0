@@ -1,10 +1,36 @@
 ﻿# DEMANDA VIVA — DECISIONS / ADR REGISTER
 
 
+## REGISTRO PMO 1.3.0 — evidências e aceite operacional da Rodada 2 — 14/11/2026
+
+
+**Não é nova decisão de produto nem de segurança.** Capturas do executor documentam `npm run check` aprovado: ESLint, 36 testes em 6 arquivos, build Vite/TypeScript e verificação SPA. [Commit 31481ad](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/31481ad9b1e25b44e0b03b225a4794c3ea1d416a) inclui AG-04/05 e arquivos ocultos de setup anteriormente ausentes. [ZIP main atualizado](https://drive.google.com/file/d/1OslrqHYazOEYfNrpl_o42f6HUvud5UMI/view) corresponde ao Git nos cinco blobs comparados. Não houve CI independente ou deploy.
+
+
+| Registro | Status/efeito |
+|---|---|
+| AUDIT-AG02-20261114-FINAL | `.env.example`, `.gitignore` e `.node-version` passaram a constar da main; **pendência de entrega AG-02 resolvida**. Scaffold aceito pela PMO mediante evidência de check local. |
+| AUDIT-AG04-20261114-FINAL | `docs/UX_FLOW.md`, Mermaid e handoff versionados e examinados; **AG-04 aceito para implementação UX**, sem teste de usuários. AG-09 liberado para UI com mocks. |
+| AUDIT-AG05-20261114-FINAL | 4 startups fictícias, 5 soluções, evidências e 5 testes referenceMatcher versionados; **AG-05 aceito para consumo por AG-06/07**. Motor definitivo AG-07 continua inexistente. |
+| G2 | **PARCIAL**: contrato/modelo, scaffold, marca, UX e catálogo disponíveis; **AG-06 ainda não entregou as quatro seeds B, duas ACs e testes A–E**. |
+| G1S | **PENDENTE**: nenhuma decisão/aplicação/teste de RLS/GRANTs, INSERT/SELECT cross-browser e antiabuso foi registrada. |
+
+
+A cardinalidade 4 startups/5 soluções atende a **faixa proposta para a demo** no Doc 07; não certifica fornecedores nem é critério oficial FACESP. PEND-09 pode ser registrado como escopo executado para demo, sem confundir com endosso institucional. O slogan segue referência. O registro 1.2.0 abaixo é histórico.
+
+
+
+
+
+
 ## REGISTRO PMO 1.2.0 — auditoria AG-02 / pendência AG-04 e AG-05 (14/11/2026)
 
 
+
+
 **Nenhuma nova decisão de produto, arquitetura ou segurança foi aprovada nesta rodada.** Aprovação do G1 AG-01 e direção AG-03 Ponte Viva continuam vigentes. Alterações a seguir são **status de evidência**, não ADRs nem aprovação de critérios internos FACESP.
+
+
 
 
 | Registro | Constatação / força | Ação pendente |
@@ -15,7 +41,15 @@
 | **G1S — DEC-G1S-STATUS** | **Ainda pendente**; Auth Anonymous isolada não resolve flood; SELECT entre sessões requer política/projeção e testes. | Equipe + AG-08 decidir opções seguras antes de liberar escrita/leitura pública. |
 
 
+
+
 **Regras preservadas:** AG-01 v1.0.0 aprovado; ADR-002 prevalece apenas na persistência; catálogo fictício local; gates eliminatórios antes do score; sementes 4 B sem ERP e A separada; todos os rótulos de demo; slogan continua referência. Os status antigos abaixo devem ser lidos como snapshots históricos.
+
+
+
+
+
+
 
 
 
@@ -27,12 +61,24 @@
 
 
 
+
+
+
+
 ## ATUALIZAÇÃO PMO 1.1.0 — Decisões da equipe em 14/11/2026
 
 
 
 
+
+
+
+
 **Evidência decisória:** responsável pelo projeto informou nesta conversa que o modelo de dados AG-01 foi aprovado pela equipe e que a primeira opção visual recomendada pelo AG-03 foi selecionada. Essa confirmação não se confunde com ata ou endosso institucional da FACESP. Os handoffs foram escritos antes dessas aprovações; menções a 'pendente' neles refletem o instante da emissão.
+
+
+
+
 
 
 
@@ -46,7 +92,15 @@
 
 
 
+
+
+
+
 **Pendências reinterpretadas:** PEND-01 resolvida no contrato G1 (somente ficha final, sem transcrição remota); PEND-04 aprovada como desenho de campos/validações, mas SQL, antiabuso e controles de PII seguem abertos; PEND-10 resolvida apenas quanto à **direção visual**. O slogan 'Necessidades que viram oportunidades.' continua referência recomendada, não oficializado. PEND-02, PEND-03, PEND-09 e demais temas não foram decididos por implicação. DEC-DATA-004/005 do AG-01 seguem propostas de SEGURANÇA G1S, não permissões públicas aprovadas.
+
+
+
+
 
 
 
@@ -56,7 +110,15 @@
 
 
 
+
+
+
+
 ## 1. Semântica dos estados
+
+
+
+
 
 
 
@@ -70,7 +132,15 @@
 
 
 
+
+
+
+
 ## 2. Registro consolidado
+
+
+
+
 
 
 
@@ -97,7 +167,15 @@
 
 
 
+
+
+
+
 ### Nota de rastreabilidade sobre aprovação
+
+
+
+
 
 
 
@@ -107,7 +185,15 @@ O cabeçalho da **ADR-001** diz “recomendação técnica para validação da e
 
 
 
+
+
+
+
 ## 3. Questões abertas com dono e gate
+
+
+
+
 
 
 
@@ -132,7 +218,15 @@ O cabeçalho da **ADR-001** diz “recomendação técnica para validação da e
 
 
 
+
+
+
+
 ## 4. Conflitos documentais tratados sem mudança de produto
+
+
+
+
 
 
 
@@ -147,7 +241,15 @@ O cabeçalho da **ADR-001** diz “recomendação técnica para validação da e
 
 
 
+
+
+
+
 ## 5. Como registrar nova decisão (sem retroagir)
+
+
+
+
 
 
 
@@ -168,12 +270,24 @@ Relação com ADR anterior (se aplicável):
 
 
 
+
+
+
+
 **Regra de mudanças:** AG-00 não redefine pesos, governaça institucional, arquitetura ou permissões. Ao receber proposta de agente, identifica impacto, solicita aprovação humana, atualiza o log e só então libera atualização coordenada em backlog/contrato/código/UX. Sem evidência de aprovação, status permanece **pendente**.
 
 
 
 
+
+
+
+
 ## 6. Documentos de origem
+
+
+
+
 
 
 

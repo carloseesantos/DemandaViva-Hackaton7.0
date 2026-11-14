@@ -1,13 +1,47 @@
 ﻿# DEMANDA VIVA — AGENTS
 
 
+## CHECKPOINT DE AGENTES 1.3.0 — AG-02/04/05 aceitos para integração — 14/11/2026
+
+
+**Verificação documental e técnica:** [commit 31481ad](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/31481ad9b1e25b44e0b03b225a4794c3ea1d416a), [ZIP main atualizado](https://drive.google.com/file/d/1OslrqHYazOEYfNrpl_o42f6HUvud5UMI/view) e capturas do `npm run check` (36 testes, ESLint, build e verificação SPA aprovados). Os hashes SHA Git de caminhos críticos no ZIP conferem com o commit. **Não houve CI independente, deploy nem teste remoto de banco.**
+
+
+| Agente | Estado atual (substitui snapshots antigos) | Dependência efetivamente liberada |
+|---|---|---|
+| AG-01 | Concluído/contrato aprovado G1 | Tipos canônicos permanentes. |
+| AG-02 | Concluído e **aceito para scaffold** | Infraestrutura React/TS/Vite, DI, lint, testes e build. |
+| AG-03 | Concluído/direção Ponte Viva aprovada | Tokens/brand para UI/pitch. |
+| AG-04 | Concluído **documentalmente, aceito para implementação UX** | `docs/UX_FLOW.md`, handoff e Mermaid; **AG-09 liberado para telas e mocks**. Sem teste observacional. |
+| AG-05 | Catálogo e documentação **aceitos para consumo técnico** | `src/data/startups.ts`, `solutions.ts`, `evidences.ts`, `catalog-enums.ts`, teste de referência AG-05; **AG-06 liberado para seeds finais**. |
+| AG-06 | **Liberado para execução completa** | Criar 4 seeds sem ERP de 2 ACs e fixtures A/C/D/E após contrato/catalogo; não supor execução concluída. |
+| AG-07 | Bloqueado por AG-06 | Iniciar somente após handoff de fixtures; testes atuais não são do motor real. |
+| AG-08 | Liberado para projeto de segurança G1S e camadas locais seguras | Proibir INSERT/SELECT remoto público antes de aprovação e testes RLS/GRANTs/antiabuso. |
+| AG-09 | Liberado para implementar frontend com mocks tipados | Integração AG-07/08 permanece posterior a handoffs. |
+| AG-10 | Bloqueado pela integração AG-07/08/09 | QA real, deploy e smoke ainda não feitos. |
+| AG-11 | Pitch provisório liberado; final depende AG-10 | Não afirmar URL, uso real ou aprovação oficial. |
+
+
+**Git hygiene:** `.cursor/` e `.wrangler/` aparecem como untracked no status enviado pela equipe, sem arquivos rastreados modificados. Não commitar automaticamente. A `.gitignore` já está no repositório, mas não inclui os dois; equipe decide tratamento de `.cursor/`, e `.wrangler/` deve permanecer local.
+
+
+
+
+
+
 ## CHECKPOINT DE AGENTES 1.2.0 — Snapshot Git `ee7b426` (14/11/2026)
+
+
 
 
 **AG-02**: scaffold publicado em [main](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/ee7b426e816c8827755328587721ec21b7272f04) e handoff em [Drive](https://drive.google.com/file/d/1oIwvj_VI25w6I_QjzuV9x8NFMDXzdndp/view). Handoff afirma lint/31 testes/build e deep-link 200 no emulador; testes independentes não completados (Node local incompatível e cache npm offline insuficiente). Ausentes do Git/ZIP apesar do handoff: `.env.example`, `.gitignore`, `.node-version`; AG-02 deve publicar correção. **Estado: entrega documental e commit verificados; aceite técnico condicionado à correção.**
 
 
+
+
 **AG-04 / AG-05**: equipe informa execução em chats, porém não há `docs/UX_FLOW.md`, `src/data/startups.ts`, `solutions.ts`, `evidences.ts` ou handoffs correspondentes na `main` auditada. **Estado: submissão/validação pendentes**, sem aprovação tácita. Destinos: AG-04 `docs/UX_FLOW.md` + `docs/ux/`; AG-05 `src/data/` + `docs/catalog/`. Não substituir tipos AG-01.
+
+
 
 
 **Liberação de trabalho:** AG-06 planejamento (fixação após AG-05 aceito); AG-08 desenho de G1S (sem acesso público); AG-11 pitch provisório. AG-09 somente após UX AG-04 verificada (com mocks); AG-07 após AG-06; AG-10 após AG-07/08/09. **G2 parcial, G1S crítico pendente.** Dados remotos, testes Cloudflare públicos e P0 continuam não evidenciados. O quadro abaixo é histórico da baseline anterior.
@@ -17,7 +51,17 @@
 
 
 
-> **Baseline:** 1.2.0 — 2026-11-14 \| **Coordenação:** AG-00 \| **Total:** 12 agentes (`AG-00` a `AG-11`). **Regra de estado:** “Liberado” significa **autorizado a iniciar**, não “em andamento”; ausência de handoff não autoriza marcar trabalho como concluído.
+
+
+
+
+
+
+> **Baseline:** 1.3.0 — 2026-11-14 \| **Coordenação:** AG-00 \| **Total:** 12 agentes (`AG-00` a `AG-11`). **Regra de estado:** “Liberado” significa **autorizado a iniciar**, não “em andamento”; ausência de handoff não autoriza marcar trabalho como concluído.
+
+
+
+
 
 
 
@@ -27,7 +71,15 @@
 
 
 
+
+
+
+
 **Aprovações informadas pela equipe:** contrato [DATA_MODEL.md v1.0.0](https://drive.google.com/file/d/1vNF2QbKs30x9aNeGqGpCz-txru4OxnaQ/view) do AG-01 **aprovado**; direção 01 Ponte Viva do AG-03 **selecionada**, conforme [BRAND_SYSTEM.md](https://drive.google.com/file/d/1TYfIBbUIDPgJfAGFDYDKuGduzYxSJJaJ/view) e [pacote visual](https://drive.google.com/drive/folders/1xy3wChZPRtt7XYr2YZRauVE3IVwOjRUs). Não há validação de código, SQL, deploy ou SPA integrada.
+
+
+
+
 
 
 
@@ -48,12 +100,24 @@
 
 
 
+
+
+
+
 **Nota de leitura:** a matriz de estados da baseline 1.0.0 abaixo permanece como referência histórica de responsabilidades e ownership. Qualquer rótulo 'bloqueado por AG-01' nela foi superado por G1; as outras dependências continuam válidas. Não editar arquivos de outro agente sem acordo; o AG-00 não altera o material-fonte entregue pelo AG-01 ou AG-03 retroativamente.
 
 
 
 
+
+
+
+
 ## 1\. Governança e hierarquia
+
+
+
+
 
 
 
@@ -66,12 +130,24 @@
 
 
 
+
+
+
+
 **Invariantes compartilhadas:** React/TS/Vite \+ Cloudflare Pages; seeds e catálogo fictícios locais; somente novas demandas qualificadas remotas via Supabase; filtros antes do score; cenário A \= 90/100 calculado e cenário B inelegível sem score; resultado C distinto; dados exclusivamente sintéticos; troca de perfil ≠ autenticação; nenhuma geração automática de software; handoff sempre baseado em evidências; ADR-002 prevalece sobre ADR-001 somente para persistência.
 
 
 
 
+
+
+
+
 ## 2\. Matriz de agentes, limites e entregas
+
+
+
+
 
 
 
@@ -94,7 +170,15 @@
 
 
 
+
+
+
+
 **Propriedade de arquivos:** a matriz acima define donos primários; colaboração deve ocorrer via contrato, mock tipado e HANDOFF. Alterar arquivo de outro agente exige acordo explícito de escopo e registro em `DECISIONS.md` quando afetar regra ou arquitetura.
+
+
+
+
 
 
 
@@ -104,7 +188,15 @@
 
 
 
+
+
+
+
 **Rodada 1 (imediata):** AG-00 consolida governança; **AG-01** elabora contrato; **AG-03** elabora identidade. AG-04 e AG-11 podem produzir **propostas conceituais não finais**, desde que ressaltem campos/links pendentes.
+
+
+
+
 
 
 
@@ -114,7 +206,15 @@
 
 
 
+
+
+
+
 **Rodada 2 (depois do gate):** AG-02 (scaffold), AG-04 (UX definitiva), AG-05 (catálogo) e AG-06 (seeds) trabalham em paralelo; 05/06 alinham IDs e casos A/B/C; AG-08 pode antecipar **desenho de segurança** com AG-01, mas não libera endpoint público até decisão testada.
+
+
+
+
 
 
 
@@ -124,12 +224,24 @@
 
 
 
+
+
+
+
 **Rodada 4:** AG-10 executa QA fim a fim e deploy, com handoff de 07/08/09; AG-11 finaliza pitch apenas depois das evidências de QA e do URL comprovado. O PMO controla a liberação dos gates de integração.
 
 
 
 
+
+
+
+
 ## 4\. Contratos entre agentes
+
+
+
+
 
 
 
@@ -146,7 +258,15 @@
 
 
 
+
+
+
+
 ## 5\. Handoff, qualidade e impedimentos
+
+
+
+
 
 
 
@@ -156,12 +276,24 @@ Todo agente deve entregar o formulário de `HANDOFF_AND_RISKS.md` com: estado re
 
 
 
+
+
+
+
 Nenhuma etapa é “concluída” por uma intenção ou entrega parcial sem evidência. **Bloqueios estruturais atuais:** contrato AG-01 não aprovado; repositório de código não confirmado; política de INSERT/SELECT público \+ proteção antiabuso Supabase não deliberada; projeto Supabase e deploy não comprovados. Registros detalhados em `DECISIONS.md`, `TASKS.md` e `HANDOFF_AND_RISKS.md`.
 
 
 
 
+
+
+
+
 ## 6\. Fontes
+
+
+
+
 
 
 

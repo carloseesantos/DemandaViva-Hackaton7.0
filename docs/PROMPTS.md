@@ -1,6 +1,24 @@
 ﻿# DEMANDA VIVA — PROMPTS OPERACIONAIS
 
 
+## CHECKPOINT AG-00 1.3.0 — agentes para a Rodada 3 (14/11/2026)
+
+
+**Fonte das liberações:** [commit Git main 31481ad](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/31481ad9b1e25b44e0b03b225a4794c3ea1d416a), [ZIP main atualizado no Drive](https://drive.google.com/file/d/1OslrqHYazOEYfNrpl_o42f6HUvud5UMI/view), capturas do `npm run check` com 36 testes, lint/build/verify OK. Os 12 **prompts literais preservam o conteúdo de sua origem**; este checkpoint altera apenas status/gates e instruções para os próximos disparos.
+
+
+**AG-02/04/05**: entrega documentada e versionada, aceita operacionalmente pela PMO para consumo, sem implementação final de UI/motor/banco. **AG-06 LIBERADO** para quatro seeds B, 2 ACs e cenários A–E; **AG-09 LIBERADO** para telas React com mocks tipados conforme `UX_FLOW.md`/Ponte Viva, sem prometer integração real; **AG-08 LIBERADO** para parecer G1S (e implementação local segura, nunca INSERT/SELECT público sem decisão/testes); **AG-11** segue pitch provisório. **AG-07 aguarda AG-06** e **AG-10 aguarda AG-07/08/09**. **G2 parcial; G1S crítico aberto.** O novo código e catálogo não podem redefinir `src/domain/types.ts` aprovado pelo AG-01.
+
+
+**Atenção aos prompts históricos:** antes de copiar qualquer bloco antigo, consultar o status neste checkpoint e em [TASKS.md](https://drive.google.com/file/d/1s3xc0zGIVN5JMOAwSD-mSh9rUAWV5xIt/view) v1.3.0. O AG-05 entregou cinco testes de referência, **não o motor de produção AG-07**. Nenhuma URL Cloudflare, migração Supabase ou comportamento multi-navegador foi homologado.
+
+
+
+
+
+
+
+
 
 
 **Fonte de verdade dos prompts de execução • AG-00 a AG-11 • FACESP / Hackathon Connect 7.0**
@@ -8,7 +26,15 @@
 
 
 
-**Versão:** 1.1.0 • **Data de compilação:** 14/11/2026 • **Custódia:** AG-00 (PMO).
+
+
+
+
+**Versão:** 1.3.0 • **Data de compilação:** 14/11/2026 • **Custódia:** AG-00 (PMO).
+
+
+
+
 
 
 
@@ -18,22 +44,40 @@
 
 
 
+
+
+
+
 ## CHECKPOINT AG-00 — 14/11/2026 — Versão operacional 1.1.0
+
+
 
 
 **Aprovações recebidas da equipe:** [AG-01 DATA_MODEL.md v1.0.0](https://drive.google.com/file/d/1vNF2QbKs30x9aNeGqGpCz-txru4OxnaQ/view) está aprovado como contrato G1; [AG-03 direção 01 Ponte Viva](https://drive.google.com/file/d/1TYfIBbUIDPgJfAGFDYDKuGduzYxSJJaJ/view) foi selecionada. Usar [tokens.css](https://drive.google.com/file/d/127IQEyDQVxuB6cCi7LuLb1g94-z99aDL/view), [tokens.json](https://drive.google.com/file/d/1bDdxIQg-ObAIxmaeGgFPjk9s98PeXC4D/view) e [guia de componentes](https://drive.google.com/file/d/1z__yXkFHNGapVdfraCQ5yQYIeEFBphg3/view) do AG-03.
 
 
+
+
 **Situação de disparo:** AG-01 e AG-03 concluídos (entregas documentais; não reexecutar sem proposta de alteração). **AG-02, AG-04 e AG-05 liberados agora**; AG-06 só gera fixtures finais após o catálogo AG-05; AG-08 pode apresentar proposta G1S, mas não abrir INSERT/SELECT público; AG-11 pode preparar pitch provisório. AG-07/09/10 seguem gates da execução.
+
+
 
 
 **Regra operacional:** os **12 prompts abaixo permanecem idênticos** aos da edição 1.0.0. Suas referências anteriores a contrato/marca 'pendente' devem ser interpretadas usando este checkpoint. Se houver conflito entre um prompt histórico e os artefatos aprovados, respeitar os artefatos, registrar dúvida no AG-00 e não mudar os modelos sem aprovação. A escolha visual não oficializou o slogan. G1S requer deliberação sobre antiabuso, RLS/GRANTs e SELECT sintético cross-browser; SQL ainda não aplicado.
 
 
+
+
 **Fonte atual de gates e decisões:** [TASKS.md v1.1.0](https://drive.google.com/file/d/1s3xc0zGIVN5JMOAwSD-mSh9rUAWV5xIt/view) e [DECISIONS.md v1.1.0](https://drive.google.com/file/d/1LhMt8Eiv5jj1t1jV5emdSywNGDHA2fU6/view). Nenhuma funcionalidade/deploy foi dada como pronta.
 
 
+
+
 ## Como usar
+
+
+
+
 
 
 
@@ -47,7 +91,15 @@
 
 
 
+
+
+
+
 ## Regras gerais de precedência
+
+
+
+
 
 
 
@@ -62,7 +114,15 @@
 
 
 
+
+
+
+
 **Referências:** [PROJECT_CONTEXT.md](https://drive.google.com/file/d/1nQz6Z9IkjyoHBB-IEhzUE85rdHkcuZ7l/view) · [AGENTS.md](https://drive.google.com/file/d/1vFwjBEv9JNfGD32RsnAeZdctN0NFfJQB/view) · [BACKLOG.md](https://drive.google.com/file/d/1zejeVTXJAxg8tMEUd6tQi_cGAHsPbvim/view) · [TASKS.md](https://drive.google.com/file/d/1s3xc0zGIVN5JMOAwSD-mSh9rUAWV5xIt/view) · [DECISIONS.md](https://drive.google.com/file/d/1LhMt8Eiv5jj1t1jV5emdSywNGDHA2fU6/view) · [HANDOFF_AND_RISKS.md](https://drive.google.com/file/d/1tJeAmzEt5p8JE2doPyLXLBjKqX5emkZP/view)
+
+
+
+
 
 
 
@@ -72,20 +132,28 @@
 
 
 
+
+
+
+
 | ID | Escopo | Ambiente | Liberação / dependência |
 |---|---|---|---|
 | AG-00 | PMO e coordenação | ChatGPT | início |
 | AG-01 | Modelo de dados e contratos | ChatGPT | **Concluído; G1 aprovado** |
-| AG-02 | Arquitetura técnica e scaffold | Cursor | **Liberado G1; verificar repo** |
+| AG-02 | Arquitetura técnica e scaffold | Cursor | **Concluído e aceito para scaffold; commit 31481ad** |
 | AG-03 | Identidade visual | ChatGPT | **Concluído; opção 01 aprovada** |
-| AG-04 | UX e jornada guiada | ChatGPT | **Liberado UX final AG-01 + Ponte Viva** |
-| AG-05 | Catálogo sintético | ChatGPT | **Liberado; DATA_MODEL v1 aprovado** |
-| AG-06 | Demanda sintética e casos | ChatGPT | Preparação liberada; fixtures após AG-05 |
+| AG-04 | UX e jornada guiada | ChatGPT | **Concluído documentalmente; UX_FLOW integrado** |
+| AG-05 | Catálogo sintético | ChatGPT | **Concluído e integrado; quatro startups/cinco soluções** |
+| AG-06 | Demanda sintética e casos | ChatGPT | **LIBERADO para fixtures definitivas A–E, quatro seeds B** |
 | AG-07 | Matching, briefing e clustering | Cursor | AG-01,02,05,06 |
 | AG-08 | Supabase, persistência e segurança | Cursor | Parecer G1S liberado; remota pública bloqueada até decisão e AG-02 |
-| AG-09 | Frontend e integração | Cursor | AG-02,03,04 + contratos/mocks |
+| AG-09 | Frontend e integração | Cursor | **LIBERADO para UI com mocks; integração após AG-07/08** |
 | AG-10 | QA, release e deploy | Cursor | AG-07,08,09 |
 | AG-11 | Pitch e demonstração | ChatGPT | provisório agora; definitivo após AG-10 |
+
+
+
+
 
 
 
@@ -95,7 +163,15 @@
 
 
 
+
+
+
+
 ### AG-00 — PMO / Orquestração — ChatGPT
+
+
+
+
 
 
 
@@ -112,7 +188,15 @@ SAÍDA FINAL: versão proposta dos arquivos/documentos, status, pendências, don
 
 
 
+
+
+
+
 ### AG-01 — Arquiteto de dados e contratos — ChatGPT
+
+
+
+
 
 
 
@@ -129,7 +213,15 @@ CRITÉRIOS: AG-05, AG-06, AG-07, AG-08 e AG-09 devem conseguir trabalhar com os 
 
 
 
+
+
+
+
 ### AG-02 — Arquiteto técnico e bootstrap — Cursor
+
+
+
+
 
 
 
@@ -146,7 +238,15 @@ ACEITE: SPA inicia e gera build sem Supabase; rota profunda pode ser recarregada
 
 
 
+
+
+
+
 ### AG-03 — Identidade visual e design system — ChatGPT
+
+
+
+
 
 
 
@@ -163,7 +263,15 @@ NÃO use logo oficial FACESP sem autorização, não prometa registro de marca e
 
 
 
+
+
+
+
 ### AG-04 — UX, conversa guiada e blueprint — ChatGPT
+
+
+
+
 
 
 
@@ -180,7 +288,15 @@ Não confunda ‘sem match elegível no catálogo’ com inexistência de soluç
 
 
 
+
+
+
+
 ### AG-05 — Catálogo sintético de startups e soluções — ChatGPT
+
+
+
+
 
 
 
@@ -197,7 +313,15 @@ CRITÉRIO: cenários A/B/C devem funcionar com algoritmo real, sem scores pré-e
 
 
 
+
+
+
+
 ### AG-06 — Gerador de demandas e cenários — ChatGPT
+
+
+
+
 
 
 
@@ -214,7 +338,15 @@ Todo dado deve ser sintético, com identificação de demonstração. Handoff pa
 
 
 
+
+
+
+
 ### AG-07 — Motor de matching, briefing e agrupamento — Cursor
+
+
+
+
 
 
 
@@ -231,7 +363,15 @@ ENTREGAS: src/domain/ e src/services/ com código TS limpo, testes automatizados
 
 
 
+
+
+
+
 ### AG-08 — Supabase, persistência e segurança — Cursor
+
+
+
+
 
 
 
@@ -248,7 +388,15 @@ TESTE: gravação com confirmação remota; leitura em outra sessão; RLS e rest
 
 
 
+
+
+
+
 ### AG-09 — Frontend e integração das jornadas — Cursor
+
+
+
+
 
 
 
@@ -265,7 +413,15 @@ ENTREGAS: código em src/pages, src/features, src/components e src/styles, teste
 
 
 
+
+
+
+
 ### AG-10 — QA, integração, release e hospedagem — Cursor
+
+
+
+
 
 
 
@@ -282,7 +438,15 @@ ENTREGA: release candidato com versão/tag sugerida, evidências de smoke tests 
 
 
 
+
+
+
+
 ### AG-11 — Pitch, demo e banca — ChatGPT
+
+
+
+
 
 
 
@@ -299,7 +463,15 @@ HANDOFF: assets necessários do AG-03, telas definitivas do AG-09, URL comprovad
 
 
 
+
+
+
+
 ## Protocolo de encerramento e manutenção
+
+
+
+
 
 
 
@@ -309,7 +481,15 @@ Ao concluir, use obrigatoriamente o [protocolo HANDOFF e registro de riscos](htt
 
 
 
+
+
+
+
 ### Controle de mudanças
+
+
+
+
 
 
 
@@ -321,7 +501,15 @@ Ao concluir, use obrigatoriamente o [protocolo HANDOFF e registro de riscos](htt
 
 
 
+
+
+
+
 ### Changelog
+
+
+
+
 
 
 
@@ -330,3 +518,4 @@ Ao concluir, use obrigatoriamente o [protocolo HANDOFF e registro de riscos](htt
 |---|---|---|---|
 | 1.0.0 | 14/11/2026 | Centralização dos 12 prompts integrais do documento 07, com índice, precedência, referências, protocolo de uso e versionamento. | Consolidação documental AG-00; sem alterar decisões nem os textos originais. |
 | 1.1.0 | 14/11/2026 | Atualização dos gates e das fontes AG-01/03 aprovadas; **sem qualquer alteração no texto dos 12 prompts individuais**. | Aprovações informadas ao AG-00; G1S continua pendente. |
+| 1.3.0 | 14/11/2026 | AG-02/04/05 publicados na main e validados por check local 36/36; AG-06/09 liberados, AG-08 G1S; **prompts originais preservados**. | Registro operacional PMO; G2 parcial, G1S pendente. |

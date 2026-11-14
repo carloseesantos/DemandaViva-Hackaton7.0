@@ -1,10 +1,45 @@
 ﻿# DEMANDA VIVA — TASKS / PLANO DE EXECUÇÃO
 
 
+## CHECKPOINT PMO 1.3.0 — validação local e sincronização Git/Drive — 14/11/2026
+
+
+**Evidência**: capturas apresentadas pelo responsável mostram `npm run check`: ESLint sem erros, **36/36 testes em 6 arquivos**, build `tsc -b && vite build` concluído, `verify-spa-build: OK` (index.html, ausência de 404.html e de segredos detectados). `git status`: main sincronizada com origin/main, com apenas `.cursor/` e `.wrangler/` não rastreados. Não foi executado CI independente pelo PMO.
+
+
+**Git:** [commit 31481ad](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/31481ad9b1e25b44e0b03b225a4794c3ea1d416a) publica AG-04/AG-05 e correções de setup (.env.example, .gitignore, .node-version). **ZIP:** [DemandaViva-Hackaton7.0-main.zip](https://drive.google.com/file/d/1OslrqHYazOEYfNrpl_o42f6HUvud5UMI/view), atualizado em 14/11; Git blob SHA de cinco caminhos críticos coincide com o ZIP. O ZIP não inclui `src/data/seed-demands.ts` nem `src/data/registries.ts` (AG-06 a produzir/alinhar).
+
+
+| Frente | Estado pós-verificação | Gate/ação |
+|---|---|---|
+| **AG-02** | **ACEITO documental/tecnicamente para scaffold**: repo, arquivos de configuração, tipo AG-01, DI, rotas e ferramentas versionados; testes relatados pelo executor e commit validado pelo PMO. | Entrega de arquitetura/scaffold concluída; não equivale a release. |
+| **AG-04** | **ACEITO para integração UX**: `docs/UX_FLOW.md`, `docs/ux/UX_FLOW.mmd`, `docs/ux/HANDOFF_AG04.md` versionados; oito templates, 22 questões, fluxos A/B/C e estados de erro. | Libera **AG-09** para UI com mocks tipados (sem motor/remote real). Validação com usuários e QA de navegação são futuros. |
+| **AG-05** | **ACEITO para consumo pelo AG-06/07**: 4 startups, 5 soluções, evidências sintéticas e curadoria em `src/data`; docs e cinco testes em `tests/catalog.test.ts`. | Libera **AG-06** para fixtures finais; os cinco testes usam *referenceMatcher* e **não homologam o motor AG-07**. Cardinalidade 4/5 está na faixa do Doc 07, como demonstração, não catálogo oficial. |
+| **AG-06** | **LIBERADO AGORA para executar fixtures finais** com AG-01 + AG-05. | Criar 4 seeds B sem ERP/2 ACs com IDs estáveis, casos A e C separados, contraprovas D/E, registries quando necessários e testes; handoff para AG-07. |
+| **AG-09** | **LIBERADO AGORA para UI/fluxos com mocks tipados** segundo AG-04 e tokens Ponte Viva. | Não modificar tipos AG-01, dados AG-05 ou motor AG-07; integrar componentes/rotas; não alegar Supabase funcionando. |
+| **AG-08** | **LIBERADO para parecer técnico e código local seguro** (scaffold existente). | Gate **G1S ainda PENDENTE**: política explícita de INSERT/SELECT, RLS/GRANTs, validação e antiabuso antes de deploy/escrita remota. |
+| **AG-07** | **BLOQUEADO até handoff de AG-06**. | Após seeds e registries consistentes, motor determinístico, seis gates antes de score, briefing, cluster e testes reais A–E. |
+| **AG-10/AG-11** | AG-10 aguarda integração; AG-11 pode continuar pitch provisório. | Não alegar URL Cloudflare nem dados remotos enquanto não testados. |
+
+
+**Gates vigentes:** G1 = aprovado; **G2 = PARCIAL** (AG-02/03/04/05 fechados para integração, AG-06 pendente); **G1S = ABERTO/crítico**; G3–G6 ainda não concluídos. **Nenhuma US de integração fim a fim foi homologada.** Os checkpoints anteriores abaixo são registros históricos que não substituem este 1.3.0.
+
+
+**Orientação Git:** `.wrangler/` é estado/cache local de ferramenta: excluir do versionamento; `.cursor/` deve ser revisto para decidir se contém regras de equipe compartilháveis ou apenas preferências locais, e não ser adicionado por engano. A presença dos dois como *untracked* não compromete o `npm run check`, mas pede decisão de hygiene.
+
+
+
+
+
+
 ## CHECKPOINT PMO 1.2.0 — Rodada 2: Git e entregas AG-02/04/05 (14/11/2026)
 
 
+
+
 **Snapshot auditado:** [GitHub main no commit ee7b426](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/ee7b426e816c8827755328587721ec21b7272f04), pasta [AG-02 / ZIP e Handoffs](https://drive.google.com/drive/folders/11CWoPsdT2MmPBx_zA2qN4SRabXdcpYB0). A equipe informou execução de AG-04 e AG-05 em chats, **porém seus arquivos finais ainda não aparecem na árvore de main auditada**. A execução declarada não é evidência suficiente para concluir handoff e gate.
+
+
 
 
 | Frente | Evidência encontrada | Estado do gate PMO | Ação objetiva |
@@ -18,7 +53,15 @@
 | AG-07 / AG-10 / AG-11 | AG-07 ainda depende das seeds AG-06; AG-10 depende de integrações; AG-11 pode continuar pitch provisório. | **G3/G4/G5/G6 não liberados.** | Manter ordem: AG-05 → AG-06 → AG-07; AG-08 após G1S; AG-09 após UX; AG-10 após serviços e integração. |
 
 
+
+
 **Status gates:** G1 aprovado anteriormente; **G2 PARCIAL**, pois AG-02 versionado mas correções de packaging/execução independente pendentes e AG-04/05/06 não aceitos no repositório; **G1S ABERTO**, G3–G6 não evidenciados. Em caso de conflito, este checkpoint 1.2.0 prevalece sobre estados históricos 1.0/1.1 abaixo. Não houve nova decisão de arquitetura ou peso do matching.
+
+
+
+
+
+
 
 
 
@@ -31,12 +74,24 @@
 
 
 
+
+
+
+
 ## CHECKPOINT PMO 1.1.0 — Rodada 1 concluída e G1 aprovado
 
 
 
 
+
+
+
+
 **Evidências:** [AG-01 DATA_MODEL.md](https://drive.google.com/file/d/1vNF2QbKs30x9aNeGqGpCz-txru4OxnaQ/view) contém tipos, DDL proposto, A/B/C, merge/versionamento e handoff; [AG-03 BRAND_SYSTEM.md](https://drive.google.com/file/d/1TYfIBbUIDPgJfAGFDYDKuGduzYxSJJaJ/view), [HANDOFF](https://drive.google.com/file/d/10Ar1BVEdCDb4tBQIuTG3iWQMTnDH6ZEJ/view), CSS/JSON/SVG e auditoria de 18 pares existem no Drive. Aprovação da equipe recebida em 14/11/2026: modelo G1 aprovado e direção 01 Ponte Viva selecionada. A entrega de especificação não comprova aplicação de SQL, execução de testes da SPA ou deploy.
+
+
+
+
 
 
 
@@ -56,7 +111,15 @@
 
 
 
+
+
+
+
 **Gates atuais:** G0 arquivos PMO publicados, aceite formal geral ainda não registrado; **G1 APROVADO**; **G1S PENDENTE CRÍTICO**; G2/G3/G4/G5/G6 não comprovados. A tabela original abaixo é histórico da baseline 1.0.0, e estados 'bloqueado por G1' ali devem ser lidos à luz deste checkpoint. Os gatilhos restantes e restrições técnicas continuam vigentes.
+
+
+
+
 
 
 
@@ -66,7 +129,15 @@
 
 
 
+
+
+
+
 ## 1. Caminho crítico e ordem recomendada
+
+
+
+
 
 
 
@@ -102,12 +173,24 @@ flowchart TD
 
 
 
+
+
+
+
 **Não confundir paralelo com pré-requisito cumprido.** O scaffold AG-02 não começa sem contrato aprovado; as fixtures AG-05/06 não usam tipos inventados; o motor AG-07 não começa sem fixtures coerentes e arquitetura; AG-08 não abre INSERT público com RLS indefinida; AG-09 pode desenvolver telas com **mocks tipados** após receber seus próprios requisitos, mas não anunciar integração Supabase/motor até testar de ponta a ponta.
 
 
 
 
+
+
+
+
 ## 2. Gates de entrega
+
+
+
+
 
 
 
@@ -126,12 +209,24 @@ flowchart TD
 
 
 
+
+
+
+
 ## 3. Work packages por agente
 
 
 
 
+
+
+
+
 ### AG-00 — PMO / governança (R0)
+
+
+
+
 
 
 
@@ -146,7 +241,15 @@ flowchart TD
 
 
 
+
+
+
+
 ### AG-01 — Contratos e schema (R1; liberado)
+
+
+
+
 
 
 
@@ -162,7 +265,15 @@ flowchart TD
 
 
 
+
+
+
+
 ### AG-03 — Identidade de marca (R1; liberado, paralelo)
+
+
+
+
 
 
 
@@ -175,7 +286,15 @@ flowchart TD
 
 
 
+
+
+
+
 ### AG-02 — Scaffold técnico (R2; bloqueado por G1 e repo)
+
+
+
+
 
 
 
@@ -189,7 +308,15 @@ flowchart TD
 
 
 
+
+
+
+
 ### AG-04 — UX, perguntas e estados (R2 para versão final)
+
+
+
+
 
 
 
@@ -203,7 +330,15 @@ flowchart TD
 
 
 
+
+
+
+
 ### AG-05 — Catálogo fictício (R2; bloqueado por G1)
+
+
+
+
 
 
 
@@ -216,7 +351,15 @@ flowchart TD
 
 
 
+
+
+
+
 ### AG-06 — Seeds e contraprovas (R2; bloqueado por G1/05)
+
+
+
+
 
 
 
@@ -229,7 +372,15 @@ flowchart TD
 
 
 
+
+
+
+
 ### AG-07 — Domínio determinístico (R3; bloqueado por G2)
+
+
+
+
 
 
 
@@ -243,7 +394,15 @@ flowchart TD
 
 
 
+
+
+
+
 ### AG-08 — Persistência / RLS / proteção (R3; bloqueado G1/G1S/G2)
+
+
+
+
 
 
 
@@ -257,7 +416,15 @@ flowchart TD
 
 
 
+
+
+
+
 ### AG-09 — Frontend e integração (R3/R4)
+
+
+
+
 
 
 
@@ -271,7 +438,15 @@ flowchart TD
 
 
 
+
+
+
+
 ### AG-10 — Integração, QA, release (R4; bloqueado por 07/08/09)
+
+
+
+
 
 
 
@@ -285,7 +460,15 @@ flowchart TD
 
 
 
+
+
+
+
 ### AG-11 — Pitch e banca (provisório R1/R2, final R4)
+
+
+
+
 
 
 
@@ -298,7 +481,15 @@ flowchart TD
 
 
 
+
+
+
+
 ## 4. Bloqueios e ações de desbloqueio
+
+
+
+
 
 
 
@@ -314,7 +505,15 @@ flowchart TD
 
 
 
+
+
+
+
 ## 5. Checkpoint PMO e quadro de status inicial
+
+
+
+
 
 
 
@@ -327,6 +526,10 @@ flowchart TD
 | AG-04 | **Liberado só para blueprint conceitual** | Esboçar, aguardar G1 para campos finais |
 | AG-11 | **Liberado só para pitch provisório** | Narrativa condicionada a telas/QA reais |
 | AG-02/05/06/07/08/09/10 | **Bloqueados por dependências** | Aguardar gates na ordem descrita |
+
+
+
+
 
 
 

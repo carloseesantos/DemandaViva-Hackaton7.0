@@ -1,10 +1,40 @@
 ﻿# DEMANDA VIVA — HANDOFF UNIVERSAL E REGISTRO DE RISCOS
 
 
+## CHECKPOINT DE HANDOFFS E RISCOS 1.3.0 — 14/11/2026
+
+
+**Evidência da rodada:** [Git main 31481ad](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/31481ad9b1e25b44e0b03b225a4794c3ea1d416a) e [ZIP do Drive atualizado](https://drive.google.com/file/d/1OslrqHYazOEYfNrpl_o42f6HUvud5UMI/view), com SHA de cinco blobs coincidentes; capturas de `npm run check`: ESLint OK, **36 testes/6 arquivos OK**, `tsc -b && vite build` OK, `verify-spa-build: OK`; `git status` main sincronizada e dois diretórios untracked locais.
+
+
+| Risco/Bloqueador | Estado atualizado/causa | Mitigação/dono |
+|---|---|---|
+| **NEW-R15 / setup** | **RESOLVIDO quanto ao versionamento**: `.env.example`, `.gitignore`, `.node-version` agora constam no Git/ZIP. | AG-02 entregue. AG-10 fará nova revisão na release. |
+| **NEW-R16 / entrega AG-04/05** | **RESOLVIDO quanto à publicação**: `UX_FLOW.md`/handoff e catálogo/docs/teste AG-05 constam da main e do ZIP. | AG-06 e AG-09 podem consumir; testes de integração AG-07/09/10 permanecem pendentes. |
+| **NEW-R17 / artefatos locais não rastreados** | **BAIXO/ABERTO**: `.cursor/` e `.wrangler/` identificados no `git status`, sem alterações rastreadas. | Equipe/AG-02: manter `.wrangler/` fora do repositório; avaliar regras compartilháveis em `.cursor/` antes de ignorar; não incluir segredos. |
+| **R-04, R-05** | **ABERTOS**: os cinco testes AG-05 avaliam `referenceMatcher`, **não** o motor definitivo nem seeds AG-06; `seed-demands.ts` ausente. | AG-06 entrega seeds/contraprovas; AG-07 implementa gates/score/briefing/cluster com testes próprios. |
+| **R-01/R-02 — G1S** | **CRÍTICOS/ABERTOS**: política INSERT/SELECT, RLS/GRANTs e antiabuso ainda não deliberados nem testados. | AG-08 apresenta proposta à equipe; proibir exposição pública até deliberação e testes negativos. |
+| **R-07** | **ABERTO**: não há URL Cloudflare Pages verificada; build local não comprova publicação. | AG-10 na rodada de release. |
+
+
+**Handoffs aceitos para próximo ciclo:** AG-02 scaffold; AG-04 especificação UX; AG-05 catálogo sintético. **Handoffs pendentes:** AG-06, AG-07, AG-08, AG-09, AG-10. **G2 parcial até AG-06**. A aceitação operacional da PMO não se confunde com validação de usuários ou anuência institucional FACESP.
+
+
+**Próximos disparos:** AG-06 fixtures finais, AG-09 telas com mocks, AG-08 parecer G1S em paralelo; AG-07 após AG-06; AG-10 após integrações. Riscos antigos de 1.2.0 permanecem como histórico temporal.
+
+
+
+
+
+
 ## REGISTRO PMO 1.2.0 — auditoria de entrega AG-02 e bloqueios AG-04/05 (14/11/2026)
 
 
+
+
 **Evidências:** [ZIP/handoff AG-02](https://drive.google.com/drive/folders/11CWoPsdT2MmPBx_zA2qN4SRabXdcpYB0) e [commit main ee7b426](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/ee7b426e816c8827755328587721ec21b7272f04). Base React/TS/Vite e fronteiras do AG-02 são versionadas; 31 testes, build, lint e rotas 200 foram **relatados no handoff**, não reproduzidos independentemente (Node de auditoria 22.16 é incompatível com mínimo 22.22 e npm offline sem dependências completas). Não há URL de Pages, Supabase, migrações aplicadas ou smoke público.
+
+
 
 
 | Registro | Severidade e estado | Dono / remediação |
@@ -16,7 +46,15 @@
 | **R-03/BLK-04** | **Parcialmente mitigado:** Git agora identificado e `DATA_MODEL` materializado em `src/domain/types.ts`; drift ainda deve ser testado após AG-05/06. | AG-00/AG-07/10 verificar contrato e freeze; G2 continua parcial. |
 
 
+
+
 **Liberações de próxima rodada:** AG-06 apenas desenho até AG-05 versionado e validado; AG-08 análise de segurança sem endpoint público; AG-09 somente com UX entregue, usando mocks tipados até AG-07/08; AG-07 após fixtures AG-06; AG-11 provisório liberado. G2 não é aceito como conjunto ainda. Handoff AG-02 aceito como **evidência de entrega** com correções pendentes, não homologação de todo G2.
+
+
+
+
+
+
 
 
 
@@ -29,7 +67,15 @@
 
 
 
+
+
+
+
 ## CHECKPOINT DE HANDOFFS E RISCOS — 14/11/2026 — v1.1.0
+
+
+
+
 
 
 
@@ -39,7 +85,15 @@
 
 
 
+
+
+
+
 **AG-03:** [BRAND_SYSTEM.md](https://drive.google.com/file/d/1TYfIBbUIDPgJfAGFDYDKuGduzYxSJJaJ/view), [HANDOFF_AG03.md](https://drive.google.com/file/d/10Ar1BVEdCDb4tBQIuTG3iWQMTnDH6ZEJ/view), tokens, SVGs e auditoria de contraste encontrados. A equipe escolheu a primeira direção recomendada **Ponte Viva**. O relatório aponta 18 pares de cores válidos; testes responsivos/teclado da SPA não executados.
+
+
+
+
 
 
 
@@ -55,7 +109,15 @@
 
 
 
+
+
+
+
 **Liberações:** AG-02/04/05 podem iniciar; AG-06 planeja e só fecha fixtures após AG-05; AG-08 inicia análise G1S sem deploy remoto; AG-11 desenvolve pitch provisório. AG-07, AG-09 (antes scaffold/UX) e AG-10 continuam bloqueados por gates posteriores.
+
+
+
+
 
 
 
@@ -65,13 +127,25 @@
 
 
 
+
+
+
+
 ## 1. Contrato universal de HANDOFF (copiar e preencher ao final de cada agente)
+
+
+
+
 
 
 
 
 ```markdown
 # HANDOFF DEMANDA VIVA — AG-XX — [nome] — v[versão]
+
+
+
+
 
 
 
@@ -96,7 +170,15 @@
 
 
 
+
+
+
+
 **Checklist de aceitação do handoff pelo AG-00:** (1) identifica precisamente o artefato e seus donos; (2) separa mudança pretendida de executada; (3) explicita quais documentos e qual versão foram lidos; (4) apresenta teste verificável para afirmações de conformidade; (5) registra novos riscos/decisões; (6) cita o próximo agente **somente se dependências estiverem satisfeitas**. Sem esses itens, devolver como `Proposto` ou `Bloqueado`, não `Concluído`.
+
+
+
+
 
 
 
@@ -106,11 +188,19 @@
 
 
 
+
+
+
+
 ```markdown
 ## CHECKPOINT PMO — [data/hora] — v[revisão]
 | Agente | Status real | Entrega comprovada / link | Gate | Bloqueio atual | Próxima ação | Responsável |
 | --- | --- | --- | --- | --- | --- | --- |
 | AG-XX | Liberado | Nenhuma (ainda) | G1 | Aguardando contrato | Criar DATA_MODEL | AG-01 |
+
+
+
+
 
 
 
@@ -126,7 +216,15 @@
 
 
 
+
+
+
+
 ### Regras operacionais do estado
+
+
+
+
 
 
 
@@ -142,7 +240,15 @@
 
 
 
+
+
+
+
 Não atribuir datas retroativas nem inventar estimativas. “Arquivos produzidos pelo agente” não significa “funcionalidade já integrada, testada ou publicada”. Se um agente não conseguiu acessar Drive, repositório, Supabase ou Cloudflare, deve informar **ausência de acesso** em vez de simular conclusão.
+
+
+
+
 
 
 
@@ -152,7 +258,15 @@ Não atribuir datas retroativas nem inventar estimativas. “Arquivos produzidos
 
 
 
+
+
+
+
 **Escalas:** probabilidade `B/M/A` (baixa/média/alta), impacto `B/M/A/C` (baixo/médio/alto/crítico); classificação é **preliminar do PMO**, sujeita a reavaliação. Estado `Aberto` não significa que o incidente já aconteceu.
+
+
+
+
 
 
 
@@ -177,7 +291,15 @@ Não atribuir datas retroativas nem inventar estimativas. “Arquivos produzidos
 
 
 
+
+
+
+
 ## 4. Bloqueadores ativos e decisões exigidas
+
+
+
+
 
 
 
@@ -194,7 +316,15 @@ Não atribuir datas retroativas nem inventar estimativas. “Arquivos produzidos
 
 
 
+
+
+
+
 ## 5. Política de escalonamento e reação
+
+
+
+
 
 
 
@@ -208,7 +338,15 @@ Não atribuir datas retroativas nem inventar estimativas. “Arquivos produzidos
 
 
 
+
+
+
+
 ## 6. Critérios de liberação por ambiente
+
+
+
+
 
 
 
@@ -218,7 +356,15 @@ Não atribuir datas retroativas nem inventar estimativas. “Arquivos produzidos
 
 
 
+
+
+
+
 **Cursor (AG-02/07/08/09/10):** lê `docs/PROJECT_CONTEXT.md`, `AGENTS.md`, `DATA_MODEL.md` aprovado e `DECISIONS.md` antes de tocar no código; inspeciona status Git; trabalha na pasta definida em `AGENTS.md`; executa testes relevantes; reporta comandos e resultados; não comita automaticamente sem instrução; nunca escreve segredo em commit ou prompt. Se fonte não estiver local, marca bloqueio e pede espelhamento.
+
+
+
+
 
 
 
@@ -228,7 +374,15 @@ Não atribuir datas retroativas nem inventar estimativas. “Arquivos produzidos
 
 
 
+
+
+
+
 ## 7. Registro inicial de checkpoint — 2026-11-14
+
+
+
+
 
 
 
