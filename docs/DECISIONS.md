@@ -1,13 +1,40 @@
-# DEMANDA VIVA — DECISIONS / ADR REGISTER
+﻿# DEMANDA VIVA — DECISIONS / ADR REGISTER
 
 
-> **Baseline:** 1.1.0 | **Emissão:** 2026-11-14 | **Guardião:** AG-00 | **Regra:** registrar decisões vigentes, propostas, conflitos e solicitações **sem alterar a decisão aprovada**. A validação formal da equipe não pode ser inferida de um documento rotulado “proposta”.
+## REGISTRO PMO 1.2.0 — auditoria AG-02 / pendência AG-04 e AG-05 (14/11/2026)
+
+
+**Nenhuma nova decisão de produto, arquitetura ou segurança foi aprovada nesta rodada.** Aprovação do G1 AG-01 e direção AG-03 Ponte Viva continuam vigentes. Alterações a seguir são **status de evidência**, não ADRs nem aprovação de critérios internos FACESP.
+
+
+| Registro | Constatação / força | Ação pendente |
+|---|---|---|
+| **AUDIT-AG02-20261114** | [Commit Git main ee7b426](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/ee7b426e816c8827755328587721ec21b7272f04) comprova scaffold, contrato TS e testes versionados; [handoff AG-02](https://drive.google.com/file/d/1oIwvj_VI25w6I_QjzuV9x8NFMDXzdndp/view) reporta 31 testes e build/lint local. **Não equivale a teste independente nem deploy.** | AG-02 publicar `.env.example`, `.gitignore` e `.node-version` não encontrados no commit/ZIP, e comprovar checks em Node suportado. |
+| **AUDIT-AG04-20261114** | Usuário informa execução, mas `UX_FLOW.md` e handoff não estão no snapshot Git. **Aprovação documental suspensa até leitura.** | Publicar em `docs/UX_FLOW.md`, auxiliares `docs/ux/`, submeter handoff. |
+| **AUDIT-AG05-20261114** | Usuário informa execução, mas catálogo TS e handoff não estão no snapshot Git. **Aprovação documental suspensa até leitura.** | Publicar `src/data/startups.ts`, `solutions.ts`, `evidences.ts`; matriz/handoff em `docs/catalog/`; validar A/B/C e contrato. |
+| **G1S — DEC-G1S-STATUS** | **Ainda pendente**; Auth Anonymous isolada não resolve flood; SELECT entre sessões requer política/projeção e testes. | Equipe + AG-08 decidir opções seguras antes de liberar escrita/leitura pública. |
+
+
+**Regras preservadas:** AG-01 v1.0.0 aprovado; ADR-002 prevalece apenas na persistência; catálogo fictício local; gates eliminatórios antes do score; sementes 4 B sem ERP e A separada; todos os rótulos de demo; slogan continua referência. Os status antigos abaixo devem ser lidos como snapshots históricos.
+
+
+
+
+
+
+> **Baseline:** 1.2.0 | **Emissão:** 2026-11-14 | **Guardião:** AG-00 | **Regra:** registrar decisões vigentes, propostas, conflitos e solicitações **sem alterar a decisão aprovada**. A validação formal da equipe não pode ser inferida de um documento rotulado “proposta”.
+
+
 
 
 ## ATUALIZAÇÃO PMO 1.1.0 — Decisões da equipe em 14/11/2026
 
 
+
+
 **Evidência decisória:** responsável pelo projeto informou nesta conversa que o modelo de dados AG-01 foi aprovado pela equipe e que a primeira opção visual recomendada pelo AG-03 foi selecionada. Essa confirmação não se confunde com ata ou endosso institucional da FACESP. Os handoffs foram escritos antes dessas aprovações; menções a 'pendente' neles refletem o instante da emissão.
+
+
 
 
 | ID | Estado atual | Evidência / efeitos |
@@ -17,13 +44,21 @@
 | **DEC-G1S-STATUS** | **PENDENTE:** autenticação anônima, controles efetivos de abuso, política SELECT de dados fictícios em outra sessão, projeção/RPC, limites e retenção. | A aprovação do contrato lógico NÃO aprova publicação de endpoint remoto ou leitura pública. Equipe + AG-08 devem deliberar e testar; bloquear INSERT/SELECT público até G1S. |
 
 
+
+
 **Pendências reinterpretadas:** PEND-01 resolvida no contrato G1 (somente ficha final, sem transcrição remota); PEND-04 aprovada como desenho de campos/validações, mas SQL, antiabuso e controles de PII seguem abertos; PEND-10 resolvida apenas quanto à **direção visual**. O slogan 'Necessidades que viram oportunidades.' continua referência recomendada, não oficializado. PEND-02, PEND-03, PEND-09 e demais temas não foram decididos por implicação. DEC-DATA-004/005 do AG-01 seguem propostas de SEGURANÇA G1S, não permissões públicas aprovadas.
+
+
 
 
 **Precedência de leitura:** este checkpoint atualiza os estados históricos listados abaixo, sem apagar decisões anteriores; a ADR-002 continua prevalecendo sobre a ADR-001 somente em persistência. Nenhuma atividade de software foi declarada concluída.
 
 
+
+
 ## 1. Semântica dos estados
+
+
 
 
 - **Aprovada pela equipe:** fonte documental registra aprovação explícita.
@@ -33,7 +68,11 @@
 - **Obsoleta parcialmente:** item anterior superado em um tema específico, preservado no restante.
 
 
+
+
 ## 2. Registro consolidado
+
+
 
 
 | ID / tema | Regra ou posição atual | Estado / força | Evidência e observação |
@@ -56,13 +95,21 @@
 | **DEC-DOC-001 — Integração** | `DATA_MODEL.md` **aprovado** bloqueia fixtures finais e implementações; handoff obrigatório; agente não assume acesso a repo/Drive | **Diretriz operacional vigente** | Plano 07 e pedido AG-00 |
 
 
+
+
 ### Nota de rastreabilidade sobre aprovação
+
+
 
 
 O cabeçalho da **ADR-001** diz “recomendação técnica para validação da equipe”; o da **ADR-002** diz “proposta v1.0 para deliberação”. Esta consolidação **não reclassifica retroativamente ambas como atas aprovadas**. A execução atual trata React/Vite/Pages + persistência seletiva Supabase como **instruções vigentes do projeto**, por determinação expressa no briefing. A equipe deve formalizar eventuais deliberações adicionais. A fonte 04 (slides C4) descreve contêineres conceituais anteriores e pode conflitar com o MVP híbrido; não serve como contrato implementado.
 
 
+
+
 ## 3. Questões abertas com dono e gate
+
+
 
 
 | ID | Questão específica | Opções / recomendação documentada (não aprovação) | Quem decide | Bloqueia |
@@ -83,7 +130,11 @@ O cabeçalho da **ADR-001** diz “recomendação técnica para validação da e
 | **PEND-14** | Aprovação final da baseline produzida por AG-00 | Revisar seis arquivos, resolver divergências e aprovar versão para espelhamento no repo | Equipe + AG-00 | Aceite formal G0, integração de documentação |
 
 
+
+
 ## 4. Conflitos documentais tratados sem mudança de produto
+
+
 
 
 1. **ADR-001 vs ADR-002:** a primeira recomendava nenhuma persistência remota, a segunda prevê Supabase para novas demandas. Aplicada **a precedência expressa** do briefing apenas no armazenamento; SPA/Cloudflare e catálogo fictício local persistem.
@@ -94,7 +145,11 @@ O cabeçalho da **ADR-001** diz “recomendação técnica para validação da e
 6. **AC em interface vs autorização real:** ações de AC/startup e regional são simulações de produto; Supabase é usado apenas para novas demandas sintéticas. RLS de banco não consegue identificar AC real sem identidade/autorizações genuínas.
 
 
+
+
 ## 5. Como registrar nova decisão (sem retroagir)
+
+
 
 
 ```text
@@ -111,10 +166,16 @@ Relação com ADR anterior (se aplicável):
 ```
 
 
+
+
 **Regra de mudanças:** AG-00 não redefine pesos, governaça institucional, arquitetura ou permissões. Ao receber proposta de agente, identifica impacto, solicita aprovação humana, atualiza o log e só então libera atualização coordenada em backlog/contrato/código/UX. Sem evidência de aprovação, status permanece **pendente**.
 
 
+
+
 ## 6. Documentos de origem
+
+
 
 
 - [00 — Decisão de marca](https://docs.google.com/document/d/1-upBHWiSTfwP_OyulOwvbBVDpSihy5q26Ifm7lQBIPI/edit)

@@ -1,0 +1,17 @@
+# Dependências, builds e relatórios gerados
+node_modules/
+dist/
+coverage/
+.vite/
+*.tsbuildinfo
+# Variáveis e segredos locais (somente o EXEMPLO pode ser versionado)
+.env
+.env.*
+!.env.example
+# Arquivos de sistema e temporários
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+.vscode/*
+!.vscode/extensions.json

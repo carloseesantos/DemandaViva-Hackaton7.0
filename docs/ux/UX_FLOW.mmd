@@ -1,0 +1,33 @@
+flowchart TD
+  S["Entrada DEMANDA VIVA • dados fictícios"] --> P{"Perspectiva"}
+  P -->|Lojista| D["Conversa guiada sem LLM • respostas locais"]
+  D --> V["Conferir e confirmar diagnóstico"]
+  V --> Q{"Completo pelo contrato G1?"}
+  Q -->|Não| C["C: Dados insuficientes • campos faltantes, sem score nem INSERT"]
+  C --> D
+  Q -->|Sim| N["QualifiedNeed • UUID estável"]
+  N --> M["Seis filtros eliminatórios no catálogo fictício"]
+  M --> E{"Resultado?"}
+  E -->|Seis gates pass + score >= 80| A["A: Recomendação explicável • revisão AC simulada"]
+  E -->|Elegível score 65-79| K["Condicional • esclarecer/adaptar; não é aprovação"]
+  E -->|Elegível score < 65| NR["Sem recomendação • não chamar inelegível"]
+  E -->|Algum fail e nenhum recomendado| B["B: Sem match elegível no catálogo • briefing local"]
+  E -->|Unknown essencial sem fail conclusivo| C2["C: Catálogo precisa de informação • sem score"]
+  N --> SAVE["Salvar QualifiedNeed nova no Supabase"]
+  SAVE --> R{"Confirmação remota?"}
+  R -->|Sim| SYNC["Registrada na nuvem • ID remoto confirmado"]
+  R -->|Erro/offline| FAIL["Não sincronizada • conservar UUID e tentar novamente"]
+  FAIL -->|Retry seguro| SAVE
+  B --> AC["Visão AC: seeds locais + SELECT remoto + dedupe + cluster"]
+  SYNC --> AC
+  AC --> G{"Revisão humana simulada do grupo"}
+  G -->|Diferenças bloqueantes| SEP["Separar grupos / pedir esclarecimento"]
+  G -->|Candidato coerente| CALL["Preparar chamada • abertura simulada"]
+  CALL --> ST["Visão Startup • resposta fictícia estruturada"]
+  ST --> RESP{"Tipo de resposta"}
+  RESP -->|Esclarecimento| AC
+  RESP -->|Solução / adaptação / codesenv. / piloto / declínio| OUT["Registrar opção local, sem homologação/contrato"]
+  P -->|Associação| AC
+  P -->|Startup| ST
+  P -->|FACESP / rede| F["Agregados sintéticos, sem dados individuais"]
+  AC --> F

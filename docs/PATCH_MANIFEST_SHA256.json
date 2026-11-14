@@ -1,0 +1,109 @@
+{
+  "baseline_commit": "ee7b426e816c8827755328587721ec21b7272f04",
+  "files": {
+    ".env.example": {
+      "sha256": "a1e4870074d81fa9bd0431a82de6fc3ffc4fce66d9f847fd99feb1ad10e11983",
+      "bytes": 50
+    },
+    ".gitignore": {
+      "sha256": "a9bf429edfc86f60be3c1348ec1510dd0f3b72246b79d071df2cef02fd73864a",
+      "bytes": 307
+    },
+    ".node-version": {
+      "sha256": "4137094e7792cb49fe1afddc3f87208f0ef4adfef7d3acd1def0198786d393c2",
+      "bytes": 8
+    },
+    "docs/AGENTS.md": {
+      "sha256": "3c3f792deebbda9412adbe4297f38e43f49ba6a15e51e4408982689a617306f7",
+      "bytes": 14327
+    },
+    "docs/BACKLOG.md": {
+      "sha256": "18dd547a9d280e05e5b2a488f3898053140a27cfc5fc463f78411045ba63d181",
+      "bytes": 16115
+    },
+    "docs/DECISIONS.md": {
+      "sha256": "7b781c47bb28f3f5a6469811fbc7d6186fa6d343f11d22a1ce30e0c2400c0c72",
+      "bytes": 17522
+    },
+    "docs/HANDOFF_AND_RISKS.md": {
+      "sha256": "da488679a12afa876984c11a176d0ede3fbbe4e41eae34a595ace8afccd6a1e0",
+      "bytes": 18629
+    },
+    "docs/PATCH_AG00_README.md": {
+      "sha256": "a02904d3e023ea8e338e22ee4b6720449543432ab7251b82b6dbc5110b5e1b94",
+      "bytes": 3592
+    },
+    "docs/PROJECT_CONTEXT.md": {
+      "sha256": "7a6617c78e677304565a1566b36006e25e04629c4a8d5dce56b1e1bd30d5d5ea",
+      "bytes": 15546
+    },
+    "docs/PROMPTS.md": {
+      "sha256": "efe35e04fb3b3097ab3b915b76ee13d6d9c265d3027a7f64f9e904693ee541cd",
+      "bytes": 36229
+    },
+    "docs/TASKS.md": {
+      "sha256": "d30a2a17fed0722c21ee07b359969d53d0904482599c70e6bccc16cdc314a266",
+      "bytes": 22690
+    },
+    "docs/UX_FLOW.md": {
+      "sha256": "5cb7eba550e5db520d5e31aba67e093cf576bf7ebff998fc6ba655472a3500b3",
+      "bytes": 46833
+    },
+    "docs/catalog/AG05_SOURCE_README.md": {
+      "sha256": "9f457152d4c80c321364c2454ed468841510537b0277d667cc23a13459e0808d",
+      "bytes": 2088
+    },
+    "docs/catalog/ENUM_DICTIONARY.md": {
+      "sha256": "5825d938ce537601078b8874f46fe2e1fbe1b4d0d9e4f8f0b5f750735c3ca53f",
+      "bytes": 4326
+    },
+    "docs/catalog/HANDOFF_AG05.md": {
+      "sha256": "47821954d163703d241aae3511bde18ea04c13dac30d43d8dbae6bf076be4d30",
+      "bytes": 6674
+    },
+    "docs/catalog/TRACEABILITY.md": {
+      "sha256": "d2ec22326d7389cc5e57a6f3f98b857d3de8d6141de08cd8d4c2efd4d6566fbe",
+      "bytes": 5526
+    },
+    "docs/catalog/UX_NOTES.md": {
+      "sha256": "a299b29d7ef893d4c47012f08f1f510dcfe9c02994c7cb6348b4bf75cd8f9a23",
+      "bytes": 3865
+    },
+    "docs/ux/HANDOFF_AG04.md": {
+      "sha256": "ab1073a7543835955ccab8e98f70d61d0ff5fed048c0709e1ccf2dfc31e92c02",
+      "bytes": 3132
+    },
+    "docs/ux/UX_FLOW.mmd": {
+      "sha256": "bc38a2d56dfa14302cceb071ffd95f4167c44e85edebb4cb44e5341a9ffeb532",
+      "bytes": 1899
+    },
+    "src/data/catalog-enums.ts": {
+      "sha256": "724adf92a85b28af2b20750393ff60736ad44802d92abbfa89be66b1254ecafa",
+      "bytes": 3477
+    },
+    "src/data/evidences.ts": {
+      "sha256": "3a17f70fb9a0296af7fe58ed60284d2dbe5d642714f7ba1a9cca33e3a6d04e22",
+      "bytes": 140
+    },
+    "src/data/solutions.ts": {
+      "sha256": "c62674a3154c9ca0bc75ecf673d103df1ecd8452d4400b7a98dad6887fdd03c8",
+      "bytes": 14644
+    },
+    "src/data/startups.ts": {
+      "sha256": "079cf337c1957d89ee74414c9a673ef5b361f936e605c3d5eac7e7e27a7c1c82",
+      "bytes": 2173
+    },
+    "tests/catalog.test.ts": {
+      "sha256": "83d7bbbb2f6bf92156cc78f1064cf30c5bd743513c8b0b16103a6f05df312636",
+      "bytes": 5460
+    },
+    "tests/scenarios.ts": {
+      "sha256": "0cbe87b6fd826096033ff0fe6322e84577d3bd1ce7b1106a8a5ca2a10ab71ba0",
+      "bytes": 3697
+    },
+    "tests/support/referenceMatcher.ts": {
+      "sha256": "9d151b0b57cb6408a43911253e53a1bbb62f7d4422b407d9285de720529868ee",
+      "bytes": 10199
+    }
+  }
+}

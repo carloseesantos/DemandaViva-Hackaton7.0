@@ -1,17 +1,47 @@
-# DEMANDA VIVA — HANDOFF UNIVERSAL E REGISTRO DE RISCOS
+﻿# DEMANDA VIVA — HANDOFF UNIVERSAL E REGISTRO DE RISCOS
 
 
-> **Versão:** 1.1.0 | **Data-base:** 2026-11-14 | **Dono:** AG-00 | **Aplicação:** obrigatória para AG-00 a AG-11, em ChatGPT ou Cursor.
+## REGISTRO PMO 1.2.0 — auditoria de entrega AG-02 e bloqueios AG-04/05 (14/11/2026)
+
+
+**Evidências:** [ZIP/handoff AG-02](https://drive.google.com/drive/folders/11CWoPsdT2MmPBx_zA2qN4SRabXdcpYB0) e [commit main ee7b426](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/ee7b426e816c8827755328587721ec21b7272f04). Base React/TS/Vite e fronteiras do AG-02 são versionadas; 31 testes, build, lint e rotas 200 foram **relatados no handoff**, não reproduzidos independentemente (Node de auditoria 22.16 é incompatível com mínimo 22.22 e npm offline sem dependências completas). Não há URL de Pages, Supabase, migrações aplicadas ou smoke público.
+
+
+| Registro | Severidade e estado | Dono / remediação |
+|---|---|---|
+| **NEW-R15 — Configuração de repositório incompleta** | **Alto/aberto:** `.gitignore`, `.env.example`, `.node-version` citados em AG-02/README não aparecem no commit/ZIP; risco de secrets/build e instruções quebradas. | AG-02: verificar arquivos ignorados, publicar sem segredos, reexecutar lint/test/build e corrigir setup. AG-10 audita depois. |
+| **NEW-R16 — Entregas AG-04/05 fora do snapshot Git** | **Alto/aberto para G2:** equipe informa execução, mas não há arquivos canônicos/handoffs na main auditada; integração produziria mocks/fixtures inconsistentes. | AG-04: `docs/UX_FLOW.md` + `docs/ux/`; AG-05: `src/data/startups.ts`, `solutions.ts`, `evidences.ts`, `docs/catalog/`. AG-00 valida após commit. |
+| **R-07/BLK-05** | **ABERTO:** Wrangler local não comprova Pages remoto. | AG-10 + equipe: login e URL pública, smoke HTTPS/refresh. |
+| **R-01/R-02, BLK-02/03 G1S** | **CRÍTICO/ABERTO:** autenticação anônima, mitigação de flood e SELECT cross-browser ainda não aprovados. | AG-08 preparar parecer, equipe deliberar, aplicar/testar RLS/GRANTs antes de publicar. |
+| **R-03/BLK-04** | **Parcialmente mitigado:** Git agora identificado e `DATA_MODEL` materializado em `src/domain/types.ts`; drift ainda deve ser testado após AG-05/06. | AG-00/AG-07/10 verificar contrato e freeze; G2 continua parcial. |
+
+
+**Liberações de próxima rodada:** AG-06 apenas desenho até AG-05 versionado e validado; AG-08 análise de segurança sem endpoint público; AG-09 somente com UX entregue, usando mocks tipados até AG-07/08; AG-07 após fixtures AG-06; AG-11 provisório liberado. G2 não é aceito como conjunto ainda. Handoff AG-02 aceito como **evidência de entrega** com correções pendentes, não homologação de todo G2.
+
+
+
+
+
+
+> **Versão:** 1.2.0 | **Data-base:** 2026-11-14 | **Dono:** AG-00 | **Aplicação:** obrigatória para AG-00 a AG-11, em ChatGPT ou Cursor.
 > **Princípio:** só se marca `Concluído` com **evidência de entrega e validação real**; “planejado”, “proposto” e “executado” são categorias diferentes.
+
+
 
 
 ## CHECKPOINT DE HANDOFFS E RISCOS — 14/11/2026 — v1.1.0
 
 
+
+
 **AG-01:** [DATA_MODEL.md v1.0.0](https://drive.google.com/file/d/1vNF2QbKs30x9aNeGqGpCz-txru4OxnaQ/view) contém modelo, tipos, JSON A/B/C, DDL proposto, merge e handoff §13. A equipe informou **aprovação do contrato G1** após o handoff original (escrito antes da aprovação). Não houve execução de SQL, testes de produto ou integração remota.
 
 
+
+
 **AG-03:** [BRAND_SYSTEM.md](https://drive.google.com/file/d/1TYfIBbUIDPgJfAGFDYDKuGduzYxSJJaJ/view), [HANDOFF_AG03.md](https://drive.google.com/file/d/10Ar1BVEdCDb4tBQIuTG3iWQMTnDH6ZEJ/view), tokens, SVGs e auditoria de contraste encontrados. A equipe escolheu a primeira direção recomendada **Ponte Viva**. O relatório aponta 18 pares de cores válidos; testes responsivos/teclado da SPA não executados.
+
+
 
 
 | Bloqueador/risco | Situação atual | Tratamento |
@@ -23,17 +53,27 @@
 | BLK-04 e BLK-05 | **ABERTOS** | Repositório/git e ambientes Supabase/Cloudflare ainda não verificados. AG-02/08/10 reportam evidência, sem segredos. |
 
 
+
+
 **Liberações:** AG-02/04/05 podem iniciar; AG-06 planeja e só fecha fixtures após AG-05; AG-08 inicia análise G1S sem deploy remoto; AG-11 desenvolve pitch provisório. AG-07, AG-09 (antes scaffold/UX) e AG-10 continuam bloqueados por gates posteriores.
+
+
 
 
 **Regras de handoff:** ambos os agentes são concluídos **documentalmente** após aprovação humana, não como implementação. Novos handoffs exigem versão de PROMPTS.md usada, artefatos com links, ambiente efetivo, testes executados, ausência de segredos e riscos residuais. As tabelas 'iniciais' mais abaixo são um snapshot v1.0.0; o checkpoint presente prevalece para status atual.
 
 
+
+
 ## 1. Contrato universal de HANDOFF (copiar e preencher ao final de cada agente)
+
+
 
 
 ```markdown
 # HANDOFF DEMANDA VIVA — AG-XX — [nome] — v[versão]
+
+
 
 
 - **Data/hora e ambiente:** [data, fuso, ChatGPT/Cursor, workspace/repo quando acessível]
@@ -54,10 +94,16 @@
 ```
 
 
+
+
 **Checklist de aceitação do handoff pelo AG-00:** (1) identifica precisamente o artefato e seus donos; (2) separa mudança pretendida de executada; (3) explicita quais documentos e qual versão foram lidos; (4) apresenta teste verificável para afirmações de conformidade; (5) registra novos riscos/decisões; (6) cita o próximo agente **somente se dependências estiverem satisfeitas**. Sem esses itens, devolver como `Proposto` ou `Bloqueado`, não `Concluído`.
 
 
+
+
 ## 2. Modelo de atualização rápida do quadro de execução
+
+
 
 
 ```markdown
@@ -65,6 +111,8 @@
 | Agente | Status real | Entrega comprovada / link | Gate | Bloqueio atual | Próxima ação | Responsável |
 | --- | --- | --- | --- | --- | --- | --- |
 | AG-XX | Liberado | Nenhuma (ainda) | G1 | Aguardando contrato | Criar DATA_MODEL | AG-01 |
+
+
 
 
 **Entregas verificadas nesta rodada:** [IDs, paths e evidências]
@@ -76,7 +124,11 @@
 ```
 
 
+
+
 ### Regras operacionais do estado
+
+
 
 
 | Estado | Significado rigoroso | Evidência mínima |
@@ -88,13 +140,21 @@
 | **Concluído** | Entregável disponível, validado e aceito | Caminho/link + critérios demonstrados + testes/validações e handoff |
 
 
+
+
 Não atribuir datas retroativas nem inventar estimativas. “Arquivos produzidos pelo agente” não significa “funcionalidade já integrada, testada ou publicada”. Se um agente não conseguiu acessar Drive, repositório, Supabase ou Cloudflare, deve informar **ausência de acesso** em vez de simular conclusão.
+
+
 
 
 ## 3. Matriz de riscos inicial
 
 
+
+
 **Escalas:** probabilidade `B/M/A` (baixa/média/alta), impacto `B/M/A/C` (baixo/médio/alto/crítico); classificação é **preliminar do PMO**, sujeita a reavaliação. Estado `Aberto` não significa que o incidente já aconteceu.
+
+
 
 
 | ID | Risco — causa | P/I | Dono | Mitigação preventiva e evidência exigida | Gatilho / contingência | Estado |
@@ -115,7 +175,11 @@ Não atribuir datas retroativas nem inventar estimativas. “Arquivos produzidos
 | **R-14** | **Limites de tempo e ausência de evidência de QA**, apresentação inverificável | A/A | AG-00/10/11 | P0 antes de P1; matriz de aceites, foco A/B/C + dados remotos seguros, pitch provisório condicionado | Tempo esgotado → reduzir P1/navegação lateral, nunca desabilitar RLS ou inventar status | Aberto |
 
 
+
+
 ## 4. Bloqueadores ativos e decisões exigidas
+
+
 
 
 | Bloqueador | Dependência não atendida | Responsável e passo de resolução | Frentes afetadas |
@@ -128,7 +192,11 @@ Não atribuir datas retroativas nem inventar estimativas. “Arquivos produzidos
 | **BLK-06** | Catálogo 2–3 vs 4–6 e identidade visual final pendentes | Equipe deliberar com AG-05/03 | AG-05/09/11 |
 
 
+
+
 ## 5. Política de escalonamento e reação
+
+
 
 
 1. **Risco crítico de segurança (R-01, R-02, R-09):** AG-08/10 sinaliza bloqueio ao PMO e à equipe. **Não contornar RLS/GRANTs, CAPTCHA ou minimização para alcançar a banca.** Preferir demo local com limitação transparente.
@@ -138,19 +206,31 @@ Não atribuir datas retroativas nem inventar estimativas. “Arquivos produzidos
 5. **Termo FACESP ou marca:** comunicação apenas “Desafio FACESP — Hackathon Connect 7.0”; jamais atribuir políticas internas ou validação institucional à FACESP sem evidência específica.
 
 
+
+
 ## 6. Critérios de liberação por ambiente
+
+
 
 
 **ChatGPT (AG-00/01/03/04/05/06/11):** pode ler fontes acessíveis, produzir documentos completos e enviar para pasta autorizada. Se não puder escrever o repositório Cursor, fornece conteúdo integral, paths e instruções de transferência; link de Drive não prova que código foi versionado.
 
 
+
+
 **Cursor (AG-02/07/08/09/10):** lê `docs/PROJECT_CONTEXT.md`, `AGENTS.md`, `DATA_MODEL.md` aprovado e `DECISIONS.md` antes de tocar no código; inspeciona status Git; trabalha na pasta definida em `AGENTS.md`; executa testes relevantes; reporta comandos e resultados; não comita automaticamente sem instrução; nunca escreve segredo em commit ou prompt. Se fonte não estiver local, marca bloqueio e pede espelhamento.
+
+
 
 
 **PMO:** recebe handoff, confere o artefato e evidência, atualiza riscos e status, registra decisão pendente, libera o próximo agente **somente após gates verificáveis**. A aprovação da equipe deve indicar nome/ato, revisão/data e escopo. A simples emissão deste protocolo não significa que os agentes o executaram.
 
 
+
+
 ## 7. Registro inicial de checkpoint — 2026-11-14
+
+
 
 
 - **AG-00:** seis documentos de governança planejados nesta execução; publicação verificável no Drive e revisão da equipe são controles de aceite separados.

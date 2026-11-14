@@ -1,13 +1,35 @@
-# DEMANDA VIVA — AGENTS
+﻿# DEMANDA VIVA — AGENTS
 
 
-> **Baseline:** 1.1.0 — 2026-11-14 \| **Coordenação:** AG-00 \| **Total:** 12 agentes (`AG-00` a `AG-11`). **Regra de estado:** “Liberado” significa **autorizado a iniciar**, não “em andamento”; ausência de handoff não autoriza marcar trabalho como concluído.
+## CHECKPOINT DE AGENTES 1.2.0 — Snapshot Git `ee7b426` (14/11/2026)
+
+
+**AG-02**: scaffold publicado em [main](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/ee7b426e816c8827755328587721ec21b7272f04) e handoff em [Drive](https://drive.google.com/file/d/1oIwvj_VI25w6I_QjzuV9x8NFMDXzdndp/view). Handoff afirma lint/31 testes/build e deep-link 200 no emulador; testes independentes não completados (Node local incompatível e cache npm offline insuficiente). Ausentes do Git/ZIP apesar do handoff: `.env.example`, `.gitignore`, `.node-version`; AG-02 deve publicar correção. **Estado: entrega documental e commit verificados; aceite técnico condicionado à correção.**
+
+
+**AG-04 / AG-05**: equipe informa execução em chats, porém não há `docs/UX_FLOW.md`, `src/data/startups.ts`, `solutions.ts`, `evidences.ts` ou handoffs correspondentes na `main` auditada. **Estado: submissão/validação pendentes**, sem aprovação tácita. Destinos: AG-04 `docs/UX_FLOW.md` + `docs/ux/`; AG-05 `src/data/` + `docs/catalog/`. Não substituir tipos AG-01.
+
+
+**Liberação de trabalho:** AG-06 planejamento (fixação após AG-05 aceito); AG-08 desenho de G1S (sem acesso público); AG-11 pitch provisório. AG-09 somente após UX AG-04 verificada (com mocks); AG-07 após AG-06; AG-10 após AG-07/08/09. **G2 parcial, G1S crítico pendente.** Dados remotos, testes Cloudflare públicos e P0 continuam não evidenciados. O quadro abaixo é histórico da baseline anterior.
+
+
+
+
+
+
+> **Baseline:** 1.2.0 — 2026-11-14 \| **Coordenação:** AG-00 \| **Total:** 12 agentes (`AG-00` a `AG-11`). **Regra de estado:** “Liberado” significa **autorizado a iniciar**, não “em andamento”; ausência de handoff não autoriza marcar trabalho como concluído.
+
+
 
 
 ## CHECKPOINT AGENTES — 14/11/2026 — v1.1.0
 
 
+
+
 **Aprovações informadas pela equipe:** contrato [DATA_MODEL.md v1.0.0](https://drive.google.com/file/d/1vNF2QbKs30x9aNeGqGpCz-txru4OxnaQ/view) do AG-01 **aprovado**; direção 01 Ponte Viva do AG-03 **selecionada**, conforme [BRAND_SYSTEM.md](https://drive.google.com/file/d/1TYfIBbUIDPgJfAGFDYDKuGduzYxSJJaJ/view) e [pacote visual](https://drive.google.com/drive/folders/1xy3wChZPRtt7XYr2YZRauVE3IVwOjRUs). Não há validação de código, SQL, deploy ou SPA integrada.
+
+
 
 
 | Agente | Status atual | Obrigação para consumidor |
@@ -24,10 +46,16 @@
 | AG-07, AG-09, AG-10 | **Aguardando outros gates** | AG-07: 02/05/06; AG-09: 02/04 + mocks e integração posterior; AG-10: integração 07/08/09. |
 
 
+
+
 **Nota de leitura:** a matriz de estados da baseline 1.0.0 abaixo permanece como referência histórica de responsabilidades e ownership. Qualquer rótulo 'bloqueado por AG-01' nela foi superado por G1; as outras dependências continuam válidas. Não editar arquivos de outro agente sem acordo; o AG-00 não altera o material-fonte entregue pelo AG-01 ou AG-03 retroativamente.
 
 
+
+
 ## 1\. Governança e hierarquia
+
+
 
 
 - **Equipe do hackathon:** autoridade final sobre mudanças de produto, arquitetura, segurança, pesos/faixas, escopo e apresentação pública. O PMO recomenda, organiza, registra conflitos e solicita aprovação; não decide unilateralmente.  
@@ -36,10 +64,16 @@
 - **Agentes executores:** cada um altera apenas seus arquivos e serviços de responsabilidade, usando contratos aprovados; mudanças de contrato geram proposta ao AG-00. Outros agentes não reabrem decisões implicitamente.
 
 
+
+
 **Invariantes compartilhadas:** React/TS/Vite \+ Cloudflare Pages; seeds e catálogo fictícios locais; somente novas demandas qualificadas remotas via Supabase; filtros antes do score; cenário A \= 90/100 calculado e cenário B inelegível sem score; resultado C distinto; dados exclusivamente sintéticos; troca de perfil ≠ autenticação; nenhuma geração automática de software; handoff sempre baseado em evidências; ADR-002 prevalece sobre ADR-001 somente para persistência.
 
 
+
+
 ## 2\. Matriz de agentes, limites e entregas
+
+
 
 
 | ID | Ambiente e responsabilidade | Entregáveis / propriedade primária | Entradas e dependências | Limites e situação inicial |
@@ -58,28 +92,46 @@
 | **AG-11** | **ChatGPT / Pitch e demo** | Roteiro 3 min/5 min, 6–8 slides, perguntas da banca, plano B e fala | Documentos 00–04, AG-04 conceitual; final após AG-10 | Sem inventar URL, tração ou parcerias. **Rascunho conceitual permitido; final bloqueado pelo QA.** |
 
 
+
+
 **Propriedade de arquivos:** a matriz acima define donos primários; colaboração deve ocorrer via contrato, mock tipado e HANDOFF. Alterar arquivo de outro agente exige acordo explícito de escopo e registro em `DECISIONS.md` quando afetar regra ou arquitetura.
+
+
 
 
 ## 3\. Regras de acionamento e concorrência
 
 
+
+
 **Rodada 1 (imediata):** AG-00 consolida governança; **AG-01** elabora contrato; **AG-03** elabora identidade. AG-04 e AG-11 podem produzir **propostas conceituais não finais**, desde que ressaltem campos/links pendentes.
+
+
 
 
 **Gate de aprovação de AG-01:** PMO verifica `DATA_MODEL.md` com entidades, campos obrigatórios, códigos, enums, critérios de validação, esquema SQL mapeado, exemplos A/B/C, merge/dedupe, política de versionamento e status das decisões de segurança. O material deve receber **aprovação explícita da equipe** antes da geração definitiva de fixtures e do desenvolvimento sobre o contrato.
 
 
+
+
 **Rodada 2 (depois do gate):** AG-02 (scaffold), AG-04 (UX definitiva), AG-05 (catálogo) e AG-06 (seeds) trabalham em paralelo; 05/06 alinham IDs e casos A/B/C; AG-08 pode antecipar **desenho de segurança** com AG-01, mas não libera endpoint público até decisão testada.
+
+
 
 
 **Rodada 3:** AG-07 (motor) depende de 01/02/05/06; AG-08 (persistência) depende de 01/02 \+ política de segurança; AG-09 inicia composição de UI com 02/03/04 e **mocks tipados**, integrando 07/08 após HANDOFFs.
 
 
+
+
 **Rodada 4:** AG-10 executa QA fim a fim e deploy, com handoff de 07/08/09; AG-11 finaliza pitch apenas depois das evidências de QA e do URL comprovado. O PMO controla a liberação dos gates de integração.
 
 
+
+
 ## 4\. Contratos entre agentes
+
+
 
 
 - **AG-01 → 02/04/05/06/07/08/09:** entidades com versionamento e estados discriminados (`qualified`, `insufficient_data`, `ineligible`), campos controlados, contratos do repositório, adaptação banco/API e exemplos de ida e volta.  
@@ -92,16 +144,26 @@
 - **AG-10 → 11/00:** relatório de testes efetivamente executados, regressões, liberação ou veto do deploy, URL real validado, commit/versão e plano de contingência.
 
 
+
+
 ## 5\. Handoff, qualidade e impedimentos
+
+
 
 
 Todo agente deve entregar o formulário de `HANDOFF_AND_RISKS.md` com: estado real, escopo, fontes lidas, **arquivos concretos**, testes e resultados, decisão pendente, riscos, dependências liberadas e próximos passos. Agente Cursor inspeciona **docs/, package.json, src/ e git status** antes de modificar o workspace; não alega acesso a Drive se apenas recebeu links. Agente ChatGPT entrega documentos completos; não afirma que editou repositório inacessível.
 
 
+
+
 Nenhuma etapa é “concluída” por uma intenção ou entrega parcial sem evidência. **Bloqueios estruturais atuais:** contrato AG-01 não aprovado; repositório de código não confirmado; política de INSERT/SELECT público \+ proteção antiabuso Supabase não deliberada; projeto Supabase e deploy não comprovados. Registros detalhados em `DECISIONS.md`, `TASKS.md` e `HANDOFF_AND_RISKS.md`.
 
 
+
+
 ## 6\. Fontes
+
+
 
 
 O conjunto oficial de referência nesta execução é o [Drive DEMANDA VIVA](https://drive.google.com/drive/folders/1C1e7pMC8GfYAY164I_u4OKiGmUwYXXh7), especialmente [07 — Plano de agentes](https://docs.google.com/document/d/1v9DjGvdYMEfphBo36xzvCPIGYN1AFp47QjCACCF1pbY/edit) e [06 — ADR-002](https://docs.google.com/document/d/1vO34lMSNB95qUw5cjZLHje2WDyHb9XMkOaLNl1ZS0jM/edit). As responsabilidades e rounds aqui consolidam as propostas originais, sem alterar decisões aprovadas.

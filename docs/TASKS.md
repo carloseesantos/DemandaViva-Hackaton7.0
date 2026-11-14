@@ -1,14 +1,44 @@
-# DEMANDA VIVA — TASKS / PLANO DE EXECUÇÃO
+﻿# DEMANDA VIVA — TASKS / PLANO DE EXECUÇÃO
 
 
-> **Planejamento 1.1.0 — 14/11/2026** | **PMO:** AG-00 | **Marco atual:** documentação de execução; sem comprovação de desenvolvimento/deploy.
+## CHECKPOINT PMO 1.2.0 — Rodada 2: Git e entregas AG-02/04/05 (14/11/2026)
+
+
+**Snapshot auditado:** [GitHub main no commit ee7b426](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/ee7b426e816c8827755328587721ec21b7272f04), pasta [AG-02 / ZIP e Handoffs](https://drive.google.com/drive/folders/11CWoPsdT2MmPBx_zA2qN4SRabXdcpYB0). A equipe informou execução de AG-04 e AG-05 em chats, **porém seus arquivos finais ainda não aparecem na árvore de main auditada**. A execução declarada não é evidência suficiente para concluir handoff e gate.
+
+
+| Frente | Evidência encontrada | Estado do gate PMO | Ação objetiva |
+|---|---|---|---|
+| AG-02 | Scaffold React 19/TS/Vite 8, package.json, ARCHITECTURE.md, src/domain/types.ts, roteador, DI, 7 testes arquivos, guardas, logos e tokens versionados no commit `ee7b426`; handoff declara `npm run check` aprovado com **31 testes** e seis rotas de Pages locais retornando 200. | **Entregue/versionado e auditado documentalmente; aceite G2-02 CONDICIONAL**. Verificação independente de npm CI não concluída (runtime auditado Node 22.16 < 22.22 requerido, dependências não estão no cache offline). | Corrigir arquivos **`.env.example`, `.gitignore`, `.node-version` ausentes da árvore Git/ZIP**, apesar de citados no handoff e README. Reexecutar `npm ci && npm run check` em Node compatível, com log/commit; não alegar deploy público. |
+| AG-04 | Execução informada pelo responsável; `docs/UX_FLOW.md` e documentação UX ausentes da árvore Git main auditada. | **Pendente de publicação e validação**; não homologar UX nem liberar AG-09 pelo AG-04. | Versionar `docs/UX_FLOW.md`, auxiliares em `docs/ux/`, handoff; confrontar 7–8 telas, A/B/C, contrato e Ponte Viva. |
+| AG-05 | Execução informada pelo responsável; `src/data/startups.ts`, `solutions.ts`, `evidences.ts` e matriz AG-05 ausentes da árvore Git main auditada. | **Pendente de publicação e validação**; AG-06 não recebe fixtures finais ainda. | Versionar catálogo em `src/data/` e matriz/handoff em `docs/catalog/`; checar ERP X, curação/validade e B inelegível. |
+| AG-06 | AG-01 aprovado; AG-05 sem evidência versionada. | **Planejamento liberado, fixtures finais bloqueadas por AG-05.** | Preparar critérios A–E e seeds B (4, 2 ACs, sem ERP), sem consolidar import incompatível. |
+| AG-08 | Infra de placeholder do AG-02 existente; G1S não decidido. | **Análise de segurança liberada; migração/INSERT/SELECT público bloqueados por G1S.** | Propor RLS/GRANTs, proteção efetiva antiabuso e projeção cross-browser restrita para deliberação. |
+| AG-09 | Scaffold no Git; UX e catálogo finais não versionados. | **Aguardar handoff AG-04; depois UI com mocks tipados**, respeitando agentes e DI do AG-02. | Assim que AG-04 entrar no main e for validado, implementar páginas; não alterar motor/SQL. |
+| AG-07 / AG-10 / AG-11 | AG-07 ainda depende das seeds AG-06; AG-10 depende de integrações; AG-11 pode continuar pitch provisório. | **G3/G4/G5/G6 não liberados.** | Manter ordem: AG-05 → AG-06 → AG-07; AG-08 após G1S; AG-09 após UX; AG-10 após serviços e integração. |
+
+
+**Status gates:** G1 aprovado anteriormente; **G2 PARCIAL**, pois AG-02 versionado mas correções de packaging/execução independente pendentes e AG-04/05/06 não aceitos no repositório; **G1S ABERTO**, G3–G6 não evidenciados. Em caso de conflito, este checkpoint 1.2.0 prevalece sobre estados históricos 1.0/1.1 abaixo. Não houve nova decisão de arquitetura ou peso do matching.
+
+
+
+
+
+
+> **Planejamento 1.2.0 — 14/11/2026** | **PMO:** AG-00 | **Marco atual:** documentação de execução; sem comprovação de desenvolvimento/deploy.
 > **Status permitido:** `Proposto` · `Liberado` · `Em andamento` (com evidência) · `Bloqueado` · `Concluído` (com evidência). As ações são instruções futuras, não execuções presumidas.
+
+
 
 
 ## CHECKPOINT PMO 1.1.0 — Rodada 1 concluída e G1 aprovado
 
 
+
+
 **Evidências:** [AG-01 DATA_MODEL.md](https://drive.google.com/file/d/1vNF2QbKs30x9aNeGqGpCz-txru4OxnaQ/view) contém tipos, DDL proposto, A/B/C, merge/versionamento e handoff; [AG-03 BRAND_SYSTEM.md](https://drive.google.com/file/d/1TYfIBbUIDPgJfAGFDYDKuGduzYxSJJaJ/view), [HANDOFF](https://drive.google.com/file/d/10Ar1BVEdCDb4tBQIuTG3iWQMTnDH6ZEJ/view), CSS/JSON/SVG e auditoria de 18 pares existem no Drive. Aprovação da equipe recebida em 14/11/2026: modelo G1 aprovado e direção 01 Ponte Viva selecionada. A entrega de especificação não comprova aplicação de SQL, execução de testes da SPA ou deploy.
+
+
 
 
 | Agente | Status atualizado | Próxima execução / observação |
@@ -24,13 +54,21 @@
 | **AG-07, AG-09, AG-10** | **AGUARDAM GATES seguintes.** | AG-07 após AG-02/05/06; AG-09 pode começar UI com mocks tipados após AG-02/04; AG-10 após integração e testes. |
 
 
+
+
 **Gates atuais:** G0 arquivos PMO publicados, aceite formal geral ainda não registrado; **G1 APROVADO**; **G1S PENDENTE CRÍTICO**; G2/G3/G4/G5/G6 não comprovados. A tabela original abaixo é histórico da baseline 1.0.0, e estados 'bloqueado por G1' ali devem ser lidos à luz deste checkpoint. Os gatilhos restantes e restrições técnicas continuam vigentes.
+
+
 
 
 **Ordem prática:** Rodada 2 simultânea AG-02 + AG-04 + AG-05, AG-06 apenas preparação até conclusão AG-05; AG-08 pode tratar G1S em paralelo. Depois AG-06 final e AG-07/08 implementação; AG-09 inicia com AG-02/04 e integra serviços depois; AG-10 valida/publica e AG-11 congela pitch. Nenhuma dependência é considerada concluída somente por um prompt ter sido disparado.
 
 
+
+
 ## 1. Caminho crítico e ordem recomendada
+
+
 
 
 ```mermaid
@@ -62,10 +100,16 @@ flowchart TD
 ```
 
 
+
+
 **Não confundir paralelo com pré-requisito cumprido.** O scaffold AG-02 não começa sem contrato aprovado; as fixtures AG-05/06 não usam tipos inventados; o motor AG-07 não começa sem fixtures coerentes e arquitetura; AG-08 não abre INSERT público com RLS indefinida; AG-09 pode desenvolver telas com **mocks tipados** após receber seus próprios requisitos, mas não anunciar integração Supabase/motor até testar de ponta a ponta.
 
 
+
+
 ## 2. Gates de entrega
+
+
 
 
 | Gate | Condição objetiva de liberação | Responsável pela evidência | Situação inicial |
@@ -80,10 +124,16 @@ flowchart TD
 | **G6 — Banca** | URL Pages realmente acessível e testada, roteiro fiel ao release, contingência pronta | AG-10/11 + equipe | **Não iniciado** |
 
 
+
+
 ## 3. Work packages por agente
 
 
+
+
 ### AG-00 — PMO / governança (R0)
+
+
 
 
 - **T00-01** Revisar 00–07, sintetizar o escopo atual e identificar que ADR-002 corrige **somente** persistência (saída `PROJECT_CONTEXT.md`).
@@ -94,7 +144,11 @@ flowchart TD
 - **Evidência de aceite:** links verificados no Drive e checklist de conteúdo, seguido de aprovação de baseline pela equipe. **Situação:** documentação preparada nesta execução; aceite colegiado não presumido.
 
 
+
+
 ### AG-01 — Contratos e schema (R1; liberado)
+
+
 
 
 - **T01-01** Derivar `Need`, `Requirement`, `Association`, `Startup`, `Solution`, `CatalogEvidence`, `MatchResult`, `Brief`, `DemandCluster`, `InnovationCall`, `StartupResponse` e `DemandRepository` de 01/02/03/ADR-002.
@@ -106,7 +160,11 @@ flowchart TD
 - **Aceite:** contrato sem tipos ambíguos, cobertura P0, fonte/alternativas/diferenças rastreadas; **aprovação humana registrada** para G1. Arquivos/caminhos sugeridos: `docs/DATA_MODEL.md` + snippets completos de TS/SQL.
 
 
+
+
 ### AG-03 — Identidade de marca (R1; liberado, paralelo)
+
+
 
 
 - **T03-01** Manter DEMANDA VIVA (nome aprovado) e DEMANDA dominante; apresentar 2–3 direções tipográficas, paletas HEX e recomendação **não automaticamente aprovada**.
@@ -115,7 +173,11 @@ flowchart TD
 - **Aceite:** tokens reproduzíveis, aplicação e rationale documentados; decisões finais de identidade dependem da equipe.
 
 
+
+
 ### AG-02 — Scaffold técnico (R2; bloqueado por G1 e repo)
+
+
 
 
 - **T02-01** Confirmar workspace correto; inspecionar `docs/`, `package.json`, `src/` e `git status`; identificar se há repositório existente.
@@ -125,7 +187,11 @@ flowchart TD
 - **Aceite:** comandos reais e resultados de lint/build/test, inicialização e refresh de rota; handoff com paths modificados.
 
 
+
+
 ### AG-04 — UX, perguntas e estados (R2 para versão final)
+
+
 
 
 - **T04-01** Antes do contrato, produzir apenas roteiro conceitual 7–8 telas e mapa de jornada A/B/C com pendências identificadas.
@@ -135,7 +201,11 @@ flowchart TD
 - **Aceite:** nenhuma cópia sugere aprovação real ou IA generativa em tempo real; campos iguais ao DATA_MODEL.
 
 
+
+
 ### AG-05 — Catálogo fictício (R2; bloqueado por G1)
+
+
 
 
 - **T05-01** Criar **3–5 startups fictícias e 4–6 soluções fictícias** conforme plano 07, em estrutura de dados aprovada (a meta mínima da ADR-001 era menor; divergência documentada em `DECISIONS.md`).
@@ -144,7 +214,11 @@ flowchart TD
 - **Aceite:** B segue inelegível no catálogo criado; código/fichas não inventam validação comercial.
 
 
+
+
 ### AG-06 — Seeds e contraprovas (R2; bloqueado por G1/05)
+
+
 
 
 - **T06-01** Criar quatro demandas sintéticas de **AC Alfa e AC Beta** com variantes sem ERP para o cluster de confirmação de estoque/WhatsApp; não confundir com caso A separado, que usa ERP X.
@@ -153,7 +227,11 @@ flowchart TD
 - **Aceite:** dados sintéticos, coerentes com catálogo e AG-01; handoff para AG-07/09/10.
 
 
+
+
 ### AG-07 — Domínio determinístico (R3; bloqueado por G2)
+
+
 
 
 - **T07-01** Implementar validação de necessidade e saída C; avaliar gates em ordem antes de score e registrar razões.
@@ -163,7 +241,11 @@ flowchart TD
 - **Aceite:** funções puras, testes executados e logs de comando; `src/domain/`, `src/services/` e handoff.
 
 
+
+
 ### AG-08 — Persistência / RLS / proteção (R3; bloqueado G1/G1S/G2)
+
+
 
 
 - **T08-01** Propor migração com constraints, RLS/GRANTs e sanitização, mapa de autorização por operação; submeter decisão de INSERT/SELECT e antispam sem relaxar segurança.
@@ -173,7 +255,11 @@ flowchart TD
 - **Aceite:** matriz de políticas validada e status remoto real. Se sem credenciais/segurança, entregar código e documento como **não implantado**.
 
 
+
+
 ### AG-09 — Frontend e integração (R3/R4)
+
+
 
 
 - **T09-01** Com AG-02/03/04, montar páginas responsivas e componentes; mocks **tipados** e claramente temporários para serviços não concluídos.
@@ -183,7 +269,11 @@ flowchart TD
 - **Aceite:** telas cobrem US-01–14 sem falsear sincronização ou decisões de papéis.
 
 
+
+
 ### AG-10 — Integração, QA, release (R4; bloqueado por 07/08/09)
+
+
 
 
 - **T10-01** Executar lint/build/test e testes fim a fim A/B/C, gates/custo/curadoria, cluster, duas ACs, novo registro entre navegadores, erro de rede, deep links, mobile, teclado e ausência de PII/secrets.
@@ -193,7 +283,11 @@ flowchart TD
 - **Aceite:** provas objetivas; se Cloudflare inacessível, status **deploy não realizado**.
 
 
+
+
 ### AG-11 — Pitch e banca (provisório R1/R2, final R4)
+
+
 
 
 - **T11-01** Preparar narrativa provisória de 3 min (5 min opcional) e arquitetura de 6–8 slides, perguntas da banca e plano B; distinguir demonstração da execução real.
@@ -202,7 +296,11 @@ flowchart TD
 - **Aceite:** roteiro reproduzível na versão homologada por AG-10.
 
 
+
+
 ## 4. Bloqueios e ações de desbloqueio
+
+
 
 
 | Bloqueio | Impacto | Ação necessária | Quem resolve | Quem pode trabalhar enquanto isso |
@@ -214,7 +312,11 @@ flowchart TD
 | **B-05 — aprovação de identidade/campos de comunicação pendentes** | Marca final/pitch/UI | Revisar AG-03/04 e aprovar alternativas visuais/microcopy | Equipe | Desenvolvimento por tokens provisórios marcados |
 
 
+
+
 ## 5. Checkpoint PMO e quadro de status inicial
+
+
 
 
 | Frente | Status verificável | Próximo passo |
@@ -225,6 +327,8 @@ flowchart TD
 | AG-04 | **Liberado só para blueprint conceitual** | Esboçar, aguardar G1 para campos finais |
 | AG-11 | **Liberado só para pitch provisório** | Narrativa condicionada a telas/QA reais |
 | AG-02/05/06/07/08/09/10 | **Bloqueados por dependências** | Aguardar gates na ordem descrita |
+
+
 
 
 **Cadência sugerida:** registrar handoff no encerramento de cada execução de agente; AG-00 atualiza quadro, riscos, bloqueios e decisões após cada handoff; revisar gates antes de disparar agentes Cursor e imediatamente antes do pitch. Tempo/calendário real de implementação não é assumido neste plano.
