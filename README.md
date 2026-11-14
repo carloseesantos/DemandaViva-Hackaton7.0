@@ -7,11 +7,12 @@ justificáveis ou em oportunidades qualificadas para startups.
 > login nem autorização**. Aprovações e respostas são simuladas. Pesos, faixas e catálogo são propostas da equipe, não
 > critérios oficiais da FACESP. A plataforma não gera software automaticamente.
 
-**Estado atual:** SPA demonstrativa AG-09 (rotas e jornadas A/B/C, AC, startup, regional). Catálogo AG-05 e seeds
-AG-06 embarcados. Motor/brief/cluster via **mocks tipados temporários** em `src/services/` (substituíveis pelo AG-07).
-Persistência AG-08: Composite (seeds + Supabase/unavailable); migration local em `supabase/migrations/`;
-`remoteSharingEnabled=false` até G1S — **sem projeto Supabase aplicado**. Ver `docs/AG08_SECURITY_G1S.md` e
-`docs/AG09_HANDOFF.md`.
+**Estado atual:** SPA demonstrativa com motor AG-07, UI AG-09 e repositórios AG-08. Catálogo AG-05 e seeds AG-06
+embarcados. Persistência: Composite (seeds + unavailable neste release); migration local em `supabase/migrations/`;
+`remoteSharingEnabled=false` — **sem Supabase no deploy**. Release estático AG-10:
+
+- **URL pública:** https://demanda-viva.pages.dev  
+- Relatório: `docs/QA_REPORT.md` · Deploy: `docs/DEPLOY_PAGES.md`
 
 ## Stack
 
@@ -79,42 +80,23 @@ Supabase configurado.
 
 ## Publicação no Cloudflare Pages
 
-O deploy ainda **não foi realizado**. Ele depende do acesso à conta Cloudflare (PEND-11) e é responsabilidade do AG-10.
+**Deploy AG-10 realizado (estático, sem Supabase):** https://demanda-viva.pages.dev  
 
-### Via integração Git (recomendado)
+Detalhes, re-deploy e contingência: `docs/DEPLOY_PAGES.md`. Evidências: `docs/QA_REPORT.md`.
 
-1. Cloudflare Dashboard → **Workers & Pages** → **Create** → **Pages** → **Connect to Git** → selecionar este repositório.
-2. Configuração de build:
-   - **Framework preset:** `None` (ou `React (Vite)`)
-   - **Build command:** `npm run build`
-   - **Build output directory:** `dist`
-   - **Root directory:** `/` (raiz do repositório)
-3. **Environment variables** (Production e Preview), somente se o Supabase estiver liberado após G1S:
-   `VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY`. Opcional: `NODE_VERSION=22` (já fixado em `.node-version`).
-4. Salvar e implantar. Alterar variáveis `VITE_*` exige **novo deploy**, porque elas são embutidas no build.
-
-### Via upload direto (Wrangler)
+### Via upload direto (Wrangler) — método usado
 
 ```bash
-npm run build
-npx wrangler pages deploy dist --project-name <nome-do-projeto>
+npm run check
+npx wrangler pages deploy dist --project-name demanda-viva --branch main
 ```
+
+**Não** configurar `VITE_SUPABASE_*` no Pages neste MVP. Opcional local: `NODE_VERSION=22` (já em `.node-version`).
 
 ### Rotas profundas (deep links)
 
-Não há `_redirects`. Sem `404.html` na raiz de `dist/`, o Pages trata o projeto como SPA e serve `index.html` para
-qualquer caminho que não seja arquivo, então `/ac/painel` pode ser recarregado. `npm run build` falha se
-`dist/404.html` aparecer.
-
-Teste local com o emulador do Pages:
-
-```bash
-npm run build
-npx wrangler pages dev dist --port 8788
-curl -s -o /dev/null -w "%{http_code}\n" http://127.0.0.1:8788/ac/painel   # 200
-```
-
-Após o deploy, o AG-10 deve validar o recarregamento de rota profunda na URL real, em janela anônima e no celular.
+Sem `404.html` na raiz de `dist/`, o Pages serve `index.html` para caminhos sem arquivo (`/ac/painel` recarrega).
+`npm run build` falha se `dist/404.html` aparecer. Validado na URL pública (HTTP 200).
 
 ## Documentação
 

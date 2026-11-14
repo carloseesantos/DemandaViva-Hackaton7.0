@@ -1,8 +1,7 @@
 /**
- * Serviços tipados para a UI.
- * matching/brief/cluster abaixo são TEMPORÁRIOS (AG-09) até handoff AG-07 —
- * substituir implementação sem alterar assinaturas exportadas.
+ * Serviços determinísticos AG-07 — API pública para a UI.
+ * Assinaturas estáveis: evaluateNeed, evaluateSolution, buildBrief, suggestClusters.
  */
 export { evaluateNeed, evaluateSolution } from './matchingService';
 export { buildBrief } from './briefService';
-export { suggestClusters } from './clusterService';
+export { suggestClusters, explainClusters } from './clusterService';

@@ -15,3 +15,6 @@ Thumbs.db
 npm-debug.log*
 .vscode/*
 !.vscode/extensions.json
+# Locais de ferramenta — não versionar
+.wrangler/
+.cursor/
