@@ -1,10 +1,87 @@
 ﻿# DEMANDA VIVA — AGENTS
 
 
+## CHECKPOINT DE AGENTES 1.5.0 — release emergencial
+
+
+**Fonte:** [commit 916b3d6](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/916b3d6ee715c67714930c356552f91523784d4a); [handoff AG-08](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/blob/main/docs/AG08_HANDOFF.md), [AG-09](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/blob/main/docs/AG09_HANDOFF.md); ZIP igual Git nos oito arquivos críticos, check 76/76 relatado.
+
+
+| Agente | Status atualizado | Fronteira para entrega |
+|---|---|---|
+| AG-01–06 | **Concluídos/aceitos conforme registros anteriores** | Contrato, marca, UX, catálogo, seeds e scaffold congelados. |
+| **AG-07** | **PRIORIDADE MÁXIMA / LIBERADO AGORA** | Substituir mocks tipados dos três serviços AG-09 preservando API, domínio e testes; nenhum SQL/UI lateral. Handoff e `npm run check` obrigatórios. |
+| **AG-08** | **CONCLUÍDO em código local; remoto BLOQUEADO (G1S)** | Migração restritiva, adapters e documentação entregues; não configurar projeto/abrir RPC ou policies públicas no prazo sem decisão e testes. |
+| **AG-09** | **CONCLUÍDO para demonstração local, INTEGRAÇÃO AG-07 PENDENTE** | SPA A/B/C e painéis navegáveis; serviços `src/services/*` temporários explicitamente substituíveis. |
+| **AG-10** | **LIBERADO PREPARO** (QA/deploy estático), **NÃO finalização** | Preparar Pages e QA em paralelo sem tocar em serviços enquanto AG-07 desenvolve; QA final após commit AG-07. |
+| **AG-11** | **LIBERADO roteiro/slides/gravação provisória** | Pitch honesto sobre dados sintéticos, sem Supabase sincronizado, sem validação real FACESP ou números de impacto. Inserir URL apenas após AG-10 verificar. |
+| AG-00 | PMO v1.5.0 | Não bloquear sprint para retificações de histórico; congelar escopo e atualizar gates conforme evidência. |
+
+
+**Dono de arquivos:** AG-07 exclusivamente `src/services` + testes; AG-10 `docs/QA_REPORT.md` e Cloudflare configuration/release; AG-11 documentos/slides de apresentação. Coordenação de Git obrigatória: jamais sobrescrever trabalho recente AG-08/09.
+
+
+
+
+
+
+## CHECKPOINT DOS AGENTES 1.4.0 — AG-06 concluído, AG-08/09 em execução — 14/11/2026
+
+
+
+
+**Fonte:** [commit main bd82bcb](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/bd82bcb1c3bf51d7ead8ae9fea97e683afd8e32a), [ZIP 426.152 bytes](https://drive.google.com/file/d/1OslrqHYazOEYfNrpl_o42f6HUvud5UMI/view), [AG06_HANDOFF.md](https://drive.google.com/file/d/1V9Yxe6Ta4NX-uzBKQhWiQzkoSAuhpghC/view). Conferidos seis hashes Git blob de arquivos AG-06 entre ZIP e Git. `bd82bcb` corrige exclusivamente teste de acesso a array opcional. O agente declara que não realizou QA de motor, Supabase ou deploy.
+
+
+
+
+| Agente | Estado operacional | Condição para seguimento |
+|---|---|---|
+| AG-00 | PMO ativo; checkpoint 1.4.0 | Registrar mudanças, não presumir execução pendente. |
+| AG-01 | Concluído, contrato G1 aprovado | `src/domain/types.ts` preservado. |
+| AG-02 | Concluído, scaffold aceito | Base versionada. |
+| AG-03 | Concluído, Ponte Viva selecionada | Identidade a aplicar e testar em UI. |
+| AG-04 | Concluído para integração UX | Handoff e `UX_FLOW.md` entregues. |
+| AG-05 | Concluído para catálogo e fixtures | Catálogo fictício 4 startups/5 soluções. |
+| **AG-06** | **CONCLUÍDO E ACEITO PARA CONSUMO** | 4 seeds/2 ACs; A/C apartados; D/E negativos em testes; 9 testes novos presentes. Falta confirmação de `npm run check` no HEAD. |
+| **AG-07** | **LIBERADO, AINDA NÃO EM EXECUÇÃO COMPROVADA** | Implementar motor após coordenar com AG-08/09; `referenceMatcher` é só oracle de testes. |
+| **AG-08** | **EM EXECUÇÃO informado pela equipe**, handoff pendente | Parecer G1S e repositórios, sem public INSERT/SELECT sem decisão e testes. |
+| **AG-09** | **EM EXECUÇÃO informado pela equipe**, handoff pendente | UI com mocks enquanto aguarda motor/segurança. |
+| AG-10 | Bloqueado para QA/release final | Integração AG-07/08/09 + G1S. |
+| AG-11 | Pitch provisório liberado | Final após AG-10. |
+
+
+
+
+**G2 base documental completa, validação técnica no HEAD ainda pendente. G1S aberto.** Não reportar AG-08/09 concluídos sem commits/handoff, testes e decisão de segurança. O estado anterior 1.3.0 abaixo deve ser lido como histórico.
+
+
+
+
+
+
+
+
+
+
+
+
 ## CHECKPOINT DE AGENTES 1.3.0 — AG-02/04/05 aceitos para integração — 14/11/2026
 
 
+
+
+
+
+
+
 **Verificação documental e técnica:** [commit 31481ad](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/31481ad9b1e25b44e0b03b225a4794c3ea1d416a), [ZIP main atualizado](https://drive.google.com/file/d/1OslrqHYazOEYfNrpl_o42f6HUvud5UMI/view) e capturas do `npm run check` (36 testes, ESLint, build e verificação SPA aprovados). Os hashes SHA Git de caminhos críticos no ZIP conferem com o commit. **Não houve CI independente, deploy nem teste remoto de banco.**
+
+
+
+
+
+
 
 
 | Agente | Estado atual (substitui snapshots antigos) | Dependência efetivamente liberada |
@@ -22,7 +99,31 @@
 | AG-11 | Pitch provisório liberado; final depende AG-10 | Não afirmar URL, uso real ou aprovação oficial. |
 
 
+
+
+
+
+
+
 **Git hygiene:** `.cursor/` e `.wrangler/` aparecem como untracked no status enviado pela equipe, sem arquivos rastreados modificados. Não commitar automaticamente. A `.gitignore` já está no repositório, mas não inclui os dois; equipe decide tratamento de `.cursor/`, e `.wrangler/` deve permanecer local.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -34,7 +135,31 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 **AG-02**: scaffold publicado em [main](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/ee7b426e816c8827755328587721ec21b7272f04) e handoff em [Drive](https://drive.google.com/file/d/1oIwvj_VI25w6I_QjzuV9x8NFMDXzdndp/view). Handoff afirma lint/31 testes/build e deep-link 200 no emulador; testes independentes não completados (Node local incompatível e cache npm offline insuficiente). Ausentes do Git/ZIP apesar do handoff: `.env.example`, `.gitignore`, `.node-version`; AG-02 deve publicar correção. **Estado: entrega documental e commit verificados; aceite técnico condicionado à correção.**
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -44,7 +169,55 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 **Liberação de trabalho:** AG-06 planejamento (fixação após AG-05 aceito); AG-08 desenho de G1S (sem acesso público); AG-11 pitch provisório. AG-09 somente após UX AG-04 verificada (com mocks); AG-07 após AG-06; AG-10 após AG-07/08/09. **G2 parcial, G1S crítico pendente.** Dados remotos, testes Cloudflare públicos e P0 continuam não evidenciados. O quadro abaixo é histórico da baseline anterior.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -66,6 +239,30 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## CHECKPOINT AGENTES — 14/11/2026 — v1.1.0
 
 
@@ -75,7 +272,55 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Aprovações informadas pela equipe:** contrato [DATA_MODEL.md v1.0.0](https://drive.google.com/file/d/1vNF2QbKs30x9aNeGqGpCz-txru4OxnaQ/view) do AG-01 **aprovado**; direção 01 Ponte Viva do AG-03 **selecionada**, conforme [BRAND_SYSTEM.md](https://drive.google.com/file/d/1TYfIBbUIDPgJfAGFDYDKuGduzYxSJJaJ/view) e [pacote visual](https://drive.google.com/drive/folders/1xy3wChZPRtt7XYr2YZRauVE3IVwOjRUs). Não há validação de código, SQL, deploy ou SPA integrada.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -104,6 +349,30 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Nota de leitura:** a matriz de estados da baseline 1.0.0 abaixo permanece como referência histórica de responsabilidades e ownership. Qualquer rótulo 'bloqueado por AG-01' nela foi superado por G1; as outras dependências continuam válidas. Não editar arquivos de outro agente sem acordo; o AG-00 não altera o material-fonte entregue pelo AG-01 ou AG-03 retroativamente.
 
 
@@ -113,7 +382,55 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 1\. Governança e hierarquia
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -134,6 +451,30 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Invariantes compartilhadas:** React/TS/Vite \+ Cloudflare Pages; seeds e catálogo fictícios locais; somente novas demandas qualificadas remotas via Supabase; filtros antes do score; cenário A \= 90/100 calculado e cenário B inelegível sem score; resultado C distinto; dados exclusivamente sintéticos; troca de perfil ≠ autenticação; nenhuma geração automática de software; handoff sempre baseado em evidências; ADR-002 prevalece sobre ADR-001 somente para persistência.
 
 
@@ -143,7 +484,55 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 2\. Matriz de agentes, limites e entregas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -174,7 +563,55 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Propriedade de arquivos:** a matriz acima define donos primários; colaboração deve ocorrer via contrato, mock tipado e HANDOFF. Alterar arquivo de outro agente exige acordo explícito de escopo e registro em `DECISIONS.md` quando afetar regra ou arquitetura.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -192,7 +629,55 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Rodada 1 (imediata):** AG-00 consolida governança; **AG-01** elabora contrato; **AG-03** elabora identidade. AG-04 e AG-11 podem produzir **propostas conceituais não finais**, desde que ressaltem campos/links pendentes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -210,7 +695,55 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Rodada 2 (depois do gate):** AG-02 (scaffold), AG-04 (UX definitiva), AG-05 (catálogo) e AG-06 (seeds) trabalham em paralelo; 05/06 alinham IDs e casos A/B/C; AG-08 pode antecipar **desenho de segurança** com AG-01, mas não libera endpoint público até decisão testada.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -228,6 +761,30 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Rodada 4:** AG-10 executa QA fim a fim e deploy, com handoff de 07/08/09; AG-11 finaliza pitch apenas depois das evidências de QA e do URL comprovado. O PMO controla a liberação dos gates de integração.
 
 
@@ -237,7 +794,55 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 4\. Contratos entre agentes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -262,7 +867,55 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 5\. Handoff, qualidade e impedimentos
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -280,6 +933,30 @@ Todo agente deve entregar o formulário de `HANDOFF_AND_RISKS.md` com: estado re
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Nenhuma etapa é “concluída” por uma intenção ou entrega parcial sem evidência. **Bloqueios estruturais atuais:** contrato AG-01 não aprovado; repositório de código não confirmado; política de INSERT/SELECT público \+ proteção antiabuso Supabase não deliberada; projeto Supabase e deploy não comprovados. Registros detalhados em `DECISIONS.md`, `TASKS.md` e `HANDOFF_AND_RISKS.md`.
 
 
@@ -289,7 +966,55 @@ Nenhuma etapa é “concluída” por uma intenção ou entrega parcial sem evid
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 6\. Fontes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

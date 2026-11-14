@@ -1,16 +1,114 @@
 ﻿# DEMANDA VIVA — PROMPTS OPERACIONAIS
 
 
+## CHECKPOINT DE EXECUÇÃO 1.5.0 — fechamento às 21h
+
+
+**Fonte verificada:** [commit main 916b3d6](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/916b3d6ee715c67714930c356552f91523784d4a), [handoff AG-08](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/blob/main/docs/AG08_HANDOFF.md) e [AG-09](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/blob/main/docs/AG09_HANDOFF.md), 8 hashes ZIP/Git coincidentes. Handoffs reportam **76 testes, lint/build OK**. **Os 12 prompts integrais abaixo permanecem preservados.** A instrução de curta duração complementa-os, sem substituir o escopo aprovado ou abrir G1S.
+
+
+**AG-07 — EXECUTAR AGORA:** no Cursor, ler o prompt AG-07 abaixo e inspecionar `src/services/matchingService.ts`, `briefService.ts` e `clusterService.ts` (mocks temporários AG-09). Substituir o miolo por funções determinísticas canônicas **mantendo exports `evaluateNeed`, `evaluateSolution`, `buildBrief`, `suggestClusters` e tipos**, sem UI/SQL. Gates antes de score, cenários A=90 calculado, B sem ERP sem score, C incompleto, D falso cluster, E cópia R$299 apenas teste; custo unknown/curadoria vencida; testes de independência de ordem. `npm run check`, commit e `docs/AG07_HANDOFF.md`.
+
+
+**AG-10 — PREPARO EM PARALELO:** configurar Cloudflare Pages como SPA estática (`npm run build`, `dist`) **sem configurar env Supabase**; não alterar serviços do AG-07 enquanto trabalha; screenshots, QA mobile, teclado, refresh de deep links, HTTPS, ausência de segredos. Registrar `docs/QA_REPORT.md`. QA final após commit AG-07. G1S/CT-10/CT-12 devem constar **não executados**, e nunca abrir INSERT/SELECT público para cumprir prazo.
+
+
+**AG-11 — PRODUÇÃO EM PARALELO:** slides e fala de 3 minutos usando B sem match → briefing/cluster → chamada simulada → A 90 calculado → visão regional e limite de persistência. Sem logos FACESP não autorizados, tração nem startup real. Inserir URL apenas se AG-10 provar acesso; plano B gravar SPA local.
+
+
+**Ponto de decisão da equipe:** recomendação PMO de entrega local-only devido ao G1S pendente; autorização deve ser explícita. **G2 local fechado, G3 canônico faltante, G4 UX local com mocks, G5/6 pendentes.**
+
+
+
+
+
+
+## CHECKPOINT AG-00 1.4.0 — AG-06 entregue, AG-08/09 em execução — 14/11/2026
+
+
+
+
+**Fonte da atualização:** [commit AG-06 89c6265](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/89c626593ff7ec6a5b90b7bdf59f0baf1977ef39), [correção bd82bcb](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/bd82bcb1c3bf51d7ead8ae9fea97e683afd8e32a), [handoff AG-06](https://drive.google.com/file/d/1V9Yxe6Ta4NX-uzBKQhWiQzkoSAuhpghC/view), ZIP atualizado e hashes Git de seis arquivos. **Os blocos literais dos 12 prompts abaixo não foram editados**; somente este checkpoint operacional documenta o estado atual e a ordem segura de disparo.
+
+
+
+
+**AG-06:** **CONCLUÍDO e aceito para consumo** por AG-07/09, com quatro seeds B/duas ACs, cenários A/C apartados, negativos D/E somente teste e 9 testes AG-06 de referência. **AG-07:** **LIBERADO TECNICAMENTE**, mas confirmar coordenação de branch/arquivos com AG-08/09 que estão em execução antes do disparo; usar os insumos do AG-06, não substituir o motor pelo referenceMatcher. **AG-08 e AG-09:** **EM EXECUÇÃO NO CURSOR**, conforme informado pela equipe, ainda sem handoff/aceite. **AG-10:** aguardando os três. **AG-11:** pitch provisório permitido.
+
+
+
+
+**Gates:** G1 aprovado; G2 base entregue, encerramento técnico dependente de `npm run check` no HEAD; **G1S NÃO aprovado** (nenhum endpoint público até RLS/GRANTs, antiabuso e SELECT seguros aprovados e testados). G3–G6 não concluídos. O teste E reprova apenas variante R$ 299, não o EstoquePonte de R$ 199 do catálogo. Não confundir bundle de demonstração com dados/validação reais FACESP. Consulte [TASKS.md v1.4.0](https://drive.google.com/file/d/1s3xc0zGIVN5JMOAwSD-mSh9rUAWV5xIt/view) antes de executar prompts históricos.
+
+
+
+
+
+
+
+
+
+
+
+
 ## CHECKPOINT AG-00 1.3.0 — agentes para a Rodada 3 (14/11/2026)
+
+
+
+
+
+
 
 
 **Fonte das liberações:** [commit Git main 31481ad](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/31481ad9b1e25b44e0b03b225a4794c3ea1d416a), [ZIP main atualizado no Drive](https://drive.google.com/file/d/1OslrqHYazOEYfNrpl_o42f6HUvud5UMI/view), capturas do `npm run check` com 36 testes, lint/build/verify OK. Os 12 **prompts literais preservam o conteúdo de sua origem**; este checkpoint altera apenas status/gates e instruções para os próximos disparos.
 
 
+
+
+
+
+
+
 **AG-02/04/05**: entrega documentada e versionada, aceita operacionalmente pela PMO para consumo, sem implementação final de UI/motor/banco. **AG-06 LIBERADO** para quatro seeds B, 2 ACs e cenários A–E; **AG-09 LIBERADO** para telas React com mocks tipados conforme `UX_FLOW.md`/Ponte Viva, sem prometer integração real; **AG-08 LIBERADO** para parecer G1S (e implementação local segura, nunca INSERT/SELECT público sem decisão/testes); **AG-11** segue pitch provisório. **AG-07 aguarda AG-06** e **AG-10 aguarda AG-07/08/09**. **G2 parcial; G1S crítico aberto.** O novo código e catálogo não podem redefinir `src/domain/types.ts` aprovado pelo AG-01.
 
 
+
+
+
+
+
+
 **Atenção aos prompts históricos:** antes de copiar qualquer bloco antigo, consultar o status neste checkpoint e em [TASKS.md](https://drive.google.com/file/d/1s3xc0zGIVN5JMOAwSD-mSh9rUAWV5xIt/view) v1.3.0. O AG-05 entregou cinco testes de referência, **não o motor de produção AG-07**. Nenhuma URL Cloudflare, migração Supabase ou comportamento multi-navegador foi homologado.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -30,7 +128,55 @@
 
 
 
-**Versão:** 1.3.0 • **Data de compilação:** 14/11/2026 • **Custódia:** AG-00 (PMO).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**Versão:** 1.5.0 • **Data de compilação:** 14/11/2026 • **Custódia:** AG-00 (PMO).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -48,7 +194,43 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## CHECKPOINT AG-00 — 14/11/2026 — Versão operacional 1.1.0
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -58,7 +240,31 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 **Situação de disparo:** AG-01 e AG-03 concluídos (entregas documentais; não reexecutar sem proposta de alteração). **AG-02, AG-04 e AG-05 liberados agora**; AG-06 só gera fixtures finais após o catálogo AG-05; AG-08 pode apresentar proposta G1S, mas não abrir INSERT/SELECT público; AG-11 pode preparar pitch provisório. AG-07/09/10 seguem gates da execução.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -68,12 +274,60 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 **Fonte atual de gates e decisões:** [TASKS.md v1.1.0](https://drive.google.com/file/d/1s3xc0zGIVN5JMOAwSD-mSh9rUAWV5xIt/view) e [DECISIONS.md v1.1.0](https://drive.google.com/file/d/1LhMt8Eiv5jj1t1jV5emdSywNGDHA2fU6/view). Nenhuma funcionalidade/deploy foi dada como pronta.
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 ## Como usar
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -95,7 +349,55 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Regras gerais de precedência
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -118,7 +420,55 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Referências:** [PROJECT_CONTEXT.md](https://drive.google.com/file/d/1nQz6Z9IkjyoHBB-IEhzUE85rdHkcuZ7l/view) · [AGENTS.md](https://drive.google.com/file/d/1vFwjBEv9JNfGD32RsnAeZdctN0NFfJQB/view) · [BACKLOG.md](https://drive.google.com/file/d/1zejeVTXJAxg8tMEUd6tQi_cGAHsPbvim/view) · [TASKS.md](https://drive.google.com/file/d/1s3xc0zGIVN5JMOAwSD-mSh9rUAWV5xIt/view) · [DECISIONS.md](https://drive.google.com/file/d/1LhMt8Eiv5jj1t1jV5emdSywNGDHA2fU6/view) · [HANDOFF_AND_RISKS.md](https://drive.google.com/file/d/1tJeAmzEt5p8JE2doPyLXLBjKqX5emkZP/view)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -136,6 +486,30 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 | ID | Escopo | Ambiente | Liberação / dependência |
 |---|---|---|---|
 | AG-00 | PMO e coordenação | ChatGPT | início |
@@ -144,12 +518,36 @@
 | AG-03 | Identidade visual | ChatGPT | **Concluído; opção 01 aprovada** |
 | AG-04 | UX e jornada guiada | ChatGPT | **Concluído documentalmente; UX_FLOW integrado** |
 | AG-05 | Catálogo sintético | ChatGPT | **Concluído e integrado; quatro startups/cinco soluções** |
-| AG-06 | Demanda sintética e casos | ChatGPT | **LIBERADO para fixtures definitivas A–E, quatro seeds B** |
-| AG-07 | Matching, briefing e clustering | Cursor | AG-01,02,05,06 |
-| AG-08 | Supabase, persistência e segurança | Cursor | Parecer G1S liberado; remota pública bloqueada até decisão e AG-02 |
-| AG-09 | Frontend e integração | Cursor | **LIBERADO para UI com mocks; integração após AG-07/08** |
-| AG-10 | QA, release e deploy | Cursor | AG-07,08,09 |
-| AG-11 | Pitch e demonstração | ChatGPT | provisório agora; definitivo após AG-10 |
+| AG-06 | Demanda sintética e casos | ChatGPT | **CONCLUÍDO; handoff e fixtures Git bd82bcb** |
+| AG-07 | Matching, briefing e clustering | Cursor | **PRIORIDADE MÁXIMA: executar motor definitivo já** |
+| AG-08 | Supabase, persistência e segurança | Cursor | **CÓDIGO LOCAL entregue, G1S/remoto pendente** |
+| AG-09 | Frontend e integração | Cursor | **SPA LOCAL entregue, mocks pendem AG-07** |
+| AG-10 | QA, release e deploy | Cursor | **PREPARO Pages estático em paralelo; QA final após AG-07** |
+| AG-11 | Pitch e demonstração | ChatGPT | **SLIDES/GRAVAÇÃO em paralelo, URL após AG-10** |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -167,7 +565,55 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### AG-00 — PMO / Orquestração — ChatGPT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -192,7 +638,55 @@ SAÍDA FINAL: versão proposta dos arquivos/documentos, status, pendências, don
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### AG-01 — Arquiteto de dados e contratos — ChatGPT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -217,7 +711,55 @@ CRITÉRIOS: AG-05, AG-06, AG-07, AG-08 e AG-09 devem conseguir trabalhar com os 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### AG-02 — Arquiteto técnico e bootstrap — Cursor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -242,7 +784,55 @@ ACEITE: SPA inicia e gera build sem Supabase; rota profunda pode ser recarregada
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### AG-03 — Identidade visual e design system — ChatGPT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -267,7 +857,55 @@ NÃO use logo oficial FACESP sem autorização, não prometa registro de marca e
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### AG-04 — UX, conversa guiada e blueprint — ChatGPT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -292,7 +930,55 @@ Não confunda ‘sem match elegível no catálogo’ com inexistência de soluç
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### AG-05 — Catálogo sintético de startups e soluções — ChatGPT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -317,7 +1003,55 @@ CRITÉRIO: cenários A/B/C devem funcionar com algoritmo real, sem scores pré-e
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### AG-06 — Gerador de demandas e cenários — ChatGPT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -342,7 +1076,55 @@ Todo dado deve ser sintético, com identificação de demonstração. Handoff pa
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### AG-07 — Motor de matching, briefing e agrupamento — Cursor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -367,7 +1149,55 @@ ENTREGAS: src/domain/ e src/services/ com código TS limpo, testes automatizados
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### AG-08 — Supabase, persistência e segurança — Cursor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -392,7 +1222,55 @@ TESTE: gravação com confirmação remota; leitura em outra sessão; RLS e rest
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### AG-09 — Frontend e integração das jornadas — Cursor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -417,7 +1295,55 @@ ENTREGAS: código em src/pages, src/features, src/components e src/styles, teste
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### AG-10 — QA, integração, release e hospedagem — Cursor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -442,7 +1368,55 @@ ENTREGA: release candidato com versão/tag sugerida, evidências de smoke tests 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### AG-11 — Pitch, demo e banca — ChatGPT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -467,7 +1441,55 @@ HANDOFF: assets necessários do AG-03, telas definitivas do AG-09, URL comprovad
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Protocolo de encerramento e manutenção
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -485,7 +1507,55 @@ Ao concluir, use obrigatoriamente o [protocolo HANDOFF e registro de riscos](htt
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### Controle de mudanças
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -505,7 +1575,55 @@ Ao concluir, use obrigatoriamente o [protocolo HANDOFF e registro de riscos](htt
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### Changelog
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -519,3 +1637,5 @@ Ao concluir, use obrigatoriamente o [protocolo HANDOFF e registro de riscos](htt
 | 1.0.0 | 14/11/2026 | Centralização dos 12 prompts integrais do documento 07, com índice, precedência, referências, protocolo de uso e versionamento. | Consolidação documental AG-00; sem alterar decisões nem os textos originais. |
 | 1.1.0 | 14/11/2026 | Atualização dos gates e das fontes AG-01/03 aprovadas; **sem qualquer alteração no texto dos 12 prompts individuais**. | Aprovações informadas ao AG-00; G1S continua pendente. |
 | 1.3.0 | 14/11/2026 | AG-02/04/05 publicados na main e validados por check local 36/36; AG-06/09 liberados, AG-08 G1S; **prompts originais preservados**. | Registro operacional PMO; G2 parcial, G1S pendente. |
+| 1.4.0 | 14/11/2026 | AG-06 entregue; AG-07 liberado; AG-08/09 em execução; 12 prompts originais preservados. | PMO, G2 check pendente e G1S bloqueado. |
+| 1.5.0 | 14/11/2026 | AG-08/09 entregues; G1S pendente; prioridade AG-07/10/11; prompts literais preservados. | Registro PMO; release local-only exige decisão da equipe. |

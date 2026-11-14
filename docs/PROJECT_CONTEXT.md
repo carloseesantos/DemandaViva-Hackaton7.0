@@ -1,13 +1,84 @@
 ﻿# DEMANDA VIVA — PROJECT_CONTEXT
 
 
+## CHECKPOINT OPERACIONAL 1.5.0 — MVP demonstrável com limite remoto
+
+
+[Commit 916b3d6](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/916b3d6ee715c67714930c356552f91523784d4a) inclui AG-08 e AG-09. Comparação de oito Git blobs críticos com [ZIP main do Drive](https://drive.google.com/file/d/1OslrqHYazOEYfNrpl_o42f6HUvud5UMI/view): todos coincidem. [AG08_HANDOFF.md](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/blob/main/docs/AG08_HANDOFF.md) confirma migration local, repository adapters e security assessment, **sem projeto/migration Supabase real**; G1S pendente, `remoteSharingEnabled=false`. [AG09_HANDOFF.md](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/blob/main/docs/AG09_HANDOFF.md) confirma SPA navegável A/B/C, 5 etapas, AC, startup, regional e estados de rede honestos. Handoffs reportam **76 testes, lint e build OK**, sem repetição independente pelo PMO. Serviços `src/services/{matchingService,briefService,clusterService}.ts` são temporários e AG-07 deve substituí-los mantendo exports.
+
+
+**Sob prazo final de entrega às 21h informado pela equipe:** AG-07 é caminho crítico; AG-10 pode iniciar QA/deploy estático sem configuração Supabase em paralelo; AG-11 pode produzir pitch/gravação e atualizar URL após AG-10. **Release local-only** é recomendação de contingência para aprovação da equipe, não evidência de que requisitos de sincronização foram cumpridos. G2 fechado para baseline local; G3/G4 dependem AG-07; G1S/CT-10/CT-12 remotos não aprovados; G5/G6 aguardam QA e Pages HTTPS. Nunca afirmar integração remota, aprovação FACESP ou software gerado automaticamente.
+
+
+
+
+
+
+## CHECKPOINT OPERACIONAL 1.4.0 — AG-06 no Git/Drive; AG-08 e AG-09 em execução (14/11/2026)
+
+
+
+
+**Evidência:** [commit 89c6265 AG-06](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/89c626593ff7ec6a5b90b7bdf59f0baf1977ef39) + [correção de teste bd82bcb](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/bd82bcb1c3bf51d7ead8ae9fea97e683afd8e32a), [ZIP main no Drive](https://drive.google.com/file/d/1OslrqHYazOEYfNrpl_o42f6HUvud5UMI/view) e [AG06_HANDOFF.md](https://drive.google.com/file/d/1V9Yxe6Ta4NX-uzBKQhWiQzkoSAuhpghC/view). Conferência de ZIP contra o Git em 6 blobs críticos confirma sincronismo de código AG-06.
+
+
+
+
+**Dados locais agora materializados:** `src/data/seed-demands.ts` com exatamente **quatro QualifiedNeed** fictícias, estáveis, sem ERP X, distribuídas por **AC Alfa e AC Beta**; `associations.ts`, `registries.ts`, `scenarios/demo-scenarios.ts` com A ERP X e C incompleto fora do painel, e cenários negativos D/E restritos a testes. A métrica ilustrativa é confirmação 7→2 minutos; o bucket inicial comum é **apenas candidato a cluster**, sem homologação de similaridade ou chamada. No catálogo AG-05 EstoquePonte mantém preço demonstrativo R$ 199; o caso E a R$ 299 altera somente uma cópia para teste.
+
+
+
+
+**Estado de implementação:** AG-06 aceito para consumo; AG-08 (Supabase/segurança) e AG-09 (UI) estão **em execução no Cursor segundo a equipe**, ainda sem entrega/handoff auditado. AG-07 está liberado tecnicamente para iniciar a partir das fixtures AG-06, coordenando edições com os executores paralelos. **G2 tem componentes documentais presentes, aguardando `npm run check` no HEAD bd82bcb para encerramento técnico. G1S continua crítico e pendente; G3–G6 não evidenciados.** Não afirmar serviço remoto, cluster final, aprovação AC real ou deploy Cloudflare. Checkpoints anteriores são históricos.
+
+
+
+
+
+
+
+
+
+
+
+
 ## CHECKPOINT DE PRODUTO 1.3.0 — snapshot validado em 14/11/2026
+
+
+
+
+
+
 
 
 [Main Git commit 31481ad](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/31481ad9b1e25b44e0b03b225a4794c3ea1d416a) e [ZIP principal do Drive](https://drive.google.com/file/d/1OslrqHYazOEYfNrpl_o42f6HUvud5UMI/view) conferidos nos arquivos críticos por hash Git. **AG-02**: scaffold e configurações versionados. **AG-04**: UX_FLOW.md e handoff versionados com oito templates, 22 perguntas e fluxos A/B/C. **AG-05**: catálogo sintético local com 4 startups/5 soluções, 5 casos de referência; pacote no Git. Capturas do executor mostram `npm run check` com 36 testes aprovados, lint/build/verify OK. Não são testes realizados independentemente pelo PMO.
 
 
+
+
+
+
+
+
 **Próximos agentes:** AG-06 liberado para criar quatro seeds B sem ERP, duas ACs, caso A ERP X separado e contraprovas; AG-09 liberado para frontend com mocks tipados; AG-08 liberado para concepção de G1S e integração local segura, sem abrir banco ao público; AG-07 só após handoff AG-06. **G2 parcial até AG-06; G1S segue crítico, G3–G6 ainda não concluídos.** O ZIP não contém `src/data/seed-demands.ts` nem `registries.ts`. Não há projeto Supabase testado, URL Cloudflare verificada, fluxo fim a fim integrado nem regras FACESP oficiais aprovadas. Estados anteriores em 1.2.0 são históricos.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -19,12 +90,72 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 **Fonte auditada:** branch `main` no commit [ee7b426](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/ee7b426e816c8827755328587721ec21b7272f04) e ZIP/handoff do AG-02 [nesta pasta](https://drive.google.com/drive/folders/11CWoPsdT2MmPBx_zA2qN4SRabXdcpYB0). Agora existe scaffold React 19/TS/Vite 8, rotas placeholders, `docs/ARCHITECTURE.md`, tokens Ponte Viva, tipos AG-01, DI e repositório que falha fechado sem Supabase. Handoff do AG-02 reporta lint + 31 testes + build e seis deep-links 200 no Wrangler local, sem deploy público. Arquivos de setup `.env.example`, `.gitignore`, `.node-version` citados no handoff **não constam do snapshot versionado**: corrigir antes do G2 completo. Os testes relatados não foram reproduzidos pelo PMO: Node de auditoria 22.16.0 está abaixo do mínimo 22.22.0 e faltam pacotes no cache npm offline.
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 **AG-04 e AG-05:** execução declarada pelo usuário em chats, mas **UX_FLOW.md e catálogo TS não se encontram na árvore Git auditada**. O contrato G1 continua aprovado; a Ponte Viva continua aprovada; **G2 é PARCIAL** até receber/publicar e validar AG-04/05/06. O catálogo, motor, Supabase, telas definitivas e deploy não devem ser descritos como existentes. Status de agentes/gates no `TASKS.md` v1.2.0 prevalece sobre a baseline anterior.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -47,7 +178,55 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## CHECKPOINT DE PRODUTO — AG-00 v1.1.0 — 14/11/2026
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -65,7 +244,55 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Contrato G1 (v1) para próximos agentes:** QualifiedNeed final confirmada e tipada; NeedDraft/entrevista apenas local; somente novas fichas qualificadas sintéticas no Supabase, tabela proposta public.demo_demands (schema_version=1). Quatro seeds B de duas ACs fictícias, sem ERP e com IDs estáveis; cenário A com ERP X é fixture de teste SEPARADA; cenário C incompleto não é persistido. Enums/códigos, requisitos, `hasErp/erpCode`, métrica, serialização, status de gates/score, IDs, dedupe e cluster devem ser consumidos do DATA_MODEL, sem reinvenção. Supabase não salva histórico de balões, Brief, MatchResult, cluster, aprovação ou chamada no P0.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -83,7 +310,55 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Situação operacional:** AG-01/03 concluídos documentalmente e aprovados nos respectivos gates. AG-02/04/05 liberados para começar; AG-06 pode preparar cenários mas finalizar somente após catálogo AG-05; AG-08 pode projetar segurança G1S sem abrir banco público; AG-11 pode redigir pitch provisório. AG-07/09/10 dependem de handoffs posteriores. G1S (Auth Anonymous, projeção cross-browser/SELECT e antiabuso), repositório, SQL aplicado, testes e deploy NÃO estão comprovados. Consultar TASKS.md/DECISIONS.md v1.1.0 para status atual.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -101,7 +376,55 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **DEMANDA VIVA** é uma plataforma demonstrativa de inovação aberta que transforma dores do pequeno varejo em **recomendações tecnológicas justificáveis** ou **oportunidades qualificadas para startups**. O ativo principal é a demanda, que permanece útil mesmo quando nenhuma solução do catálogo consultado se mostra elegível. Assinatura recomendada: **“Necessidades que viram oportunidades.”** A marca foi aprovada internamente (DEC-BRAND-001); a assinatura continua recomendação de comunicação. A palavra **DEMANDA** prevalece visualmente sobre **VIVA**.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -119,7 +442,55 @@ A plataforma **não desenvolve software automaticamente**, não certifica a exis
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 2. Públicos e direitos de decisão
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -142,7 +513,55 @@ A plataforma **não desenvolve software automaticamente**, não certifica a exis
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 3. Três resultados obrigatórios
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -160,7 +579,55 @@ A plataforma **não desenvolve software automaticamente**, não certifica a exis
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **B — Sem match elegível no catálogo:** pelo menos uma condição obrigatória de cada candidata é reprovada (ou não há candidata recomendável); registrar motivos, produzir **minuta de briefing técnico**, comparar demandas por problema/processo/restrições e oferecer à AC **revisão humana simulada** de cluster e chamada. **Cenário de referência:** loja fictícia com WhatsApp e planilha, sem ERP X; EstoquePonte exige ERP X e, portanto, é **inelegível sem score**. Texto permitido: “Não identificamos uma solução elegível no catálogo consultado, considerando as restrições informadas.”
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -178,7 +645,55 @@ A plataforma **não desenvolve software automaticamente**, não certifica a exis
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 4. Qualificação e compatibilidade
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -200,7 +715,55 @@ A plataforma **não desenvolve software automaticamente**, não certifica a exis
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 5. Arquitetura vigente para este MVP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -218,7 +781,55 @@ A plataforma **não desenvolve software automaticamente**, não certifica a exis
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Dados locais e estáticos no frontend:** catálogo de startups/soluções **fictícias** (e evidências explicitamente simuladas); pesos, filtros, templates e regras; **quatro demandas seed fictícias de duas ACs**; exemplos de cluster, chamada e resposta. Rascunho de entrevista pode ficar em estado React ou em `localStorage` versionado, sempre identificado como local.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -236,7 +847,55 @@ A plataforma **não desenvolve software automaticamente**, não certifica a exis
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Repositórios recomendados:** `DemandRepository { save, list, get }`, com adaptadores de seeds estáticas, remoto Supabase e agregação/deduplicação. AG-01 fixa interfaces e mapeamento; AG-02 prepara a infraestrutura; AG-08 implementa acesso/segurança. A ADR-002 **prevalece sobre a ADR-001 apenas na persistência**; decisões de hospedagem e SPA permanecem.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -254,7 +913,55 @@ A plataforma **não desenvolve software automaticamente**, não certifica a exis
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Falhas:** se Supabase não responder, a SPA continua com catálogo e seeds; mostrar “Modo offline: novas demandas não serão compartilhadas entre navegadores”, distinguindo `rascunho local`, `aguardando sincronização`, `salvando`, `sincronizado` e `falha`. Apenas resposta remota bem-sucedida justifica “salvo na nuvem”. “Reiniciar demonstração” limpa estado local; nunca elimina demandas remotas silenciosamente.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -272,7 +979,55 @@ A plataforma **não desenvolve software automaticamente**, não certifica a exis
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **P0 (necessário à banca):** perspectiva e aviso de simulação; entrevista e confirmação; resultados A/B/C; gates e score explicável; briefing técnico; 4 seeds/2 ACs; similaridade revisável e chamada/resposta simuladas; inserção remota de demanda qualificada; leitura em outro navegador com contador verdadeiro; integridade e segurança de acesso; fallback honesto; testes e URL Cloudflare Pages **verificada** por AG-10. A jornada principal deve caber em **2–3 minutos** de demonstração guiada.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -290,6 +1045,30 @@ A plataforma **não desenvolve software automaticamente**, não certifica a exis
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Fora de escopo:** geração autônoma de software, banco de startups real, dados pessoais, pagamentos/contratos, implantação real, verificação oficial FACESP, aprovação humana efetiva por meio do seletor de tela.
 
 
@@ -299,7 +1078,55 @@ A plataforma **não desenvolve software automaticamente**, não certifica a exis
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 7. Qualidade e definição de pronto
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -323,7 +1150,55 @@ A plataforma **não desenvolve software automaticamente**, não certifica a exis
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 8. Estado inicial observado em 14/11/2026
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -341,7 +1216,55 @@ Fontes de produto e plano de agentes existem no Drive e fundamentam esta baselin
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 9. Fontes canônicas e precedência
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -358,6 +1281,30 @@ Fontes de produto e plano de agentes existem no Drive e fundamentam esta baselin
 - [05 — ADR-001](https://docs.google.com/document/d/1Zfa-k_rH_BYU6NCjXweql12Pkztk_lpYCRksqlBIF28/edit)
 - [06 — ADR-002](https://docs.google.com/document/d/1vO34lMSNB95qUw5cjZLHje2WDyHb9XMkOaLNl1ZS0jM/edit)
 - [07 — Plano de agentes e prompts operacionais](https://docs.google.com/document/d/1v9DjGvdYMEfphBo36xzvCPIGYN1AFp47QjCACCF1pbY/edit)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

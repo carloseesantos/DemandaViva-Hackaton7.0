@@ -1,16 +1,96 @@
 ﻿# DEMANDA VIVA — BACKLOG P0/P1
 
 
+## CHECKPOINT BACKLOG 1.5.0 — priorização de release
+
+
+**Evidência:** [Git 916b3d6](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/916b3d6ee715c67714930c356552f91523784d4a), handoffs [AG08](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/blob/main/docs/AG08_HANDOFF.md) e [AG09](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/blob/main/docs/AG09_HANDOFF.md), 8 hashes ZIP/Git coerentes, `npm run check` 76/76 relatado. **UI AG-09 disponível para smoke**: histórias de navegação e relato A/B/C, painel AC, simulação startup/regional implementadas em código; **aceite de UX em navegador e motor canônico AG-07 ainda pendentes**. Catalogo/seeds continuaram locais e sintéticos.
+
+
+**P0 focal para gravação:** US-01/02/03/04/05/06/07/08/09/13/14 demonstráveis no modo local **após motor AG-07 e QA**; mostrar A=90 calculado, B sem score e briefing, C dados insuficientes, cluster revisável e chamadas simuladas. **US-10/11/12** não concluídas: Supabase remoto sem migration aplicada, antiabuso/RPC não aprovado e sem CT-10/12. **US-15** só após URL Cloudflare verificada; se publicar offline, registrar release demo estático com limitação explícita, não homologação da história de sincronização. **US-16** pitch/gravação paralelo AG-11, sem alegações não comprovadas.
+
+
+**P1 e otimizações como code-split ~633 kB:** adiar salvo falha técnica crítica. **Ordem:** AG-07 motor → integração/reteste → AG-10 QA/Pages → AG-11 material final; preparar deploy e pitch em paralelo para não perder o prazo. G2 fechado para baseline local; G1S aberto; G3/G4/G5/G6 condicionados.
+
+
+
+
+
+
+## CHECKPOINT DO BACKLOG 1.4.0 — fixtures AG-06 materializadas; serviços/integração pendentes (14/11/2026)
+
+
+
+
+[AG-06 commit 89c6265](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/89c626593ff7ec6a5b90b7bdf59f0baf1977ef39) e [fix bd82bcb](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/bd82bcb1c3bf51d7ead8ae9fea97e683afd8e32a) incorporam `src/data/seed-demands.ts`, ACs, templates, A/C, testes D/E e **9 testes AG-06** versionados; fonte adicional [handoff AG06](https://drive.google.com/file/d/1V9Yxe6Ta4NX-uzBKQhWiQzkoSAuhpghC/view). ZIP do Drive coincide com Git nos seis arquivos verificados. O `npm run check` no commit final não foi fornecido; QA do motor AG-07 não ocorreu.
+
+
+
+
+**US-08 — parcial/fixtures concluídas:** quatro IDs sintéticos/duas ACs/um bucket candidato foram modelados. **Matching semântico de segundo estágio, conflitos de clustering, revisão humana simulada e componente de painel NÃO estão implementados pelo AG-06**; continuam com AG-07/09. **US-05/06/07** continuam pendentes do motor real AG-07; os testes existentes avaliam executor de referência AG-05, não o runtime de produção. **US-03** possui fixture C, não UX navegável validada. **US-10/11/12/13** seguem bloqueadas para operação remota pelo G1S/AG-08. **US-01/02/09/14** em desenvolvimento relatado AG-09, sem aceite de UI. **US-15/16** não concluídas.
+
+
+
+
+**Dependências atualizadas:** AG-07 **liberado tecnicamente** para motor após AG-06; AG-08 e AG-09 **em execução no Cursor** segundo equipe, handoffs pendentes; AG-10 aguardará integrações/testes G1S. **G2 base documental completa, teste pós AG-06 pendente; G1S aberto; G3–G6 não aprovados.** Nenhuma prioridade P0/P1 ou regra do projeto mudou.
+
+
+
+
+
+
+
+
+
+
+
+
 ## CHECKPOINT DO BACKLOG 1.3.0 — atualização de evidências (14/11/2026)
+
+
+
+
+
+
 
 
 [Commit 31481ad](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/31481ad9b1e25b44e0b03b225a4794c3ea1d416a) contém AG-04 (`docs/UX_FLOW.md` + Mermaid/handoff), AG-05 (4 startups/5 soluções fictícias, 5 testes de referência e notas de curadoria) e scaffold AG-02 com configuração corrigida. Capturas mostram `npm run check` com 36/36 testes, lint e build aprovados, `verify-spa-build: OK`. ZIP do Drive atualizado confere por hashes Git de cinco arquivos. **Esses testes não implementam o motor AG-07 nem validam operação Supabase ou telas definitivas.**
 
 
+
+
+
+
+
+
 **US-04**: catálogo estático versionado e com testes de referência; **aceite documental/técnico para consumo por AG-06/07**, mas QA integrado e curadoria real não ocorreram. **US-01, US-02, US-03, US-09, US-14**: especificação UX disponível, **implementação AG-09 pendente**. **US-05 a US-08**: AG-07/06 ainda pendentes; resultados A/B/C do test runner são apenas referência. **US-10 a US-13**: bloqueadas em G1S/AG-08. **US-15/US-16**: aguardam testes/deploy/roteiro final; não fechar histórias só com documentação.
 
 
+
+
+
+
+
+
 **Liberações:** AG-06 para fixtures finais; AG-09 para interface com mocks após AG-04; AG-08 para parecer G1S. **G2 parcial até seeds AG-06**; G3–G6 não concluídos. Critérios de aceite P0/P1 preservados.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -22,7 +102,31 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 **Scaffold versionado:** [Git main ee7b426](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/ee7b426e816c8827755328587721ec21b7272f04) contém base React/TS/Vite, placeholder routes e estrutura definida. Handoff do AG-02 informa 31 testes, lint, build e validação local Wrangler; não há CI remoto nem deploy público evidenciados. Arquivos `.env.example`, `.gitignore`, `.node-version` não aparecem na árvore versionada e exigem correção/handoff. Nenhuma US P0/P1 está **homologada** apenas por scaffold.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -32,7 +136,55 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 **Próximo fluxo:** publicar AG-04/AG-05 e checar modelos; então AG-06 finaliza quatro seeds e testes A–E, AG-07 implementa gates/score/briefing/cluster e AG-09 cria UI a partir de UX; AG-08 prepara segurança G1S e repositórios, sem expor endpoint até decisões e testes. G2 parcial; G3–G6 ainda não alcançados. Regras e critérios de aceite anteriores mantidos integralmente.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -55,7 +207,55 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## CHECKPOINT DE DEPENDÊNCIAS DO BACKLOG — 14/11/2026 — v1.1.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -73,7 +273,55 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Impacto direto no backlog:** US-01 recebe a identidade aprovada, mas a interface ainda não existe; US-02/03/10 devem serializar somente `QualifiedNeed` confirmada (C fica `NeedDraft` local); US-04/05/06/07 preservam seis gates e score apenas elegível, A 90 calculado, B sem score; US-08/11 usam quatro seeds B sem ERP + remotos com dedupe, contagem dinâmica; US-10/11/12/13 continuam bloqueadas para teste remoto público até segurança G1S deliberada/implementada; US-15/16 dependem QA/deploy. O contrato de dados aprovado não altera a natureza demonstrativa das ações de AC/startup.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -91,7 +339,55 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 1. Definição transversal de aceitação
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -109,7 +405,55 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 2. P0 — produto, dados e jornadas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -127,7 +471,55 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Como** visitante da banca, **quero** escolher a perspectiva de lojista, AC, startup ou FACESP **para** percorrer a rede sem login.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -145,7 +537,55 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### US-02 — Relatar uma dor concreta em entrevista estruturada
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -163,7 +603,55 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Aceite:** perguntas de ocorrência, processo, frequência, canal, sistemas/ERP, integração, requisitos, orçamento, restrições, indicador/linha de base/meta; identificação de AC fictícia; campos obrigatórios destacados e validação por etapa; nenhum dado pessoal verdadeiro solicitado. **Donos:** AG-01/04/09. **Dep.:** contrato AG-01, blueprint AG-04, scaffold AG-02.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -181,7 +669,55 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Como** lojista fictício, **quero** revisar um resumo com fatos, hipóteses e lacunas **para** confirmar antes de receber encaminhamento.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -199,7 +735,55 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### US-04 — Disponibilizar catálogo fictício curado e rastreável
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -217,7 +801,55 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Aceite:** catálogo estático com IDs estáveis, funções, integrações obrigatórias, custo simulado/unknown, território, maturidade e evidências claramente **simuladas**; ficha expirada/não validada não vira indicação confirmada; incluir EstoquePonte dependente de ERP X; nenhuma alegação falsa sobre startups reais. **Donos:** AG-05. **Dep.:** contrato AG-01, alinhamento AG-06.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -235,7 +867,55 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Como** AC, **quero** rejeitar candidatas incompatíveis **para** evitar falso match.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -253,7 +933,55 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### US-06 — Mostrar match explicável para cenário A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -271,7 +999,55 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Aceite:** papelaria com ERP X + EstoquePonte fictícia passa nos gates; notas 5/5/4/4/4 em pesos 30/20/20/15/15 produzem **90/100 por cálculo**, com breakdown, limitações, confiança/evidências e aprovação da AC indicada como **simulada**; critérios/faixas são rotulados como proposta da equipe. **Donos:** AG-07/09. **Dep.:** AG-05/06/07, UX AG-04.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -289,7 +1065,55 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Como** lojista sem ERP, **quero** uma explicação e uma demanda aproveitável **para** continuar o atendimento sem indicação inadequada.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -307,7 +1131,55 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### US-08 — Agrupar demandas comparáveis sem fundir diferenças
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -325,7 +1197,55 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Aceite:** quatro demandas seed fictícias (L-001..L-004 ou IDs estáveis acordados) de **AC Alfa e AC Beta**; comparar problema, etapa/processo, restrições e resultado esperado, não apenas texto; preservar diferenças por lojista; impedir agrupamento quando a mesma frase descrever processo incompatível; cluster proposto sujeito a revisão humana. **Donos:** AG-06/07/09. **Dep.:** AG-01/06/07.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -343,7 +1263,55 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Como** AC e startup fictícias, **quero** ver o briefing consolidado, a chamada e as respostas **para** compreender a inovação aberta.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -361,7 +1329,55 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### US-10 — Salvar somente uma nova demanda qualificada no Supabase
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -379,7 +1395,55 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Aceite:** após confirmação e qualificação, `DemandRepository.save` executa INSERT real em `public.demo_demands` sob RLS; retorno remoto inclui ID estável; mensagem “salvo na nuvem” **apenas após confirmação**; rascunhos, histórico integral de chat e seeds não são gravados; erro mantém estado local claramente não sincronizado. **Donos:** AG-01/08/09. **Dep.:** AG-01/02/08, decisões de segurança SEC-01/02.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -397,7 +1461,55 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Como** AC em sessão separada, **quero** consultar novas demandas e combiná-las às seeds **para** visualizar recorrência viva.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -415,7 +1527,55 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### US-12 — Assegurar banco e uso público demonstrativo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -433,7 +1593,55 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Aceite:** migração SQL versionada com UUID, constraints e `is_demo=true`; grants e RLS auditados; escrita conforme política de autenticação/antiabuso deliberada; permissões negativas testadas (UPDATE/DELETE negados, INSERT indevido negado); bundle sem secret/service_role; dados exclusivamente sintéticos e projeção de leitura minimizada; limite da “AC” visual explicado. **Donos:** AG-08/10. **Dep.:** AG-01, SEC-01/02/03, ambiente Supabase disponível.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -451,7 +1659,55 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Como** apresentador, **quero** visualizar seeds e matches offline **para** não interromper toda a demonstração.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -469,7 +1725,55 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### US-14 — Apresentar visão agregada FACESP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -487,7 +1791,55 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Aceite:** contagem derivada de registros sintéticos ou identificada como exemplo, sem atribuição a dados reais FACESP; nenhuma exposição de identificação pessoal; UI não simula autorização real. **Donos:** AG-04/09. **Dep.:** AG-01/06/09.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -505,7 +1857,55 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Como** banca, **quero** abrir uma URL HTTPS funcional **para** percorrer A, B e persistência entre sessões.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -523,7 +1923,55 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### US-16 — Comunicar pitch fiel ao que foi construído
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -541,6 +1989,30 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Aceite:** pitch distingue regras propostas, fixtures e operações realmente testadas; roteiro de cliques conforme release AG-10; Plano B de rede; não cita tração/validação real inexistente, logotipo FACESP não autorizado ou URL não verificada. **Donos:** AG-11. **Dep.:** AG-03/04; final AG-10.
 
 
@@ -550,7 +2022,55 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 3. P1 — após estabilização dos fluxos P0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -575,7 +2095,55 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 4. Rastreabilidade de resultados-chave
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -602,7 +2170,55 @@ Uma história só está **concluída** quando o dono fornece código/documento c
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 5. Situação em 14/11/2026
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

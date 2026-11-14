@@ -1,10 +1,79 @@
 ﻿# DEMANDA VIVA — DECISIONS / ADR REGISTER
 
 
+## REGISTRO PMO 1.5.0 — AG-08/09, segurança e decisão de release
+
+
+**Evidência:** [Git commit 916b3d6](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/916b3d6ee715c67714930c356552f91523784d4a), [AG08_SECURITY_G1S.md](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/blob/main/docs/AG08_SECURITY_G1S.md), [AG08_HANDOFF.md](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/blob/main/docs/AG08_HANDOFF.md), [AG09_HANDOFF.md](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/blob/main/docs/AG09_HANDOFF.md); 8 hashes Git blob do ZIP principal coincidem.
+
+
+| Registro | Natureza e estado atual |
+|---|---|
+| **AUDIT-AG08-20261114** | **Aceite documental/técnico do código LOCAL**: migration SQL restritiva e repository layer disponíveis no Git; `npm run check` 76 testes reportados pelo executor; **não** houve migration aplicada, conexão Supabase, teste de RLS em banco real ou INSERT/SELECT entre sessões. |
+| **AUDIT-AG09-20261114** | **Aceite da SPA DEMO LOCAL**: A/B/C, painel AC, startup e regional, com contagem das seeds e mocks tipados; ainda não houve substituição pelo AG-07 e QA real da URL. |
+| **DEC-G1S-STATUS — SEM MUDANÇA** | **PENDENTE**. Proposta AG-08: Auth Anonymous + CAPTCHA/Turnstile e projeção RPC com permissões mínimas; aprovação da equipe e testes negativos são necessários. Não ativar sem isso. |
+| **PEND-RELEASE-LOCAL-001** | **DECISÃO A TOMAR PELA EQUIPE**: escolher entrega demonstrativa local-only, publicada no Pages **sem variáveis Supabase**, sem promessa de sincronização remota. Recomendação do PMO sob prazo; não é decisão unilateral nem conclusão do P0 remoto. |
+| **DEC-MATCH-001 e 002** | Regras internas preservadas: seis gates antes do score, 30/20/20/15/15 e faixas propostas, não critérios FACESP. Caso B não recebe score, C não é sem-match. |
+| **PEND-RELEASE-GATE** | AG-10 deve validar HTTPS/deep links, A/B/C, contrato, simulação, ausência de chaves, mobile, keyboard, QA report e URL pública efetiva. Não anunciar deployment sem evidência. |
+
+
+**Ações por ordem:** AG-07 implementar motor e testar; AG-10 preparar publicação estática/QA em paralelo, congelando após integração; AG-11 roteiro/gravação em paralelo. Não reabrir G1S nem liberar SELECT amplo só para concluir até 21h.
+
+
+
+
+
+
+## REGISTRO PMO 1.4.0 — aceite AG-06 e restrições preservadas — 14/11/2026
+
+
+
+
+**Não foi aprovada qualquer nova regra de negócio, política de dados, alteração de preço ou decisão oficial FACESP.** [AG-06 na main](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/89c626593ff7ec6a5b90b7bdf59f0baf1977ef39), [correção de teste bd82bcb](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/bd82bcb1c3bf51d7ead8ae9fea97e683afd8e32a), [handoff](https://drive.google.com/file/d/1V9Yxe6Ta4NX-uzBKQhWiQzkoSAuhpghC/view).
+
+
+
+
+| Registro | Estado e implicação |
+|---|---|
+| **AUDIT-AG06-20261114** | **ENTREGA ACEITA PARA HANDOFF**: 4 `QualifiedNeed` de 2 ACs, categoria B sem ERP, A/C fora de seeds, D/E restritos a testes, registries e 9 testes de referência. Implementação foi consolidada em Git/ZIP com hashes verificados; **check pós-AG06 e motor AG-07 ainda não comprovados**. |
+| **DEC-TEST-E-INTERP** | **Esclarecimento técnico, não alteração de regra**: custo do catálogo EstoquePonte = R$ 199 fictícios; faixa `low` limita a R$ 200. Contraprova E reprova apenas `overBudgetEstoquePonte` (cópia R$ 299 exclusiva de teste). Não ajustar o catálogo nem prometer que E reprova o item comercial atual. |
+| **DEC-SEED-AG06** | Quatro UUIDs estáveis `e0a11000-0000-4000-8000-000000000001` a `...0004`, `ac_alfa`/ `ac_beta`; quatro relatos de exemplo são registros fictícios, não evidência de mercado. Um bucket candidato `stock_confirmation_delay|manual|no_erp|whatsapp` exige regras de conflito/revisão do AG-07. |
+| **G1S / PEND-02 e PEND-03** | **PERMANECEM ABERTOS**: decisão de INSERT/SELECT, Auth Anonymous/antispam, RLS/GRANTs, minimização e testes negativos depende da equipe e AG-08. Nenhuma implementação pública está autorizada por este checkpoint. |
+| **AG-08/09** | Equipe informa trabalho simultâneo no Cursor; **status em execução**, não aprovação de entrega, banco ou UI. |
+
+
+
+
+**G2:** artefatos de base entregues; encerramento técnico condicionado a `npm run check` após AG-06 e integrações em curso. **AG-07 liberado para iniciar tecnicamente**, mas depende de coordenação de arquivos; AG-10 segue bloqueado. Pesos/faixas e exemplos são propostas internas, não critérios oficiais FACESP.
+
+
+
+
+
+
+
+
+
+
+
+
 ## REGISTRO PMO 1.3.0 — evidências e aceite operacional da Rodada 2 — 14/11/2026
 
 
+
+
+
+
+
+
 **Não é nova decisão de produto nem de segurança.** Capturas do executor documentam `npm run check` aprovado: ESLint, 36 testes em 6 arquivos, build Vite/TypeScript e verificação SPA. [Commit 31481ad](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/31481ad9b1e25b44e0b03b225a4794c3ea1d416a) inclui AG-04/05 e arquivos ocultos de setup anteriormente ausentes. [ZIP main atualizado](https://drive.google.com/file/d/1OslrqHYazOEYfNrpl_o42f6HUvud5UMI/view) corresponde ao Git nos cinco blobs comparados. Não houve CI independente ou deploy.
+
+
+
+
+
+
 
 
 | Registro | Status/efeito |
@@ -16,7 +85,31 @@
 | G1S | **PENDENTE**: nenhuma decisão/aplicação/teste de RLS/GRANTs, INSERT/SELECT cross-browser e antiabuso foi registrada. |
 
 
+
+
+
+
+
+
 A cardinalidade 4 startups/5 soluções atende a **faixa proposta para a demo** no Doc 07; não certifica fornecedores nem é critério oficial FACESP. PEND-09 pode ser registrado como escopo executado para demo, sem confundir com endosso institucional. O slogan segue referência. O registro 1.2.0 abaixo é histórico.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -28,7 +121,31 @@ A cardinalidade 4 startups/5 soluções atende a **faixa proposta para a demo** 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 **Nenhuma nova decisão de produto, arquitetura ou segurança foi aprovada nesta rodada.** Aprovação do G1 AG-01 e direção AG-03 Ponte Viva continuam vigentes. Alterações a seguir são **status de evidência**, não ADRs nem aprovação de critérios internos FACESP.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -43,7 +160,55 @@ A cardinalidade 4 startups/5 soluções atende a **faixa proposta para a demo** 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 **Regras preservadas:** AG-01 v1.0.0 aprovado; ADR-002 prevalece apenas na persistência; catálogo fictício local; gates eliminatórios antes do score; sementes 4 B sem ERP e A separada; todos os rótulos de demo; slogan continua referência. Os status antigos abaixo devem ser lidos como snapshots históricos.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -65,6 +230,30 @@ A cardinalidade 4 startups/5 soluções atende a **faixa proposta para a demo** 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## ATUALIZAÇÃO PMO 1.1.0 — Decisões da equipe em 14/11/2026
 
 
@@ -74,7 +263,55 @@ A cardinalidade 4 startups/5 soluções atende a **faixa proposta para a demo** 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Evidência decisória:** responsável pelo projeto informou nesta conversa que o modelo de dados AG-01 foi aprovado pela equipe e que a primeira opção visual recomendada pelo AG-03 foi selecionada. Essa confirmação não se confunde com ata ou endosso institucional da FACESP. Os handoffs foram escritos antes dessas aprovações; menções a 'pendente' neles refletem o instante da emissão.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -96,7 +333,55 @@ A cardinalidade 4 startups/5 soluções atende a **faixa proposta para a demo** 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Pendências reinterpretadas:** PEND-01 resolvida no contrato G1 (somente ficha final, sem transcrição remota); PEND-04 aprovada como desenho de campos/validações, mas SQL, antiabuso e controles de PII seguem abertos; PEND-10 resolvida apenas quanto à **direção visual**. O slogan 'Necessidades que viram oportunidades.' continua referência recomendada, não oficializado. PEND-02, PEND-03, PEND-09 e demais temas não foram decididos por implicação. DEC-DATA-004/005 do AG-01 seguem propostas de SEGURANÇA G1S, não permissões públicas aprovadas.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -114,7 +399,55 @@ A cardinalidade 4 startups/5 soluções atende a **faixa proposta para a demo** 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 1. Semântica dos estados
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -136,7 +469,55 @@ A cardinalidade 4 startups/5 soluções atende a **faixa proposta para a demo** 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 2. Registro consolidado
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -171,7 +552,55 @@ A cardinalidade 4 startups/5 soluções atende a **faixa proposta para a demo** 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### Nota de rastreabilidade sobre aprovação
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -189,7 +618,55 @@ O cabeçalho da **ADR-001** diz “recomendação técnica para validação da e
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 3. Questões abertas com dono e gate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -222,7 +699,55 @@ O cabeçalho da **ADR-001** diz “recomendação técnica para validação da e
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 4. Conflitos documentais tratados sem mudança de produto
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -245,7 +770,55 @@ O cabeçalho da **ADR-001** diz “recomendação técnica para validação da e
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 5. Como registrar nova decisão (sem retroagir)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -274,6 +847,30 @@ Relação com ADR anterior (se aplicável):
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Regra de mudanças:** AG-00 não redefine pesos, governaça institucional, arquitetura ou permissões. Ao receber proposta de agente, identifica impacto, solicita aprovação humana, atualiza o log e só então libera atualização coordenada em backlog/contrato/código/UX. Sem evidência de aprovação, status permanece **pendente**.
 
 
@@ -283,7 +880,55 @@ Relação com ADR anterior (se aplicável):
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 6. Documentos de origem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

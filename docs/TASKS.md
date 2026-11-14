@@ -1,13 +1,98 @@
 ﻿# DEMANDA VIVA — TASKS / PLANO DE EXECUÇÃO
 
 
+## CHECKPOINT PMO 1.5.0 — Fechamento emergencial AG-08/09
+
+
+**Evidência auditada (14/11/2026):** [commit main 916b3d6](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/916b3d6ee715c67714930c356552f91523784d4a), [ZIP do projeto](https://drive.google.com/file/d/1OslrqHYazOEYfNrpl_o42f6HUvud5UMI/view); SHA Git de **oito arquivos críticos** comparados ao ZIP, todos coincidentes. [Handoff AG-08](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/blob/main/docs/AG08_HANDOFF.md) e [AG-09](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/blob/main/docs/AG09_HANDOFF.md) inspecionados. Ambos reportam `npm run check` com **76/76 testes (16 arquivos), lint e build aprovados**; execução declarada nos handoffs, não repetida independentemente pelo AG-00.
+
+
+| Gate/frente | Estado de aceite PMO | Próxima ação urgente |
+|---|---|---|
+| **G2** | **FECHADO tecnicamente para baseline local**: AG-01–06 e scaffold/UX/catalogo/seeds, com suíte integrada AG-08/09 reportada 76/76. | Congelar fontes/contrato; só correções bloqueantes após QA. |
+| **AG-08** | **ENTREGUE e ACEITO como código local**, migration `20261114_001_demo_demands.sql`, adaptadores StaticSeed/Supabase/Unavailable/Composite, mappers, 76 testes reportados e parecer G1S. **Supabase NÃO implantado**. | Não mudar `remoteSharingEnabled=false` sem decisão G1S e smoke remoto; configuração pública sem chaves secretas. |
+| **G1S** | **NÃO APROVADO; bloqueio crítico REMOTO**. Auth Anonymous/Turnstile e RPC de projeção ainda não decididos/testados. | Escolher release **local-only** para banca caso equipe aceite limitação; não publicar INSERT/SELECT ou RPC. |
+| **AG-09** | **ENTREGUE e ACEITO para demonstração local**: SPA navegável A/B/C, 5 etapas de entrevista, AC/startup/regional, mocks tipados, contagem de quatro seeds, estado remoto honesto. | AG-07 substitui mocks sem alterar assinatura; AG-10 audita browser e publica Pages. |
+| **G3 — serviços** | **PARCIAL**: adaptadores locais AG-08 disponíveis, mas motor canônico AG-07 ausente; CT-10/12 remotos não realizados. | **AG-07 EXECUTAR AGORA**, foco em `src/services` e testes; entregar commit e check. |
+| **G4 — UI** | **PARCIAL**: navegação AG-09 pronta para QA, dependente da integração real AG-07; cross-browser remoto desabilitado. | AG-10 preparar smoke local e release estático; não alegar quinta remota. |
+| **G5 — QA/Release** | **LIBERADO PARA PREPARAÇÃO DE DEPLOY ESTÁTICO, NÃO HOMOLOGADO**; QA final espera AG-07. | AG-10 em paralelo somente em deploy/config e matriz A–K (marcar D/H remotas não executadas); depois smoke final. |
+| **G6 — Pitch** | **AG-11 LIBERADO PARA PRODUÇÃO E GRAVAÇÃO COM LIMITAÇÕES HONESTAS**; link final ainda depende AG-10. | Produzir slides/roteiro e gravar com planos A (URL Pages testada) e B (demo local/screenshots). |
+
+
+**Caminho crítico da entrega com prazo às 21h (informado pela equipe):** (1) AG-07: substituir `src/services/{matchingService,briefService,clusterService}.ts` preservando exports `evaluateNeed`, `evaluateSolution`, `buildBrief`, `suggestClusters`; gates antes de score; A=90 calculado, B sem score, C sem conclusão, D sem falso cluster, E variante teste; `npm run check`; commit; (2) AG-10 em paralelo preparar Cloudflare Pages e QA estático **sem** env Supabase, depois receber AG-07 e publicar versão validada; (3) AG-11 produzir/gravar com telas/PNG e relato correto; (4) equipe enviar artefatos e URL. **Não tentar resolver G1S remoto na janela crítica** se exigir relaxar controles. Projetar um MVP estático seguro é contingência admissível, mas a aprovação dessa redução de escopo compete à equipe.
+
+
+**Não confundir:** 76 testes são de AG-08/09 e mocks AG-09, não prova de motor definitivo/SQL aplicado/HTTPS. Enquanto G1S estiver pendente, US-10/11/12 e CT-10/12 não podem ser marcados concluídos. Chamada a startup, resposta, AC e FACESP são perspectivas simuladas.
+
+
+
+
+
+
+## CHECKPOINT PMO 1.4.0 — AG-06 consolidado; AG-08/09 em execução — 14/11/2026
+
+
+
+
+**Snapshot verificado:** [Git main bd82bcb](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/bd82bcb1c3bf51d7ead8ae9fea97e683afd8e32a), precedido por [AG-06 89c6265](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/89c626593ff7ec6a5b90b7bdf59f0baf1977ef39); [ZIP principal atualizado](https://drive.google.com/file/d/1OslrqHYazOEYfNrpl_o42f6HUvud5UMI/view); [handoff AG-06](https://drive.google.com/file/d/1V9Yxe6Ta4NX-uzBKQhWiQzkoSAuhpghC/view). O ZIP contém todos os sete arquivos novos declarados; SHA-1 Git blob de seis arquivos críticos coincide com a main. A correção `bd82bcb` modifica **somente** `tests/data/ag06-seeds.test.ts` para tratar índices opcionais; não altera seeds, tipos ou catálogo.
+
+
+
+
+| Entrega/gate | Estado documentado no checkpoint 1.4.0 | Próxima ação |
+|---|---|---|
+| **AG-06** | **ENTREGUE, AUDITADO E ACEITO PARA HANDOFF**: 4 `QualifiedNeed` locais e fictícias, IDs `...0001`–`...0004`, duas ACs; `associations.ts`, `registries.ts`, `seed-demands.ts`, A/C separados, negativos D/E fora da UI e `ag06-seeds.test.ts` com **9 casos**. Contrato AG-01 preservado; documentação menciona métricas 7→2 min como dados fictícios. | AG-07 pode consumir seeds e cenário A–E. Repetir `npm run check` no HEAD após AG-06 (último resultado comprovado era 36 testes antes da entrega). |
+| **AG-08** | **EM EXECUÇÃO no Cursor, segundo comunicação do responsável**; nenhum handoff final recebido nesta rodada. | Apresentar proposta/decisão G1S, RLS, GRANTs, mitigação antiabuso e teste de SELECT em outra sessão; sem exposição pública antes de deliberação. |
+| **AG-09** | **EM EXECUÇÃO no Cursor, segundo comunicação do responsável**; nenhum handoff final recebido nesta rodada. | Implementar UI com mocks tipados, preservar UX Ponte Viva, separação A/B/C, estado local/remoto honesto; sem afirmar integração de serviços não comprovada. |
+| **AG-07** | **LIBERADO TECNICAMENTE para iniciar após AG-06**, com coordenação de branch/arquivos para não colidir com AG-08/09 em andamento; execução **não informada**. | Consumir 4 seeds e fixtures A–E; seis gates eliminatórios antes do score; A 90 calculado, B inelegível sem score, C incompleto, briefing e cluster com análise de conflitos. Testes AG-05/06 atuais usam `referenceMatcher`, não motor final. |
+| **AG-10 / AG-11** | AG-10 não liberado para QA final; AG-11 mantém pitch provisório. | Aguardar handoffs de AG-07/08/09, evidência de G1S e smoke real de deploy. |
+
+
+
+
+**Gates:** G1 aprovado; **G2 com todos os artefatos-base entregues, aceitação técnica FINAL condicionada a `npm run check` em HEAD `bd82bcb` e compatibilidade com eventuais edições paralelas do Cursor**; G1S crítico e ainda não aprovado; G3–G6 não comprovados. A entrega do AG-06 libera o início técnico do AG-07, não implica que o motor, Supabase ou frontend estejam prontos.
+
+
+
+
+**Nota sobre E:** EstoquePonte custa R$ 199/mês no catálogo simulado e passa no teto `low` (R$ 200); o teste E usa SOMENTE uma cópia a R$ 299 para reprovar orçamento. Não mudar catálogo/limites ou alegar incompatibilidade econômica real sem ADR/aceite. **Clustering:** 4 seeds → 1 *bucket candidato*, não aprovação de um cluster definitivo ou chamada. Nenhuma nova decisão da equipe foi inferida.
+
+
+
+
+
+
+
+
+
+
+
+
 ## CHECKPOINT PMO 1.3.0 — validação local e sincronização Git/Drive — 14/11/2026
+
+
+
+
+
+
 
 
 **Evidência**: capturas apresentadas pelo responsável mostram `npm run check`: ESLint sem erros, **36/36 testes em 6 arquivos**, build `tsc -b && vite build` concluído, `verify-spa-build: OK` (index.html, ausência de 404.html e de segredos detectados). `git status`: main sincronizada com origin/main, com apenas `.cursor/` e `.wrangler/` não rastreados. Não foi executado CI independente pelo PMO.
 
 
+
+
+
+
+
+
 **Git:** [commit 31481ad](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/31481ad9b1e25b44e0b03b225a4794c3ea1d416a) publica AG-04/AG-05 e correções de setup (.env.example, .gitignore, .node-version). **ZIP:** [DemandaViva-Hackaton7.0-main.zip](https://drive.google.com/file/d/1OslrqHYazOEYfNrpl_o42f6HUvud5UMI/view), atualizado em 14/11; Git blob SHA de cinco caminhos críticos coincide com o ZIP. O ZIP não inclui `src/data/seed-demands.ts` nem `src/data/registries.ts` (AG-06 a produzir/alinhar).
+
+
+
+
+
+
 
 
 | Frente | Estado pós-verificação | Gate/ação |
@@ -22,10 +107,40 @@
 | **AG-10/AG-11** | AG-10 aguarda integração; AG-11 pode continuar pitch provisório. | Não alegar URL Cloudflare nem dados remotos enquanto não testados. |
 
 
+
+
+
+
+
+
 **Gates vigentes:** G1 = aprovado; **G2 = PARCIAL** (AG-02/03/04/05 fechados para integração, AG-06 pendente); **G1S = ABERTO/crítico**; G3–G6 ainda não concluídos. **Nenhuma US de integração fim a fim foi homologada.** Os checkpoints anteriores abaixo são registros históricos que não substituem este 1.3.0.
 
 
+
+
+
+
+
+
 **Orientação Git:** `.wrangler/` é estado/cache local de ferramenta: excluir do versionamento; `.cursor/` deve ser revisto para decidir se contém regras de equipe compartilháveis ou apenas preferências locais, e não ser adicionado por engano. A presença dos dois como *untracked* não compromete o `npm run check`, mas pede decisão de hygiene.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -37,7 +152,31 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 **Snapshot auditado:** [GitHub main no commit ee7b426](https://github.com/carloseesantos/DemandaViva-Hackaton7.0/commit/ee7b426e816c8827755328587721ec21b7272f04), pasta [AG-02 / ZIP e Handoffs](https://drive.google.com/drive/folders/11CWoPsdT2MmPBx_zA2qN4SRabXdcpYB0). A equipe informou execução de AG-04 e AG-05 em chats, **porém seus arquivos finais ainda não aparecem na árvore de main auditada**. A execução declarada não é evidência suficiente para concluir handoff e gate.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -55,7 +194,55 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 **Status gates:** G1 aprovado anteriormente; **G2 PARCIAL**, pois AG-02 versionado mas correções de packaging/execução independente pendentes e AG-04/05/06 não aceitos no repositório; **G1S ABERTO**, G3–G6 não evidenciados. Em caso de conflito, este checkpoint 1.2.0 prevalece sobre estados históricos 1.0/1.1 abaixo. Não houve nova decisão de arquitetura ou peso do matching.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -78,6 +265,30 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## CHECKPOINT PMO 1.1.0 — Rodada 1 concluída e G1 aprovado
 
 
@@ -87,7 +298,55 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Evidências:** [AG-01 DATA_MODEL.md](https://drive.google.com/file/d/1vNF2QbKs30x9aNeGqGpCz-txru4OxnaQ/view) contém tipos, DDL proposto, A/B/C, merge/versionamento e handoff; [AG-03 BRAND_SYSTEM.md](https://drive.google.com/file/d/1TYfIBbUIDPgJfAGFDYDKuGduzYxSJJaJ/view), [HANDOFF](https://drive.google.com/file/d/10Ar1BVEdCDb4tBQIuTG3iWQMTnDH6ZEJ/view), CSS/JSON/SVG e auditoria de 18 pares existem no Drive. Aprovação da equipe recebida em 14/11/2026: modelo G1 aprovado e direção 01 Ponte Viva selecionada. A entrega de especificação não comprova aplicação de SQL, execução de testes da SPA ou deploy.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -115,7 +374,55 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Gates atuais:** G0 arquivos PMO publicados, aceite formal geral ainda não registrado; **G1 APROVADO**; **G1S PENDENTE CRÍTICO**; G2/G3/G4/G5/G6 não comprovados. A tabela original abaixo é histórico da baseline 1.0.0, e estados 'bloqueado por G1' ali devem ser lidos à luz deste checkpoint. Os gatilhos restantes e restrições técnicas continuam vigentes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -133,7 +440,55 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 1. Caminho crítico e ordem recomendada
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -177,6 +532,30 @@ flowchart TD
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Não confundir paralelo com pré-requisito cumprido.** O scaffold AG-02 não começa sem contrato aprovado; as fixtures AG-05/06 não usam tipos inventados; o motor AG-07 não começa sem fixtures coerentes e arquitetura; AG-08 não abre INSERT público com RLS indefinida; AG-09 pode desenvolver telas com **mocks tipados** após receber seus próprios requisitos, mas não anunciar integração Supabase/motor até testar de ponta a ponta.
 
 
@@ -186,7 +565,55 @@ flowchart TD
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 2. Gates de entrega
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -213,6 +640,30 @@ flowchart TD
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 3. Work packages por agente
 
 
@@ -222,7 +673,55 @@ flowchart TD
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### AG-00 — PMO / governança (R0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -245,7 +744,55 @@ flowchart TD
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### AG-01 — Contratos e schema (R1; liberado)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -269,7 +816,55 @@ flowchart TD
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### AG-03 — Identidade de marca (R1; liberado, paralelo)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -290,7 +885,55 @@ flowchart TD
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### AG-02 — Scaffold técnico (R2; bloqueado por G1 e repo)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -312,7 +955,55 @@ flowchart TD
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### AG-04 — UX, perguntas e estados (R2 para versão final)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -334,7 +1025,55 @@ flowchart TD
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### AG-05 — Catálogo fictício (R2; bloqueado por G1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -355,7 +1094,55 @@ flowchart TD
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### AG-06 — Seeds e contraprovas (R2; bloqueado por G1/05)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -376,7 +1163,55 @@ flowchart TD
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### AG-07 — Domínio determinístico (R3; bloqueado por G2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -398,7 +1233,55 @@ flowchart TD
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### AG-08 — Persistência / RLS / proteção (R3; bloqueado G1/G1S/G2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -420,7 +1303,55 @@ flowchart TD
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### AG-09 — Frontend e integração (R3/R4)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -442,7 +1373,55 @@ flowchart TD
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### AG-10 — Integração, QA, release (R4; bloqueado por 07/08/09)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -464,7 +1443,55 @@ flowchart TD
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### AG-11 — Pitch e banca (provisório R1/R2, final R4)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -485,7 +1512,55 @@ flowchart TD
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 4. Bloqueios e ações de desbloqueio
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -509,7 +1584,55 @@ flowchart TD
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 5. Checkpoint PMO e quadro de status inicial
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -526,6 +1649,30 @@ flowchart TD
 | AG-04 | **Liberado só para blueprint conceitual** | Esboçar, aguardar G1 para campos finais |
 | AG-11 | **Liberado só para pitch provisório** | Narrativa condicionada a telas/QA reais |
 | AG-02/05/06/07/08/09/10 | **Bloqueados por dependências** | Aguardar gates na ordem descrita |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
