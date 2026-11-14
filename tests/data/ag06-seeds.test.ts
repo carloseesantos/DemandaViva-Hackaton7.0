@@ -76,8 +76,14 @@ describe('AG-06 | quatro seeds sintéticas e contrato AG-01',()=>{
     expect(evaluateCatalog(demoScenarioC,NOW).results).toEqual([]);
   });
   it('D: texto idêntico, contexto/assinatura diferente e privacidade bloqueante',()=>{
-    expect(negativeScenarioD.problemSummary).toBe(seedDemands[0].problemSummary);
-    expect(negativeScenarioD.demoClusterKey).not.toBe(seedDemands[0].demoClusterKey);
+    const firstSeed = seedDemands[0];
+
+    if (!firstSeed) {
+      throw new Error('Seed L-001 não encontrada');
+    }
+
+    expect(negativeScenarioD.problemSummary).toBe(firstSeed.problemSummary);
+    expect(negativeScenarioD.demoClusterKey).not.toBe(firstSeed.demoClusterKey);
     const esto=solutions.find(s=>s.id==='solution:estoqueponte-v1');
     if(!esto)throw new Error('Solução não encontrada');
     const result=evaluateSolution(negativeScenarioD,esto,NOW);
@@ -98,9 +104,23 @@ describe('AG-06 | quatro seeds sintéticas e contrato AG-01',()=>{
     expect(variantResult).not.toHaveProperty('score');
     expect(solutions.find(s=>s.id==='solution:estoqueponte-v1')?.minimumMonthlyCostCents).toBe(19900);
   });
-  it('merge lógico é por UUID, nunca pelo texto de dor',()=>{
-    const extra={...seedDemands[0],id:'e0a11000-0000-4000-8000-000000000005' as QualifiedNeed['id'],origin:'remote' as const};
-    const merged=new Map([...seedDemands,extra,seedDemands[0]].map(n=>[n.id,n]));
+  it('merge lógico é por UUID, nunca pelo texto de dor', () => {
+    const firstSeed = seedDemands[0];
+  
+    if (!firstSeed) {
+      throw new Error('Seed L-001 não encontrada');
+    }
+  
+    const extra = {
+      ...firstSeed,
+      id: 'e0a11000-0000-4000-8000-000000000005' as QualifiedNeed['id'],
+      origin: 'remote' as const,
+    };
+  
+    const merged = new Map(
+      [...seedDemands, extra, firstSeed].map(n => [n.id, n])
+    );
+  
     expect(merged.size).toBe(5);
   });
 });
