@@ -1,0 +1,379 @@
+/* AG-09 — layout e componentes das jornadas. Tokens em brand-tokens.css. */
+
+.dv-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--dv-space-2);
+  min-height: var(--dv-layout-touch-target);
+  padding: 0.75rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: var(--dv-radius-control);
+  font: inherit;
+  font-weight: var(--dv-font-weight-semibold);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.dv-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.dv-btn--primary {
+  background: var(--dv-color-primary);
+  color: var(--dv-color-on-primary);
+}
+
+.dv-btn--primary:hover:not(:disabled) {
+  background: var(--dv-color-primary-hover);
+}
+
+.dv-btn--secondary {
+  background: var(--dv-color-accent-soft);
+  color: var(--dv-color-primary);
+  border-color: var(--dv-color-primary);
+}
+
+.dv-btn--tertiary {
+  background: transparent;
+  color: var(--dv-color-primary);
+  text-decoration: underline;
+  border: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.dv-btn--critical {
+  background: var(--dv-color-ineligible-bg);
+  color: var(--dv-color-ineligible-text);
+  border-color: var(--dv-color-ineligible-text);
+}
+
+.dv-btn-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.dv-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.75rem;
+  padding: 0.15rem 0.65rem;
+  border-radius: var(--dv-radius-control);
+  font-size: var(--dv-font-size-caption);
+  font-weight: var(--dv-font-weight-semibold);
+}
+
+.dv-demo-seal {
+  margin: 0 0 var(--dv-space-4);
+  padding: var(--dv-space-2) var(--dv-space-3);
+  border-radius: var(--dv-radius-control);
+  background: var(--dv-color-demo-bg);
+  color: var(--dv-color-demo-text);
+  font-size: var(--dv-font-size-caption);
+  font-weight: var(--dv-font-weight-semibold);
+}
+
+.dv-muted {
+  color: var(--dv-color-text-muted);
+  font-size: var(--dv-font-size-caption);
+}
+
+.dv-page-header {
+  margin-bottom: var(--dv-space-6);
+}
+
+.dv-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--dv-space-3);
+  align-items: center;
+  margin: var(--dv-space-4) 0;
+}
+
+.dv-home__hero {
+  position: relative;
+  margin: 0 0 var(--dv-space-10);
+  padding: var(--dv-space-10) var(--dv-space-6);
+  border-radius: var(--dv-radius-feature);
+  background:
+    linear-gradient(135deg, rgba(7, 94, 107, 0.92), rgba(17, 39, 58, 0.88)),
+    radial-gradient(circle at 20% 20%, rgba(37, 186, 167, 0.35), transparent 45%),
+    radial-gradient(circle at 80% 0%, rgba(198, 213, 221, 0.25), transparent 40%);
+  color: #fff;
+  overflow: hidden;
+}
+
+.dv-home__hero h1,
+.dv-home__hero p {
+  color: #fff;
+  max-width: 36rem;
+}
+
+.dv-home__brand {
+  margin: 0 0 var(--dv-space-4);
+  font-size: clamp(2rem, 6vw, 3.25rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.dv-home__brand-demand {
+  font-weight: var(--dv-font-weight-extrabold);
+}
+
+.dv-home__brand-viva {
+  font-weight: var(--dv-font-weight-semibold);
+  color: var(--dv-color-accent);
+}
+
+.dv-home__hero .dv-btn--secondary {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.dv-perspective-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: var(--dv-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dv-perspective-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 4.5rem;
+  padding: var(--dv-space-4);
+  text-decoration: none;
+  font-weight: var(--dv-font-weight-semibold);
+}
+
+.dv-interview__layout {
+  display: grid;
+  gap: var(--dv-space-6);
+}
+
+@media (min-width: 64rem) {
+  .dv-interview__layout {
+    grid-template-columns: minmax(0, 2fr) minmax(14rem, 1fr);
+    align-items: start;
+  }
+
+  .dv-interview__summary {
+    position: sticky;
+    top: var(--dv-space-4);
+  }
+}
+
+.dv-interview__summary {
+  padding: var(--dv-space-4);
+  background: var(--dv-color-surface);
+  border: 1px solid var(--dv-color-border-subtle);
+  border-radius: var(--dv-radius-card);
+}
+
+.dv-interview__summary dl {
+  margin: var(--dv-space-3) 0 0;
+}
+
+.dv-interview__summary div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--dv-space-2);
+  margin-bottom: var(--dv-space-2);
+}
+
+.dv-interview__summary dt {
+  color: var(--dv-color-text-muted);
+}
+
+.dv-interview__summary dd {
+  margin: 0;
+  text-align: right;
+}
+
+.dv-progress {
+  font-weight: var(--dv-font-weight-semibold);
+}
+
+.dv-fieldset {
+  margin: 0 0 var(--dv-space-5);
+  padding: var(--dv-space-4);
+  border: 1px solid var(--dv-color-border-subtle);
+  border-radius: var(--dv-radius-card);
+  background: var(--dv-color-surface);
+}
+
+.dv-fieldset legend {
+  padding: 0 var(--dv-space-2);
+  font-weight: var(--dv-font-weight-semibold);
+}
+
+.dv-choice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--dv-space-2);
+  min-height: var(--dv-layout-touch-target);
+  padding: var(--dv-space-2) 0;
+  cursor: pointer;
+}
+
+.dv-choice input {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.dv-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dv-space-2);
+  margin-bottom: var(--dv-space-4);
+  font-weight: var(--dv-font-weight-semibold);
+}
+
+.dv-field input,
+.dv-field select,
+.dv-fieldset select {
+  min-height: var(--dv-layout-touch-target);
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--dv-color-border);
+  border-radius: var(--dv-radius-control);
+  font: inherit;
+  font-weight: var(--dv-font-weight-regular);
+}
+
+.dv-field-error {
+  color: var(--dv-color-ineligible-text);
+  font-size: var(--dv-font-size-caption);
+}
+
+.dv-review__grid {
+  display: grid;
+  gap: var(--dv-space-4);
+}
+
+@media (min-width: 48rem) {
+  .dv-review__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.dv-presenter-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--dv-space-2);
+  margin-bottom: var(--dv-space-4);
+}
+
+.dv-gate-list,
+.dv-score__list,
+.dv-demand-list,
+.dv-cluster-list,
+.dv-question-index {
+  margin: 0 0 var(--dv-space-4);
+  padding: 0;
+  list-style: none;
+}
+
+.dv-gate-list__item,
+.dv-score__list li,
+.dv-demand-list > li,
+.dv-cluster-list > li {
+  margin-bottom: var(--dv-space-3);
+  padding: var(--dv-space-4);
+  background: var(--dv-color-surface);
+  border: 1px solid var(--dv-color-border-subtle);
+  border-radius: var(--dv-radius-card);
+}
+
+.dv-gate-list__item--pass {
+  border-left: 4px solid var(--dv-color-recommended-text);
+}
+
+.dv-gate-list__item--fail {
+  border-left: 4px solid var(--dv-color-ineligible-text);
+}
+
+.dv-gate-list__item--unknown {
+  border-left: 4px solid var(--dv-color-conditional-text);
+}
+
+.dv-gate-list__status {
+  display: block;
+  font-size: var(--dv-font-size-caption);
+  font-weight: var(--dv-font-weight-semibold);
+}
+
+.dv-score__value {
+  margin: 0 0 var(--dv-space-2);
+}
+
+.dv-score__number {
+  font-size: var(--dv-font-size-score);
+  font-weight: var(--dv-font-weight-extrabold);
+  color: var(--dv-color-primary);
+}
+
+.dv-score__list li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--dv-space-2);
+}
+
+.dv-kpi {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: var(--dv-space-3);
+  margin-bottom: var(--dv-space-5);
+}
+
+.dv-kpi > div {
+  padding: var(--dv-space-4);
+  background: var(--dv-color-surface);
+  border: 1px solid var(--dv-color-border-subtle);
+  border-radius: var(--dv-radius-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--dv-space-1);
+}
+
+.dv-kpi strong {
+  font-size: var(--dv-font-size-h2);
+  color: var(--dv-color-primary);
+}
+
+.dv-demand-list__head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--dv-space-2);
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--dv-space-2);
+}
+
+.dv-details {
+  margin-top: var(--dv-space-6);
+}
+
+@media (max-width: 40rem) {
+  .dv-home__hero {
+    padding: var(--dv-space-8) var(--dv-space-4);
+  }
+
+  .dv-btn {
+    width: 100%;
+  }
+
+  .dv-actions .dv-btn,
+  .dv-actions a.dv-btn {
+    width: auto;
+    flex: 1 1 auto;
+  }
+}

@@ -1,5 +1,4 @@
 # `src/pages/` — telas ligadas a rotas (AG-09)
 
-Hoje as rotas apontam para `src/app/layout/PlaceholderPage.tsx`. Para substituir uma tela, criar o componente aqui e
-trocar o `element` correspondente em `src/app/router.tsx`. O inventário de paths fica em `src/app/routes.ts`
-(provisório até `docs/UX_FLOW.md` do AG-04).
+Cada arquivo espelha um `id` em `src/app/routes.ts`. O router (`src/app/router.tsx`) monta o
+`element` correspondente. Features em `src/features/` concentram o fluxo.

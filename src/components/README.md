@@ -1,4 +1,4 @@
-# `src/components/` — componentes de UI reutilizáveis (AG-09)
+# `src/components/` — UI reutilizável (AG-09)
 
-Botões, cartões, badges de status, banners, campos. Base visual: `src/styles/brand-tokens.css` (AG-03, Ponte Viva)
-e `AG-03_BRAND/UI_COMPONENT_GUIDE.md`. Sem regra de negócio e sem acesso a repositórios.
+Botões, badges, checklists e status. Sem regra de negócio e sem acesso a repositórios.
+Base visual: `src/styles/brand-tokens.css` (Ponte Viva) + `src/styles/pages.css`.

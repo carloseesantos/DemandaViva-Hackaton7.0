@@ -97,7 +97,7 @@ Setas = "importa". Nenhuma seta aponta para fora de `domain/`.
 | `src/styles/brand-tokens.css` | AG-03 | Cópia fiel de `AG-03_BRAND/tokens.css`. |
 | `src/styles/base.css` | AG-02 → AG-09 | Reset e layout mínimo. |
 | `public/brand/` | AG-03 | `logo-horizontal.svg`, `logo-compact.svg`, `favicon.svg` copiados sem alteração. |
-| `supabase/migrations/` | AG-08 | SQL versionado. Vazio. |
+| `supabase/migrations/` | AG-08 | SQL versionado (`20261114_001_demo_demands.sql`); **não aplicado** remotamente até G1S. |
 | `tests/<camada>/` | dono da camada | Ver `tests/README.md`. |
 | `tests/fixtures/` | AG-06 | Dados apenas de teste (D/E), fora do bundle. |
 | `scripts/` | AG-02/AG-10 | `verify-spa-build.mjs`, `repo-guards.mjs`. |

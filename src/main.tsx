@@ -6,6 +6,7 @@ import '@fontsource/manrope/latin-600.css';
 import '@fontsource/manrope/latin-800.css';
 import './styles/brand-tokens.css';
 import './styles/base.css';
+import './styles/pages.css';
 import { createDependencies } from './app/createDependencies';
 import { DependenciesProvider } from './app/DependenciesProvider';
 import { readRuntimeConfig } from './app/env';

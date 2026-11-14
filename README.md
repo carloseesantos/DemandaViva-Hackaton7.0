@@ -7,13 +7,17 @@ justificáveis ou em oportunidades qualificadas para startups.
 > login nem autorização**. Aprovações e respostas são simuladas. Pesos, faixas e catálogo são propostas da equipe, não
 > critérios oficiais da FACESP. A plataforma não gera software automaticamente.
 
-**Estado atual:** scaffold técnico (AG-02). As rotas existem com conteúdo provisório; catálogo, seeds, motor de
-matching, telas e persistência Supabase ainda serão entregues por AG-05/06/07/08/09. Ver `docs/ARCHITECTURE.md`.
+**Estado atual:** SPA demonstrativa AG-09 (rotas e jornadas A/B/C, AC, startup, regional). Catálogo AG-05 e seeds
+AG-06 embarcados. Motor/brief/cluster via **mocks tipados temporários** em `src/services/` (substituíveis pelo AG-07).
+Persistência AG-08: Composite (seeds + Supabase/unavailable); migration local em `supabase/migrations/`;
+`remoteSharingEnabled=false` até G1S — **sem projeto Supabase aplicado**. Ver `docs/AG08_SECURITY_G1S.md` e
+`docs/AG09_HANDOFF.md`.
 
 ## Stack
 
 React 19 · TypeScript 6 (strict) · Vite 8 · React Router 8 · Vitest + Testing Library · ESLint 10 ·
-Cloudflare Pages (estático) · Supabase Postgres (somente novas demandas qualificadas, após G1S; ainda não integrado).
+Cloudflare Pages (estático) · Supabase Postgres (somente novas demandas qualificadas; código local pronto, **não**
+aplicado remotamente até G1S + credenciais).
 
 ## Requisitos
 
@@ -64,13 +68,14 @@ src/
   pages/ features/ components/   UI (AG-09)
   styles/         brand-tokens.css (AG-03) + base.css
 tests/            espelha src/ por camada; fixtures só de teste em tests/fixtures/
-supabase/migrations/   SQL versionado (AG-08); vazio
+supabase/migrations/   SQL versionado (AG-08); setup manual em supabase/README.md
 public/brand/     logo e favicon (AG-03)
-docs/             governança, contrato, arquitetura
+docs/             governança, contrato, arquitetura, AG08_SECURITY_G1S
 ```
 
 Cada pasta tem um `README.md` com dono e regras. Fixtures de `src/data/` vão para o bundle público e devem ser
-fictícias. Dados reais de clientes nunca entram no repositório.
+fictícias. Dados reais de clientes nunca entram no repositório. Existência de arquivos SQL **não** significa projeto
+Supabase configurado.
 
 ## Publicação no Cloudflare Pages
 
