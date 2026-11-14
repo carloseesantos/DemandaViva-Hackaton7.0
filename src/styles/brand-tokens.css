@@ -1,0 +1,81 @@
+/* Demanda Viva / AG-03 / Direção 01: Ponte Viva */
+/* Sem garantia de aprovação; tokens de marca propostos. */
+:root {
+  --dv-color-ink: #11273A;
+  --dv-color-primary: #075E6B;
+  --dv-color-primary-hover: #064C58;
+  --dv-color-accent: #25BAA7;
+  --dv-color-background: #F7FAFC;
+  --dv-color-surface: #FFFFFF;
+  --dv-color-text: #11273A;
+  --dv-color-text-muted: #52687A;
+  --dv-color-border: #748D9B;
+  --dv-color-border-subtle: #C6D5DD;
+  --dv-color-focus: #075E6B;
+  --dv-color-on-primary: #FFFFFF;
+  --dv-color-accent-soft: #E8F7F5;
+  --dv-color-recommended-text: #166534;
+  --dv-color-recommended-bg: #ECFDF3;
+  --dv-color-conditional-text: #854D0E;
+  --dv-color-conditional-bg: #FEF3C7;
+  --dv-color-ineligible-text: #991B1B;
+  --dv-color-ineligible-bg: #FEF2F2;
+  --dv-color-insufficient-text: #075985;
+  --dv-color-insufficient-bg: #E0F2FE;
+  --dv-color-processing-text: #475569;
+  --dv-color-processing-bg: #F1F5F9;
+  --dv-color-offline-text: #9A3412;
+  --dv-color-offline-bg: #FFF7ED;
+  --dv-color-demo-text: #164E63;
+  --dv-color-demo-bg: #ECFEFF;
+  --dv-font-family: Manrope, Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+  --dv-font-weight-regular: 400;
+  --dv-font-weight-medium: 500;
+  --dv-font-weight-semibold: 600;
+  --dv-font-weight-bold: 700;
+  --dv-font-weight-extrabold: 800;
+  --dv-font-size-caption: 0.875rem;
+  --dv-font-size-body: 1rem;
+  --dv-font-size-h3: 1.25rem;
+  --dv-font-size-h2: 1.5rem;
+  --dv-font-size-h1: 2rem;
+  --dv-font-size-score: 2rem;
+  --dv-space-1: 0.25rem;
+  --dv-space-2: 0.5rem;
+  --dv-space-3: 0.75rem;
+  --dv-space-4: 1rem;
+  --dv-space-5: 1.25rem;
+  --dv-space-6: 1.5rem;
+  --dv-space-8: 2rem;
+  --dv-space-10: 2.5rem;
+  --dv-space-12: 3rem;
+  --dv-radius-control: 0.5rem;
+  --dv-radius-card: 0.75rem;
+  --dv-radius-feature: 1rem;
+  --dv-radius-pill: 999px;
+  --dv-shadow-card: 0 2px 12px rgba(17,39,58,.06);
+  --dv-shadow-hover: 0 6px 24px rgba(17,39,58,.10);
+  --dv-layout-content: 70rem;
+  --dv-layout-diagnostic: 45rem;
+  --dv-layout-touch-target: 2.75rem;
+  --dv-motion-fast: 120ms;
+  --dv-motion-normal: 180ms;
+  --dv-motion-expand: 200ms;
+  --dv-motion-easing: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Primitivos opcionais para AG-09; não sobrepõem lógica de produto. */
+.dv-app { font-family: var(--dv-font-family); color: var(--dv-color-text); background: var(--dv-color-background); line-height: 1.5; }
+.dv-surface { background: var(--dv-color-surface); border: 1px solid var(--dv-color-border-subtle); border-radius: var(--dv-radius-card); box-shadow: var(--dv-shadow-card); }
+.dv-focusable:focus-visible { outline: 3px solid var(--dv-color-focus); outline-offset: 2px; }
+.dv-visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+/* Contraste de acessibilidade nunca depende apenas do background do badge. */
+.dv-status--recommended { color: var(--dv-color-recommended-text); background: var(--dv-color-recommended-bg); }
+.dv-status--conditional { color: var(--dv-color-conditional-text); background: var(--dv-color-conditional-bg); }
+.dv-status--ineligible { color: var(--dv-color-ineligible-text); background: var(--dv-color-ineligible-bg); }
+.dv-status--insufficient { color: var(--dv-color-insufficient-text); background: var(--dv-color-insufficient-bg); }
+.dv-status--processing { color: var(--dv-color-processing-text); background: var(--dv-color-processing-bg); }
+.dv-status--offline { color: var(--dv-color-offline-text); background: var(--dv-color-offline-bg); }
+.dv-status--demo { color: var(--dv-color-demo-text); background: var(--dv-color-demo-bg); }
+@media (prefers-reduced-motion: reduce) { .dv-app *, .dv-app *::before, .dv-app *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+@media (forced-colors: active) { .dv-focusable:focus-visible { outline-color: Highlight; } .dv-surface { border: 1px solid CanvasText; } }
